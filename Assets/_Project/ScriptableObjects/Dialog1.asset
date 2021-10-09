@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190b8f1e0673ed841900915f125eb6f0, type: 3}
+  m_Name: Dialog1
+  m_EditorClassIdentifier: 
+  id: 1
+  initial: 0
+  question: "Ol\xE1 Jurubeba!"
+  answer:
+  - "P\xF3!"
+  - "Jurubeba de cu \xE9 rola! eu souPablito! "
+  - Boa tarde!
+  - "Me d\xE1 a chave do carro a\xED! "
+  replica:
+  - "acabou! agora \xE9 s\xF3 maconha! "
+  - Cacete! tu falas?!
+  - boaaa...
+  - enche o tanque depois ta?

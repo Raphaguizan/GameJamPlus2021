@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Chicken : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float angularSpeed;
     Animator anim;
+    public bool hasCarKey;
 
     // Start is called before the first frame update
     void Start()
@@ -74,5 +76,25 @@ public class Chicken : MonoBehaviour
             anim.SetBool("Eat", false);
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "human" && Input.GetKeyDown(KeyCode.E))
+        {
+            other.GetComponent<Cowboy>().ActivateDialog();
+                
+        }
+
+        if(other.tag == "otherChicken" && Input.GetKeyDown(KeyCode.E))
+        {
+
+            other.GetComponent<OtherChicken>().ActivateDialog();
+        }
+
+        if(other.tag == "car" && Input.GetKeyDown(KeyCode.E) && hasCarKey)
+        {
+            SceneManager.LoadScene("City");
+        }
     }
 }
