@@ -1,100 +1,169 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Rigidbody), typeof(Animator))]
 public class Chicken : MonoBehaviour
 {
-    [SerializeField] float speed;
-    [SerializeField] float angularSpeed;
+    [SerializeField] float speed = 100f;
+    [SerializeField] float runSpeed = 200f;
+    [Space]
+    [SerializeField] float rotationSpeed = 200f;
+    [Space]
+    [SerializeField] float jumpForce = 200f;
+
+
     Animator anim;
     public bool hasCarKey;
 
+
+    private Rigidbody _myRB;
+    private float _currentSpeed;
+    private bool _isMoving;
+    [SerializeField]private bool _isJumping;
+
+    private Collider _CollisionObj;
+    private Quaternion _toRotation;
+    private float _randomTime;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        _myRB = GetComponent<Rigidbody>();
+
+        _isMoving = false;
+        _isJumping = false;
+        _currentSpeed = speed;
+
+        StartCoroutine(RandomAnimations());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator RandomAnimations()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+        while (true)
         {
-            float runSpeed = 2 * speed;
-            transform.Translate(Vector3.forward * runSpeed * Time.deltaTime, Space.Self);
-            anim.SetBool("Run", true);
+            if (!_isMoving)
+            {
+                _randomTime = Random.Range(4, 20);
+                yield return new WaitForSeconds(_randomTime);
+                if (!_isMoving)
+                {
+                    float randomaux = Random.value;
+                    if (randomaux >= 0.5f)
+                    {
+                        anim.SetTrigger("Eat");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("TurnHead");
+                    }
+                }
+            }
+            else
+            {
+                yield return null;
+            }
+            
         }
+    }
+    private void Update()
+    {   
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, _toRotation, rotationSpeed * Time.deltaTime);
+    }
+    public void ChangeIsJump(bool val)
+    {
+        _isJumping = val;
+    }
 
-        else if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.LeftShift))
+    public void OnJump()
+    {
+        if (!_isJumping)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
-            anim.SetBool("Walk", true);
+            anim.SetTrigger("Jump");
+            _isJumping = true;
+            _myRB.AddForce(Vector2.up * jumpForce * 100);
         }
+    }
 
-        if (Input.GetKey(KeyCode.A))
+    //        anim.SetBool("Eat", false);
+    public void OnInteract()
+    {
+        if (_CollisionObj.CompareTag("human"))
         {
-            transform.Rotate(new Vector3(0, -angularSpeed * Time.deltaTime, 0));
-            anim.SetBool("Walk", true);
+            _CollisionObj.GetComponent<Cowboy>().ActivateDialog();
+
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(new Vector3(0, angularSpeed * Time.deltaTime, 0));
-            anim.SetBool("Walk", true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Run", false);
-        }
-
-        if (Input.GetKeyUp(KeyCode.A))
-        { 
-            anim.SetBool("Walk", false);
-        }
-
-        if (Input.GetKeyUp(KeyCode.D))
+        if (_CollisionObj.CompareTag("otherChicken"))
         {
 
-            anim.SetBool("Walk", false);
+            _CollisionObj.GetComponent<OtherChicken>().ActivateDialog();
         }
 
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+        if (_CollisionObj.CompareTag("car") && hasCarKey)
         {
-            anim.SetBool("Run", false);
+            SceneManager.LoadScene("City");
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetBool("Eat", true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            anim.SetBool("Eat", false);
-        }
-
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "human" && Input.GetKeyDown(KeyCode.E))
+        _CollisionObj = other;
+    }
+
+    private Vector3 _moveDirection;
+    private void FixedUpdate()
+    {
+        Vector3 directionAux = _moveDirection * _currentSpeed * Time.fixedDeltaTime;
+        directionAux.y = _myRB.velocity.y;
+        _myRB.velocity = directionAux;
+    }
+    public void OnMove(InputValue value)
+    {
+        if (value.Get<Vector2>() != Vector2.zero)
         {
-            other.GetComponent<Cowboy>().ActivateDialog();
-                
+            _isMoving = true;
+            _moveDirection = new Vector3(value.Get<Vector2>().x, _myRB.velocity.y, value.Get<Vector2>().y);
+            _toRotation = Quaternion.LookRotation(new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y), Vector3.up);
+            
+            if(_currentSpeed == speed)
+            {
+                anim.SetBool("Walk", true);
+            }
+            else
+            {
+                anim.SetBool("Run", true);
+            }
         }
-
-        if(other.tag == "otherChicken" && Input.GetKeyDown(KeyCode.E))
+        else
         {
-
-            other.GetComponent<OtherChicken>().ActivateDialog();
+            _isMoving = false;
+            _moveDirection = new Vector3(0, _myRB.velocity.y, 0);
+            anim.SetBool("Run", false);
+            anim.SetBool("Walk", false);
         }
+    }
 
-        if(other.tag == "car" && Input.GetKeyDown(KeyCode.E) && hasCarKey)
+    public void OnRun(InputValue value)
+    {
+        Debug.Log(value.isPressed);
+        if (value.isPressed)
         {
-            SceneManager.LoadScene("City");
+            _currentSpeed = runSpeed;
+            if(_isMoving)
+            {
+                anim.SetBool("Run", true);
+            }
+        }
+        else
+        {
+            _currentSpeed = speed;
+            if (_isMoving)
+            {
+                anim.SetBool("Run", false);
+            }
         }
     }
 }
