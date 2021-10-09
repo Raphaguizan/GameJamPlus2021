@@ -150,27 +150,19 @@ public class Chicken : MonoBehaviour
     }
     public void OnInteract()
     {
-        if (_CollisionObj.CompareTag("human"))
+        var npc = _CollisionObj.GetComponent<InteractiveNPC>();
+        if (npc)
         {
-            _CollisionObj.GetComponent<Cowboy>().ActivateDialog();
-
+            npc.ActivateDialog();
         }
-
-        if (_CollisionObj.CompareTag("otherChicken"))
+        else
         {
-
-            _CollisionObj.GetComponent<OtherChicken>().ActivateDialog();
+            var item = _CollisionObj.GetComponent<ItemCollectableBase>();
+            if (item)
+            {
+                item.Collect();
+            }
         }
-
-        if (_CollisionObj.CompareTag("car") && hasCarKey)
-        {
-            SceneManager.LoadScene("City");
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        _CollisionObj = other;
     }
 
     public void OnJump()
@@ -185,5 +177,10 @@ public class Chicken : MonoBehaviour
     public void ChangeIsJump(bool val)
     {
         _isJumping = val;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        _CollisionObj = other;
     }
 }
