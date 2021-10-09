@@ -17,6 +17,7 @@ public class Chicken : MonoBehaviour
 
     Animator anim;
     public bool hasCarKey;
+    public Light lantern;
 
 
     private Rigidbody _myRB;
@@ -27,6 +28,17 @@ public class Chicken : MonoBehaviour
     private Collider _CollisionObj;
     private Quaternion _toRotation;
     private float _randomTime;
+
+    private void OnEnable()
+    {
+        TimeController.TimeChange += ToggleLantern;
+    }
+
+    private void OnDisable()
+    {
+        TimeController.TimeChange -= ToggleLantern;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,46 +84,16 @@ public class Chicken : MonoBehaviour
     {   
         transform.rotation = Quaternion.RotateTowards(transform.rotation, _toRotation, rotationSpeed * Time.deltaTime);
     }
-    public void ChangeIsJump(bool val)
+    
+    public void ToggleLantern()
     {
-        _isJumping = val;
+        bool val = TimeController._isDay;
+        if(val)
+            lantern.intensity = 0;
+        else
+            lantern.intensity = 2;
     }
-
-    public void OnJump()
-    {
-        if (!_isJumping)
-        {
-            anim.SetTrigger("Jump");
-            _isJumping = true;
-            _myRB.AddForce(Vector2.up * jumpForce * 100);
-        }
-    }
-
-    //        anim.SetBool("Eat", false);
-    public void OnInteract()
-    {
-        if (_CollisionObj.CompareTag("human"))
-        {
-            _CollisionObj.GetComponent<Cowboy>().ActivateDialog();
-
-        }
-
-        if (_CollisionObj.CompareTag("otherChicken"))
-        {
-
-            _CollisionObj.GetComponent<OtherChicken>().ActivateDialog();
-        }
-
-        if (_CollisionObj.CompareTag("car") && hasCarKey)
-        {
-            SceneManager.LoadScene("City");
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        _CollisionObj = other;
-    }
+    
 
     private Vector3 _moveDirection;
     private void FixedUpdate()
@@ -165,5 +147,43 @@ public class Chicken : MonoBehaviour
                 anim.SetBool("Run", false);
             }
         }
+    }
+    public void OnInteract()
+    {
+        if (_CollisionObj.CompareTag("human"))
+        {
+            _CollisionObj.GetComponent<Cowboy>().ActivateDialog();
+
+        }
+
+        if (_CollisionObj.CompareTag("otherChicken"))
+        {
+
+            _CollisionObj.GetComponent<OtherChicken>().ActivateDialog();
+        }
+
+        if (_CollisionObj.CompareTag("car") && hasCarKey)
+        {
+            SceneManager.LoadScene("City");
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        _CollisionObj = other;
+    }
+
+    public void OnJump()
+    {
+        if (!_isJumping)
+        {
+            anim.SetTrigger("Jump");
+            _isJumping = true;
+            _myRB.AddForce(Vector2.up * jumpForce * 100);
+        }
+    }
+    public void ChangeIsJump(bool val)
+    {
+        _isJumping = val;
     }
 }
