@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TransparentWall Roof
+  m_Shader: {fileID: -6465566751694194690, guid: 2c1213b7cfc299f499c39968e44eff49, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_0bdfdf79a62146649100ec49942e6ca8: 0.98
+    - Vector1_1f38aca87cec49c19e3b98749c019fd0: 0.54
+    - Vector1_591b4fdef60640f190d6755c5f783e41: 3
+    - Vector1_eb8f0e5daf6c4a20be8818fe8d443643: 0.02
+    m_Colors:
+    - Color_c16c3ac314fc4fc7a71daffa2cc27040: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  m_BuildTextureStacks: []
