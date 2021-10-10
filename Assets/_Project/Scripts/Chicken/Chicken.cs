@@ -203,6 +203,7 @@ public class Chicken : MonoBehaviour
     }
     public void OnMenu()
     {
+        GameManager.Instance.TogglePause();
     }
 
     public void ChangeIsJump(bool val)

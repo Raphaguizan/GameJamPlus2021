@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Util;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Singleton<PauseMenu>
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject optionsCanvas;
+
+    public void OpenMenu()
     {
-        
+        optionsCanvas.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CloseMenu()
     {
-        
+        optionsCanvas.SetActive(false);
+    }
+
+    public void ContinueButton()
+    {
+        GameManager.Instance.TogglePause();
+    }
+
+    public void MainMenu()
+    {
+        GameManager.Instance.MainMenu();
     }
 }
