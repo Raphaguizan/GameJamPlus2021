@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("ChickenGame");
+        StartCoroutine(ChangingScene());
     }
 
     public void Options(bool show)
@@ -46,5 +46,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    IEnumerator ChangingScene()
+    {
+        ScreenTransition.Instance.FadeIn();
+        yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
+        SceneManager.LoadScene("ChickenGame");
+    }
  
 }
