@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemCollectableBase : MonoBehaviour
 {
+    public ItemBase item;
     public Outline outline;
     private void Start()
     {
@@ -33,5 +34,8 @@ public class ItemCollectableBase : MonoBehaviour
     }
 
 
-    protected virtual void OnCollet(){}
+    protected virtual void OnCollet()
+    {
+        ChickenBag.Instance.AddItem(item);
+    }
 }
