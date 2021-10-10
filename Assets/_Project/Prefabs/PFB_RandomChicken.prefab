@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d85ba8e504211946a97398d3913af75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRadius: 2
+  moveRadius: 1
   NavAgent: {fileID: 6639908362928359406}
   targetHeigth: 0.5
   randomWaitTime: {x: 1, y: 15}
@@ -376,7 +376,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &6638672646480210695
 GameObject:

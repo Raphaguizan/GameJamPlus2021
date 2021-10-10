@@ -27,6 +27,7 @@ public class RandomIAWalk : MonoBehaviour
             NavAgent.speed = 0;
             StartCoroutine(WaitToWalkAgain());
         }
+        //Debug.Log(NavAgent.speed);
         if(NavAgent.speed == 0)
         {
             anim.SetBool("Walk", false);
