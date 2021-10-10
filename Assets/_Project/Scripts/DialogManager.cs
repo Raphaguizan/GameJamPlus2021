@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Game.Util;
 
-public class DialogManager : MonoBehaviour
+public class DialogManager : Singleton<DialogManager>
 {
 
-    public static DialogManager Instance;
     [SerializeField] TextMeshProUGUI question;
     [SerializeField] TextMeshProUGUI answer1;
     [SerializeField] TextMeshProUGUI answer2;
     [SerializeField] TextMeshProUGUI answer3;
     [SerializeField] TextMeshProUGUI answer4;
     SO_Dialog dialog;
+    [SerializeField] GameObject Box;
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
         answer1.text = "";
         answer2.text = "";
         answer3.text = "";
@@ -32,8 +32,13 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(SO_Dialog dialog)
     {
+        Box.GetComponent<Animator>().SetTrigger("Open");
         this.dialog = dialog;
         StartCoroutine(Dialoging(dialog)); ;
+    }
+    public void CloseDialog()
+    {
+        Box.GetComponent<Animator>().SetTrigger("Close");
     }
 
     public void Replic( int replicNumber)
@@ -44,9 +49,13 @@ public class DialogManager : MonoBehaviour
         answer4.text = "";
         StartCoroutine(Replicating(dialog, replicNumber));
 
-        if(replicNumber == 3)
+        if(replicNumber == dialog.itemAnswer)
         {
-            Chicken c = GameObject.Find("Chicken").GetComponent<Chicken>();
+            if (dialog.item && dialog.hasItem)
+            {
+                ChickenBag.Instance.AddItem(dialog.item);
+                dialog.hasItem = false;
+            }
         }
     }
 
