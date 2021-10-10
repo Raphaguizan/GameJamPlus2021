@@ -47,7 +47,6 @@ public class DialogManager : MonoBehaviour
         if(replicNumber == 3)
         {
             Chicken c = GameObject.Find("Chicken").GetComponent<Chicken>();
-            c.hasCarKey = true;
         }
     }
 
@@ -82,8 +81,5 @@ public class DialogManager : MonoBehaviour
             question.text = actualText;
             yield return null;
         }
-
-
-
     }
 }

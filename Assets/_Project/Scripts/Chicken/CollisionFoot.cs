@@ -5,14 +5,22 @@ using UnityEngine;
 public class CollisionFoot : MonoBehaviour
 {
     public Chicken galinha;
+    public float heightLimit;
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        galinha.ChangeIsJump(false);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        galinha.ChangeIsJump(true);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
+        {
+            if(hit.distance < heightLimit)
+            {
+                galinha.ChangeIsJump(false);
+            }
+            else
+            {
+                galinha.ChangeIsJump(true);
+            }
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * heightLimit, Color.yellow);
+        }
     }
 }

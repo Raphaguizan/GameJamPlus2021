@@ -19,7 +19,6 @@ public class UIItemManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        Debug.Log("chegou aki");
         CleanInterface();
         for (int i = 0; i < bag.itens.Count; i++)
         {
@@ -31,7 +30,6 @@ public class UIItemManager : MonoBehaviour
 
     private void CleanInterface()
     {
-        Debug.Log("chegou aki clean");
         for (int i = 0; i < UIList.Count; i++)
         {
             Destroy(UIList[i]);

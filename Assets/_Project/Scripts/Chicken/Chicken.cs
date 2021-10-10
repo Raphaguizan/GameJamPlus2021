@@ -14,16 +14,16 @@ public class Chicken : MonoBehaviour
     [Space]
     [SerializeField] float jumpForce = 200f;
 
+    [SerializeField] Collider feetCollider;
 
     Animator anim;
-    public bool hasCarKey;
     public Light lantern;
 
 
     private Rigidbody _myRB;
     private float _currentSpeed;
     private bool _isMoving;
-    [SerializeField]private bool _isJumping;
+    private bool _isJumping;
 
     private Collider _CollisionObj;
     private Quaternion _toRotation;
@@ -151,6 +151,8 @@ public class Chicken : MonoBehaviour
     }
     public void OnInteract()
     {
+        if (!_CollisionObj) return;
+
         var npc = _CollisionObj.GetComponent<InteractiveNPC>();
         if (npc)
         {
@@ -191,5 +193,10 @@ public class Chicken : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         _CollisionObj = other;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _CollisionObj = null;
     }
 }
