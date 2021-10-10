@@ -12,7 +12,6 @@ public class CollisionFoot : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
         {
-            Debug.Log("aki");
             if(hit.distance < heightLimit)
             {
                 galinha.ChangeIsJump(false);

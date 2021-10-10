@@ -29,14 +29,37 @@ public class RandomIAWalk : MonoBehaviour
         }
         if(NavAgent.speed == 0)
         {
-
+            anim.SetBool("Walk", false);
+            StartCoroutine(RandomAnimations());
         }
         else
         {
-            
+            anim.SetBool("Walk", true);
         }
     }
-    
+
+    IEnumerator RandomAnimations()
+    {
+        while (!anim.GetBool("walk"))
+        {
+            float _randomTime = Random.Range(4, 20);
+            yield return new WaitForSeconds(_randomTime);
+            if (!anim.GetBool("walk"))
+            {
+                float randomaux = Random.value;
+                if (randomaux >= 0.5f)
+                {
+                    anim.SetTrigger("Eat");
+                }
+                else
+                {
+                    anim.SetTrigger("TurnHead");
+                }
+            }
+
+        }
+    }
+
     private void ChoosePoint()
     {
         randomposition = Random.insideUnitSphere * moveRadius;

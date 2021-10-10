@@ -38,6 +38,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "1fea24a1-8bf8-480f-959d-5b85fa2510c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Run",
                     "type": "PassThrough",
                     "id": "71aff0dd-ed75-40e6-aa38-5e8cb8e5e670",
@@ -275,6 +283,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05a3809a-efbb-4ee6-b392-7713e205328c",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d49df146-ab87-41ef-81af-a6b6bbb5d911",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

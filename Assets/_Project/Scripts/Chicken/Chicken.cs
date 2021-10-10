@@ -201,6 +201,10 @@ public class Chicken : MonoBehaviour
             _myRB.AddForce(Vector2.up * jumpForce * 100);
         }
     }
+    public void OnMenu()
+    {
+    }
+
     public void ChangeIsJump(bool val)
     {
         _isJumping = val;
