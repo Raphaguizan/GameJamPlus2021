@@ -10,7 +10,9 @@ public class RockFinal : MonoBehaviour
     public GameObject virtualCamera;
 
     public GameObject reward;
-    
+
+    public AudioSource rollSound;
+    public AudioSource explosionSound;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("wc"))
@@ -23,6 +25,8 @@ public class RockFinal : MonoBehaviour
     private void MakeExplosion()
     {
         vfx.Play();
+        rollSound.Stop();
+        explosionSound.Play();
         if (FarmerController.TryKill(FarmerActions.WC))
         {
             var aux = Instantiate(reward);
