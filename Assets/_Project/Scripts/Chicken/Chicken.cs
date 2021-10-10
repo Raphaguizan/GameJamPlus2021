@@ -98,9 +98,16 @@ public class Chicken : MonoBehaviour
     private Vector3 _moveDirection;
     private void FixedUpdate()
     {
-        Vector3 directionAux = _moveDirection * _currentSpeed * Time.fixedDeltaTime;
-        directionAux.y = _myRB.velocity.y;
-        _myRB.velocity = directionAux;
+        if (_isMoving)
+        {
+            Vector3 directionAux = _moveDirection * _currentSpeed * Time.fixedDeltaTime;
+            directionAux.y = _myRB.velocity.y;
+            _myRB.velocity = directionAux;
+        }
+        else
+        {
+            _myRB.velocity = new Vector3(0, _myRB.velocity.y, 0);
+        }
     }
     public void OnMove(InputValue value)
     {
