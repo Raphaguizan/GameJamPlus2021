@@ -15,6 +15,7 @@ public class FarmerController : MonoBehaviour
     private float initalSpeed;
     private List<Transform> points;
     private int pathIndex = 0;
+    private RandomSound rantSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class FarmerController : MonoBehaviour
         {
             points.Add(farmerPoints.GetChild(i));
         }
+        rantSound = GetComponent<RandomSound>();
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class FarmerController : MonoBehaviour
         {
             if(point.action == FarmerActions.NONE)
             {
-                
+
                 if(pathIndex + 1 >= points.Count)
                 {
                     pathIndex = 0;
@@ -69,6 +71,7 @@ public class FarmerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && canBeHited)
         {
             canBeHited = false;
+            rantSound.PlayRandom();
             anim.SetTrigger("angry");
             StartCoroutine(ChickenCoolDownCount());
         }

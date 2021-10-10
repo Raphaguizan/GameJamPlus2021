@@ -13,6 +13,9 @@ public class Chicken : MonoBehaviour
     [SerializeField] float rotationSpeed = 200f;
     [Space]
     [SerializeField] float jumpForce = 200f;
+    [Space]
+    [SerializeField] RandomSound chickenSound;
+    [SerializeField] RandomSound stepSound;
 
     [SerializeField] Collider feetCollider;
 
@@ -28,6 +31,10 @@ public class Chicken : MonoBehaviour
     private Collider _CollisionObj;
     private Quaternion _toRotation;
     private float _randomTime;
+    public float _walkStepCooldown = 0.25f;
+    public float _runStepCooldown = 0.15f;
+    private float _stepCooldown;
+    private float _currentStepCooldown = 0;
 
     private void OnEnable()
     {
@@ -71,20 +78,27 @@ public class Chicken : MonoBehaviour
                     {
                         anim.SetTrigger("TurnHead");
                     }
+                    chickenSound.PlayRandom();
                 }
             }
             else
             {
                 yield return null;
             }
-            
         }
     }
+
     private void Update()
-    {   
+    {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, _toRotation, rotationSpeed * Time.deltaTime);
+        if(_isMoving && _currentStepCooldown <= 0 && !_isJumping){
+            stepSound.PlayRandom();
+            _currentStepCooldown = _stepCooldown;
+        }else if(_isMoving){
+            _currentStepCooldown -= Time.deltaTime;
+        }
     }
-    
+
     public void ToggleLantern()
     {
         bool val = TimeController._isDay;
@@ -93,7 +107,6 @@ public class Chicken : MonoBehaviour
         else
             lantern.intensity = 2;
     }
-    
 
     private Vector3 _moveDirection;
     private void FixedUpdate()
@@ -111,13 +124,15 @@ public class Chicken : MonoBehaviour
             _isMoving = true;
             _moveDirection = new Vector3(value.Get<Vector2>().x, _myRB.velocity.y, value.Get<Vector2>().y);
             _toRotation = Quaternion.LookRotation(new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y), Vector3.up);
-            
+
             if(_currentSpeed == speed)
             {
+                _stepCooldown = _walkStepCooldown;
                 anim.SetBool("Walk", true);
             }
             else
             {
+                _stepCooldown = _runStepCooldown;
                 anim.SetBool("Run", true);
             }
         }
@@ -125,6 +140,7 @@ public class Chicken : MonoBehaviour
         {
             _isMoving = false;
             _moveDirection = new Vector3(0, _myRB.velocity.y, 0);
+            _stepCooldown = _walkStepCooldown;
             anim.SetBool("Run", false);
             anim.SetBool("Walk", false);
         }
@@ -154,6 +170,7 @@ public class Chicken : MonoBehaviour
         if (!_CollisionObj) return;
 
         var npc = _CollisionObj.GetComponent<InteractiveNPC>();
+        chickenSound.PlayRandom();
         if (npc)
         {
             npc.ActivateDialog();
@@ -180,6 +197,7 @@ public class Chicken : MonoBehaviour
     {
         if (!_isJumping)
         {
+            chickenSound.PlayRandom();
             anim.SetTrigger("Jump");
             _isJumping = true;
             _myRB.AddForce(Vector2.up * jumpForce * 100);
