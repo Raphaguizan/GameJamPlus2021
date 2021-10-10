@@ -62,7 +62,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 0c7f960ce4c4a054880e36d662b42853, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: e018a0b27733b1d439058b869435133f, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -99,7 +99,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PT_Medieval_Peasant_01_a_Animator Controller
+  m_Name: ControllerVelho
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: angry
@@ -107,7 +107,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -141,7 +141,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 6072408975eea7348aec6a5f700c7461, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 47ca10f99884ef94eb520481d68c15b4, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
