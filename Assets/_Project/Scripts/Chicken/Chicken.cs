@@ -132,7 +132,6 @@ public class Chicken : MonoBehaviour
 
     public void OnRun(InputValue value)
     {
-        Debug.Log(value.isPressed);
         if (value.isPressed)
         {
             _currentSpeed = runSpeed;
@@ -163,6 +162,14 @@ public class Chicken : MonoBehaviour
             if (item)
             {
                 item.Collect();
+            }
+            else
+            {
+                var consume = _CollisionObj.GetComponent<ConsumeItem>();
+                if (consume)
+                {
+                    consume.CheckItem();
+                }
             }
         }
     }

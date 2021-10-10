@@ -19,19 +19,22 @@ public class UIItemManager : MonoBehaviour
 
     private void UpdateUI()
     {
+        Debug.Log("chegou aki");
         CleanInterface();
         for (int i = 0; i < bag.itens.Count; i++)
         {
             var aux = Instantiate(itemPrefab, transform);
             aux.GetComponent<ItemUI>().Initialize(bag.itens[i]);
+            UIList.Add(aux);
         }
     }
 
     private void CleanInterface()
     {
-        foreach(GameObject i in UIList)
+        Debug.Log("chegou aki clean");
+        for (int i = 0; i < UIList.Count; i++)
         {
-            Destroy(i);
+            Destroy(UIList[i]);
         }
         UIList.Clear();
     }

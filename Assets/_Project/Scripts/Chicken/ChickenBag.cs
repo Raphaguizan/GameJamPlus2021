@@ -9,6 +9,8 @@ public class ChickenBag : Singleton<ChickenBag>
     public SO_Bag itemList;
     public static Action UpdateInterface;
 
+    private readonly int MAX_ITEM = 6;
+
     private void Start()
     {
         itemList.itens = new List<ItemBase>();
@@ -16,14 +18,29 @@ public class ChickenBag : Singleton<ChickenBag>
 
     public void AddItem(ItemBase item)
     {
-        itemList.itens.Add(item);
-        UpdateInterface?.Invoke();
+        if(itemList.itens.Count < MAX_ITEM)
+        {
+            itemList.itens.Add(item);
+            UpdateInterface?.Invoke();
+        }
+        else
+        {
+            Debug.Log("não há espaço para mais itens");
+        }
     }
 
-    public void RemoveItem(ItemBase item)
+    public bool RemoveItem(ItemBase item)
     {
-        itemList.itens.Remove(item);
-        UpdateInterface?.Invoke();
+        bool removed = itemList.itens.Remove(item);
+        if (removed)
+        {
+            UpdateInterface?.Invoke();
+        }
+        else
+        {
+            Debug.Log("você não tem esse item");
+        }
+        return removed;
     }
 
 }
