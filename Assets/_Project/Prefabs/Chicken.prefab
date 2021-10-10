@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 9073710363130216355}
   - component: {fileID: 6806412497196870545}
   - component: {fileID: 294206597659618444}
-  - component: {fileID: 8769130159399291750}
+  - component: {fileID: 5932692237511380165}
   - component: {fileID: 8558825981831799151}
   - component: {fileID: 8379096737878283193}
   m_Layer: 0
@@ -388,7 +388,11 @@ MonoBehaviour:
   runSpeed: 200
   rotationSpeed: 650
   jumpForce: 4
+  chickenSound: {fileID: 0}
+  stepSound: {fileID: 0}
   lantern: {fileID: 5660805536555202587}
+  _walkStepCooldown: 0.25
+  _runStepCooldown: 0.15
 --- !u!114 &6806412497196870545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,8 +437,8 @@ CapsuleCollider:
   m_Height: 0.5045123
   m_Direction: 1
   m_Center: {x: 0.0030312538, y: 0.24774384, z: 0}
---- !u!65 &8769130159399291750
-BoxCollider:
+--- !u!135 &5932692237511380165
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -444,8 +448,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13034475, y: 0.037652016, z: 0.12298298}
-  m_Center: {x: 0.0021210313, y: 0.0053625107, z: -0.0026612282}
+  m_Radius: 0.0687269
+  m_Center: {x: 0, y: 0.04330337, z: 0}
 --- !u!114 &8558825981831799151
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -76,7 +76,7 @@ public class Chicken : MonoBehaviour
                     {
                         anim.SetTrigger("TurnHead");
                     }
-                    chickenSound.PlayRandom();
+                    if(chickenSound) chickenSound.PlayRandom();
                 }
             }
             else
@@ -90,7 +90,7 @@ public class Chicken : MonoBehaviour
     {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, _toRotation, rotationSpeed * Time.deltaTime);
         if(_isMoving && _currentStepCooldown <= 0 && !_isJumping){
-            stepSound.PlayRandom();
+            if(stepSound)stepSound.PlayRandom();
             _currentStepCooldown = _stepCooldown;
         }else if(_isMoving){
             _currentStepCooldown -= Time.deltaTime;
@@ -168,7 +168,7 @@ public class Chicken : MonoBehaviour
         if (!_CollisionObj) return;
 
         var npc = _CollisionObj.GetComponent<InteractiveNPC>();
-        chickenSound.PlayRandom();
+        if (chickenSound) chickenSound.PlayRandom();
         if (npc)
         {
             npc.ActivateDialog();
@@ -195,7 +195,7 @@ public class Chicken : MonoBehaviour
     {
         if (!_isJumping)
         {
-            chickenSound.PlayRandom();
+            if (chickenSound) chickenSound.PlayRandom();
             anim.SetTrigger("Jump");
             _isJumping = true;
             _myRB.AddForce(Vector2.up * jumpForce * 100);
