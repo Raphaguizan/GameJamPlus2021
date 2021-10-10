@@ -8800,6 +8800,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 11400000, guid: 7f52e7d5aea895d4c950063ac00fabcb, type: 2}
+  outline: {fileID: 687721690}
+  strenth: 1
+--- !u!114 &687721690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687721686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &688786357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9099,7 +9119,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695839010}
-  m_LocalRotation: {x: -2.1671879e-12, y: 0.1736482, z: -1.2290733e-11, w: 0.9848078}
+  m_LocalRotation: {x: -4.76305e-33, y: 0.1736482, z: -2.70126e-32, w: 0.9848078}
   m_LocalPosition: {x: 6.6100006, y: 4.472, z: 9.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30111,6 +30131,7 @@ GameObject:
   - component: {fileID: 95943281564204646}
   - component: {fileID: 669446371}
   - component: {fileID: 1311290393576795}
+  - component: {fileID: 1311290393576796}
   m_Layer: 7
   m_Name: Toon Chicken (1)
   m_TagString: otherChicken
@@ -30131,6 +30152,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 11400000, guid: 89b34ec3aa01b1846a16e2ab11c3fac6, type: 2}
+  outline: {fileID: 1311290393576796}
+  strenth: 2
+--- !u!114 &1311290393576796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311290393576794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1325880036965272
 GameObject:
   m_ObjectHideFlags: 0
