@@ -10,4 +10,8 @@ public class SO_Dialog : ScriptableObject
     public string question;
     public List<string> answer = new List<string>(4);
     public List<string> replica = new List<string>(4);
+    [Space]
+    public bool hasItem = true;
+    public ItemBase item;
+    public int itemAnswer = -1;
 }

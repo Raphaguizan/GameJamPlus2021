@@ -11,6 +11,7 @@ public class InteractiveNPC : MonoBehaviour
     private void Start()
     {
         outline.OutlineWidth = 0f;
+        dialog.hasItem = true;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +27,7 @@ public class InteractiveNPC : MonoBehaviour
         if (player)
         {
             outline.OutlineWidth = 0f;
+            DialogManager.Instance.CloseDialog();
         }
     }
     public void ActivateDialog()
