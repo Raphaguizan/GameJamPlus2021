@@ -12,26 +12,28 @@ public class RandomIAWalk : MonoBehaviour
     [Space]
     public Animator anim;
 
+    private bool _isWalking = false;
     Vector3 randomposition;
     float initialSpeed;
     private void Start()
     {
-        ChoosePoint();
+        randomposition = ChoosePoint();
         initialSpeed = NavAgent.speed;
+        StartCoroutine(RandomAnimations());
     }
     void Update()
     {
         NavAgent.SetDestination(randomposition);
-        if(Vector3.Distance(NavAgent.transform.position, randomposition) < targetHeigth)
+        if(Vector3.Distance(NavAgent.transform.position, randomposition) < targetHeigth && _isWalking)
         {
             NavAgent.speed = 0;
+            _isWalking = false;
             StartCoroutine(WaitToWalkAgain());
         }
-        //Debug.Log(NavAgent.speed);
-        if(NavAgent.speed == 0)
+
+        if(!_isWalking)
         {
             anim.SetBool("Walk", false);
-            StartCoroutine(RandomAnimations());
         }
         else
         {
@@ -41,41 +43,56 @@ public class RandomIAWalk : MonoBehaviour
 
     IEnumerator RandomAnimations()
     {
-        while (!anim.GetBool("walk"))
+        while (true)
         {
-            float _randomTime = Random.Range(4, 20);
-            yield return new WaitForSeconds(_randomTime);
-            if (!anim.GetBool("walk"))
+            if (!_isWalking)
             {
-                float randomaux = Random.value;
-                if (randomaux >= 0.5f)
+                float _randomTime = Random.Range(randomWaitTime.x, randomWaitTime.y/2);
+                yield return new WaitForSeconds(_randomTime);
+                if (!_isWalking)
                 {
-                    anim.SetTrigger("Eat");
-                }
-                else
-                {
-                    anim.SetTrigger("TurnHead");
+                    float randomaux = Random.value;
+                    if (randomaux >= 0.5f)
+                    {
+                        anim.SetTrigger("Eat");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("TurnHead");
+                    }
                 }
             }
-
+            else
+            {
+                yield return null;
+            }
         }
     }
 
-    private void ChoosePoint()
+    private Vector3 ChoosePoint()
     {
-        randomposition = Random.insideUnitSphere * moveRadius;
+        Vector3 position = transform.position + Random.insideUnitSphere * moveRadius;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
-            || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity))
+        if ((Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
+            || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity))&& hit.transform.CompareTag("ground"))
         {
-            randomposition.y = hit.transform.position.y + targetHeigth;
+            position.y = hit.transform.position.y + targetHeigth;
         }
+        _isWalking = true;
+        return position;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(randomposition, 1);
     }
 
     IEnumerator WaitToWalkAgain()
     {
         yield return new WaitForSeconds(Random.Range(randomWaitTime.x, randomWaitTime.y));
-        ChoosePoint();
+        randomposition = ChoosePoint();
         NavAgent.speed = initialSpeed;
     }
 }

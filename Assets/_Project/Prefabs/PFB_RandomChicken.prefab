@@ -357,9 +357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d85ba8e504211946a97398d3913af75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRadius: 1
+  moveRadius: 0.5
   NavAgent: {fileID: 6639908362928359406}
-  targetHeigth: 0.5
+  targetHeigth: 1
   randomWaitTime: {x: 1, y: 15}
   anim: {fileID: 6733280092499429733}
 --- !u!54 &3645024023832438194
