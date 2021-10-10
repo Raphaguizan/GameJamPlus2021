@@ -33,6 +33,11 @@ public class ConsumeItem : MonoBehaviour
 
     public void CheckItem() 
     {
+        if (!item)
+        {
+            Event?.Invoke();
+            return;
+        }
         if (ChickenBag.Instance.RemoveItem(item))
         {
             Event?.Invoke();

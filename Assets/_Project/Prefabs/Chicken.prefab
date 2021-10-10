@@ -138,7 +138,7 @@ AudioSource:
   m_GameObject: {fileID: 5827013990144918350}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.25
@@ -788,8 +788,8 @@ MonoBehaviour:
   runSpeed: 200
   rotationSpeed: 650
   jumpForce: 4
-  chickenSound: {fileID: 0}
-  stepSound: {fileID: 0}
+  chickenSound: {fileID: 3801115215243153869}
+  stepSound: {fileID: 568462454635219661}
   lantern: {fileID: 5660805536555202587}
   _walkStepCooldown: 0.25
   _runStepCooldown: 0.15
