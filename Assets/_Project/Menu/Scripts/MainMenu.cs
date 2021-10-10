@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] List<Button> buttons = new List<Button>();
     Button selectedButton;
-    [SerializeField] Animator signAnim;
-    [SerializeField] Animator titleAnim;
-    [SerializeField] Animator canvasAnim;
+    [SerializeField] GameObject optionsCanvas;
+    [SerializeField] GameObject creditsCanvas;
    
     public void MouseEnter(int button)
     {
@@ -26,42 +26,25 @@ public class MainMenu : MonoBehaviour
     }
 
     public void StartGame()
-    {        
-
-    }
-
-    public void Options()
     {
-
+        SceneManager.LoadScene("ChickenGame");
     }
 
-    public void Credits()
+    public void Options(bool show)
     {
-
+        optionsCanvas.SetActive(show);
     }
 
-    public void Statistics()
+    public void Credits(bool show)
     {
-
+        creditsCanvas.SetActive(show);
     }
+
 
     public void QuitGame()
     {
         Application.Quit();
     }
 
-    public void CallAnimationSign()
-    {
-        signAnim.SetTrigger("start");
-    }
-
-    public void CallAnimationCanvas()
-    {
-        canvasAnim.SetTrigger("start");
-    }
-
-    public void CallAnimationTitle()
-    {
-        titleAnim.SetTrigger("start");
-    }
+ 
 }
