@@ -13,9 +13,9 @@ public class MultipleSound : MonoBehaviour
         for (int i = 0; i < sourcesList.Count; i++)
         {
             int j = i;
-            if (j >= clipsList.Count) 
+            if (j >= clipsList.Count)
             {
-                j = clipsList.Count - 1; 
+                j = clipsList.Count - 1;
             }
 
             sourcesList[i].clip = clipsList[j];
