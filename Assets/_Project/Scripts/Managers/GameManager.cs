@@ -26,6 +26,14 @@ public class GameManager : Singleton<GameManager>
 
     public void MainMenu()
     {
+        TogglePause();
+        StartCoroutine(ChangingScene());
+    }
+    IEnumerator ChangingScene()
+    {
+        ScreenTransition.Instance.FadeIn();
+        yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
         SceneManager.LoadScene("MainMenu");
     }
+
 }
