@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 239413173}
   - component: {fileID: 239413175}
   - component: {fileID: 239413174}
+  - component: {fileID: 239413176}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -330,6 +331,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239413172}
   m_CullTransparentMesh: 1
+--- !u!225 &239413176
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239413172}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &615925448
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,8 +793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "From the early days of life Karen the chicken never was a Common chick...
-    she was more\r than that\u2026\r"
+  m_text: From the early days of life Karen the chicken never was a Common chick...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 470deac4630535040a772020a6776d99, type: 2}
   m_sharedMaterial: {fileID: 3811269293638436042, guid: 470deac4630535040a772020a6776d99, type: 2}
@@ -1023,7 +1035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1009296193
 RectTransform:
   m_ObjectHideFlags: 0
