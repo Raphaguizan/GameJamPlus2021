@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6155937601141164464}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   galinha: {fileID: 9073710363130216355}
-  heightLimit: 0.1
+  heightLimit: 0.2
 --- !u!1 &6714351504882365365
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +388,6 @@ MonoBehaviour:
   runSpeed: 200
   rotationSpeed: 650
   jumpForce: 4
-  feetCollider: {fileID: 0}
   lantern: {fileID: 5660805536555202587}
 --- !u!114 &6806412497196870545
 MonoBehaviour:
@@ -427,7 +426,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9072751161765134764}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6accd18dbdbe87e4cbaf31a41fa2b06e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.13765764

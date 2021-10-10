@@ -14,8 +14,6 @@ public class Chicken : MonoBehaviour
     [Space]
     [SerializeField] float jumpForce = 200f;
 
-    [SerializeField] Collider feetCollider;
-
     Animator anim;
     public Light lantern;
 
