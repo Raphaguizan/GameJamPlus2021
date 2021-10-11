@@ -4,13 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Game.Util;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : Singleton<MainMenu>
 {
     [SerializeField] List<Button> buttons = new List<Button>();
     Button selectedButton;
     [SerializeField] GameObject optionsCanvas;
     [SerializeField] GameObject creditsCanvas;
+    [SerializeField] TextMeshProUGUI statistics;
    
     public void MouseEnter(int button)
     {
@@ -44,6 +46,11 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetStatistics(int scapesFound)
+    {
+        statistics.text = "Scapes found: " + scapesFound + "/10";
     }
 
     IEnumerator ChangingScene()

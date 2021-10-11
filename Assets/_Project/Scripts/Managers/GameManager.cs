@@ -58,7 +58,10 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
 
         if (scene == 1)
+        {
+            Statistics.Instance.UpdateStatistics("City");
             SceneManager.LoadScene("City");
+        }
     }
 
     IEnumerator GoingToGame()
