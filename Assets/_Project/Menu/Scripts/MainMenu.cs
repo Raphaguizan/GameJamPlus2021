@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
     {
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
-        SceneManager.LoadScene("ChickenGame");
+        SceneManager.LoadScene("FirstCutscene");
     }
  
 }

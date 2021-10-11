@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
     {
         onPause = !onPause;
 
-        if(onPause)
+        if (onPause)
         {
             PauseMenu.Instance.OpenMenu();
             Time.timeScale = 0;
@@ -24,16 +24,35 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-    public void MainMenu()
+    public void CompleteScape(int finalScene)
     {
-        TogglePause();
-        StartCoroutine(ChangingScene());
+        StartCoroutine(GoingToFinalScene(finalScene));
     }
-    IEnumerator ChangingScene()
+    public void MainMenu(bool endingCutscene = false, int cutScene = 0)
+    {
+        if (!endingCutscene)
+            TogglePause();
+
+        StartCoroutine(GoingToMainMenu());
+    }
+    IEnumerator GoingToMainMenu()
+    {
+
+        ScreenTransition.Instance.FadeIn();
+        yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
+
+        SceneManager.LoadScene("MainMenu");
+
+
+    }
+
+    IEnumerator GoingToFinalScene(int scene)
     {
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
-        SceneManager.LoadScene("MainMenu");
+
+        if (scene == 1)
+            SceneManager.LoadScene("City");
     }
 
 }
