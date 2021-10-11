@@ -62,6 +62,12 @@ public class GameManager : Singleton<GameManager>
             Statistics.Instance.UpdateStatistics("City");
             SceneManager.LoadScene("City");
         }
+
+        if(scene == 2)
+        {
+            Statistics.Instance.UpdateStatistics("Fall");
+            SceneManager.LoadScene("Fall");
+        }
     }
 
     IEnumerator GoingToGame()

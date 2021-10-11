@@ -13,4 +13,5 @@ public class EndCutscene : MonoBehaviour
     {
         GameManager.Instance.StartGame();
     }
+
 }
