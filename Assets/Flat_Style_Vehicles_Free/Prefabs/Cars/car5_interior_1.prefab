@@ -252,7 +252,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4629898069471776}
-  - component: {fileID: 64050040932700826}
+  - component: {fileID: 1021986078793199759}
+  - component: {fileID: 6274471988889078992}
+  - component: {fileID: 3722425962682532652}
+  - component: {fileID: 3420714092336065816}
   m_Layer: 0
   m_Name: car5_interior_1
   m_TagString: Untagged
@@ -269,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 1367234676676716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4964087450000590}
   - {fileID: 4193154178181648}
@@ -287,9 +290,58 @@ Transform:
   - {fileID: 4740321923839434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &64050040932700826
-MeshCollider:
+  m_LocalEulerAnglesHint: {x: -1.158, y: -202.041, z: 0}
+--- !u!114 &1021986078793199759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367234676676716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30868a7ee604b2b4bb203a018aa867ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 95643c46aae3f2042afb64f3649ef8c5, type: 2}
+  outline: {fileID: 0}
+  outlineWidth: 2
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6274471988889078992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367234676676716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.98039216, g: 0.09667159, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!135 &3722425962682532652
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367234676676716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Center: {x: -0.25, y: 0.16, z: 0.18}
+--- !u!65 &3420714092336065816
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -298,10 +350,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.4648556, y: 0.22294785, z: 1.1509547}
+  m_Center: {x: -0.014588665, y: 0.1261021, z: 0.0072933193}
 --- !u!1 &1375166503261478
 GameObject:
   m_ObjectHideFlags: 0

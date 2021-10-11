@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 33945642859919492}
   - component: {fileID: 23278847340425510}
   - component: {fileID: 64961670815025640}
+  - component: {fileID: 5343241162439110622}
+  - component: {fileID: 5041233456613781050}
+  - component: {fileID: 8603941115682944970}
   m_Layer: 0
   m_Name: 'Satellite antenna '
   m_TagString: Untagged
@@ -96,3 +99,52 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300262, guid: 7c481f901e6fd6544a2901233ce8f8b2, type: 3}
+--- !u!114 &5343241162439110622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141411771098188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f18c6b63c92fba43b786addda946d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 4bbe5c5e298403c498cfc211ced41297, type: 2}
+  outline: {fileID: 5041233456613781050}
+  outlineWidth: 2
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5041233456613781050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141411771098188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.49172878, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!135 &8603941115682944970
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141411771098188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.7014208
+  m_Center: {x: 0, y: -3.4530005, z: 1.9094791}

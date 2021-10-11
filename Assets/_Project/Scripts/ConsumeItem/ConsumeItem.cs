@@ -10,11 +10,11 @@ public class ConsumeItem : MonoBehaviour
     public float outlineWidth = 0.8f;
     public UnityEvent Event;
 
-    private void Start()
+    protected void Start()
     {
         outline.OutlineWidth = 0f;
     }
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         var player = other.gameObject.GetComponent<Chicken>();
         if (player)
@@ -22,7 +22,7 @@ public class ConsumeItem : MonoBehaviour
             outline.OutlineWidth = outlineWidth;
         }
     }
-    private void OnTriggerExit(Collider other)
+    protected void OnTriggerExit(Collider other)
     {
         var player = other.gameObject.GetComponent<Chicken>();
         if (player)
@@ -31,7 +31,7 @@ public class ConsumeItem : MonoBehaviour
         }
     }
 
-    public void CheckItem() 
+    public virtual void CheckItem() 
     {
         if (!item)
         {
