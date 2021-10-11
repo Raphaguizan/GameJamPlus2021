@@ -8,4 +8,9 @@ public class EndCutscene : MonoBehaviour
     {
         GameManager.Instance.MainMenu(true, 0);
     }
+
+    public void EndFirstCutscene()
+    {
+        GameManager.Instance.StartGame();
+    }
 }

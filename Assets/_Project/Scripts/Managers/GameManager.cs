@@ -28,6 +28,12 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(GoingToFinalScene(finalScene));
     }
+
+    public void StartGame()
+    {
+        StartCoroutine(GoingToGame());
+    }
+
     public void MainMenu(bool endingCutscene = false, int cutScene = 0)
     {
         if (!endingCutscene)
@@ -55,4 +61,14 @@ public class GameManager : Singleton<GameManager>
             SceneManager.LoadScene("City");
     }
 
+    IEnumerator GoingToGame()
+    {
+
+        ScreenTransition.Instance.FadeIn();
+        yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
+
+        SceneManager.LoadScene("Game");
+
+
+    }
 }
