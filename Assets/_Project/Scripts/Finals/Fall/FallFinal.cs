@@ -8,7 +8,7 @@ public class FallFinal : MonoBehaviour
     public UnityEvent Event;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             Event?.Invoke();
         }
