@@ -15,7 +15,7 @@ public class ItemCollectableBase : MonoBehaviour
         var player = other.gameObject.GetComponent<Chicken>();
         if (player)
         {
-            outline.OutlineWidth = 0.8f;
+            outline.OutlineWidth = 1f;
         }
     }
     private void OnTriggerExit(Collider other)
