@@ -6,8 +6,11 @@ public class ItemCollectableBase : MonoBehaviour
 {
     public ItemBase item;
     public Outline outline;
+
+    private float outline_initial_size;
     private void Start()
     {
+        outline_initial_size = outline.OutlineWidth;
         outline.OutlineWidth = 0f;
     }
     private void OnTriggerEnter(Collider other)
@@ -15,7 +18,7 @@ public class ItemCollectableBase : MonoBehaviour
         var player = other.gameObject.GetComponent<Chicken>();
         if (player)
         {
-            outline.OutlineWidth = 1f;
+            outline.OutlineWidth = outline_initial_size;
         }
     }
     private void OnTriggerExit(Collider other)
