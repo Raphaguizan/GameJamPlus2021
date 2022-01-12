@@ -7,7 +7,7 @@ public class ConsumeItem : MonoBehaviour
 {
     public ItemBase item;
     public Outline outline;
-    public float outlineWidth = 0.8f;
+    public float outlineWidth = 2f;
     public UnityEvent Event;
 
     protected void Start()
