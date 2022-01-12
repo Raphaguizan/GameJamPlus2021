@@ -8,6 +8,7 @@ public class ChickenBag : Singleton<ChickenBag>
 {
     public SO_Bag itemList;
     public static Action UpdateInterface;
+    public RequiredItemUI itemBaloon;
 
     private readonly int MAX_ITEM = 6;
 
@@ -25,7 +26,7 @@ public class ChickenBag : Singleton<ChickenBag>
         }
         else
         {
-            Debug.Log("não há espaço para mais itens");
+            Debug.Log("nï¿½o hï¿½ espaï¿½o para mais itens");
         }
     }
 
@@ -38,7 +39,8 @@ public class ChickenBag : Singleton<ChickenBag>
         }
         else
         {
-            Debug.Log("você não tem esse item");
+            itemBaloon.ShowBaloon(item.image);
+            Debug.Log("vocÃª nÃ¢o tem esse item");
         }
         return removed;
     }
