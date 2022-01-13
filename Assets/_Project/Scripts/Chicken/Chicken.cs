@@ -31,6 +31,11 @@ public class Chicken : MonoBehaviour
     private float _randomTime;
     public float _walkStepCooldown = 0.25f;
     public float _runStepCooldown = 0.15f;
+
+    [Header("hit")]
+    public HitController chickenHit;
+    public bool hitenabled = false;
+
     private float _stepCooldown;
     private float _currentStepCooldown = 0;
 
@@ -204,6 +209,16 @@ public class Chicken : MonoBehaviour
     public void OnMenu()
     {
         GameManager.Instance.TogglePause();
+    }
+
+    public void OnHit()
+    {
+        if (!hitenabled) return;
+
+        anim.SetTrigger("MakeHit");
+        if (chickenSound) chickenSound.PlayRandom();
+
+        chickenHit.Hit();
     }
 
     public void ChangeIsJump(bool val)
