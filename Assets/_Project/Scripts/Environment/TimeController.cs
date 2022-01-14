@@ -3,26 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class TimeController : MonoBehaviour
 {
     [Range(0f,24f)]
     public float time;
+    public bool RunTime = false;
+    public Gradient iluminationColor;
     public float timeSpeed;
     public Transform mainLight;
 
 
     public static bool _isDay;
     public static Action TimeChange;
+    [SerializeField]
+    private List<Material> materialsToAdjust;
+
+    [SerializeField]
+    private Terrain terrain;
     // Start is called before the first frame update
     void Start()
     {
         _isDay = true;
+        RunTime = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += timeSpeed/10 * Time.deltaTime;
+        if(RunTime)time += timeSpeed/10 * Time.deltaTime;
         if (time >= 24f) time = 0;
         if(time >= 6 && time < 18)
         {
@@ -34,7 +43,16 @@ public class TimeController : MonoBehaviour
             _isDay = false;
             TimeChange?.Invoke();
         }
+        AdjustColors();
         RotateLightByTime();
+    }
+
+    private void AdjustColors()
+    {
+        float value = Remap(time, 0, 24, 0, 1);
+        Color currentColor = iluminationColor.Evaluate(value);
+        foreach (Material m in materialsToAdjust) m.color = currentColor;
+        terrain.terrainData.RefreshPrototypes();
     }
     private void OnValidate()
     {
