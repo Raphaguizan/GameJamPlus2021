@@ -40,6 +40,7 @@ public class RockFinal : MonoBehaviour
     private void ReturnCamera()
     {
         virtualCamera.SetActive(false);
+        GameObject.FindObjectOfType<Chicken>().canMove = true;
     }
 
     private void SpawnItens()

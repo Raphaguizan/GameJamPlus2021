@@ -33,6 +33,7 @@ public class ConsumeItem : MonoBehaviour
 
     public virtual void CheckItem() 
     {
+        Debug.Log("cheking Item");
         if (!item)
         {
             Event?.Invoke();

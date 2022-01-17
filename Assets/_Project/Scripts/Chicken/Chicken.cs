@@ -14,6 +14,8 @@ public class Chicken : MonoBehaviour
     [Space]
     [SerializeField] float jumpForce = 200f;
     [Space]
+    public bool canMove = true;
+    [Space]
     [SerializeField] RandomSound chickenSound;
     [SerializeField] RandomSound stepSound;
 
@@ -122,7 +124,7 @@ public class Chicken : MonoBehaviour
     }
     public void OnMove(InputValue value)
     {
-        if (value.Get<Vector2>() != Vector2.zero)
+        if (value.Get<Vector2>() != Vector2.zero && canMove)
         {
             _isMoving = true;
             _moveDirection = new Vector3(value.Get<Vector2>().x, _myRB.velocity.y, value.Get<Vector2>().y);
@@ -198,7 +200,7 @@ public class Chicken : MonoBehaviour
 
     public void OnJump()
     {
-        if (!_isJumping)
+        if (!_isJumping && canMove)
         {
             if (chickenSound) chickenSound.PlayRandom();
             anim.SetTrigger("Jump");
@@ -209,6 +211,14 @@ public class Chicken : MonoBehaviour
     public void OnMenu()
     {
         GameManager.Instance.TogglePause();
+        if (GameManager.onPause)
+        {
+            canMove = false;
+        }
+        else
+        {
+            canMove = true;
+        }
     }
 
     public void OnHit()
@@ -224,6 +234,11 @@ public class Chicken : MonoBehaviour
     public void ChangeIsJump(bool val)
     {
         _isJumping = val;
+    }
+
+    public void ChangeCanMove(bool val)
+    {
+        canMove = val;
     }
 
     private void OnTriggerStay(Collider other)
