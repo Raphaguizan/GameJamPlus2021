@@ -6,6 +6,7 @@ using Game.Util;
 public class PauseMenu : Singleton<PauseMenu>
 {
     [SerializeField] GameObject optionsCanvas;
+    [SerializeField] Animator chickenMenu;
 
     public void OpenMenu()
     {
@@ -14,7 +15,8 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void CloseMenu()
     {
-        optionsCanvas.SetActive(false);
+        optionsCanvas.GetComponent<PauseCanvas>().CloseMenu();
+       
     }
 
     public void ContinueButton()
