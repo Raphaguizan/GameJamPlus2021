@@ -309,6 +309,18 @@ PrefabInstance:
       value: Smoke
       objectReference: {fileID: 0}
     - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 0}
@@ -316,6 +328,50 @@ PrefabInstance:
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 6953260307949445197}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 2950570617500779380}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: Chicken, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014330657602821371, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9190255051192721643, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
       propertyPath: m_Name
       value: CM vcam4
@@ -329,6 +385,11 @@ PrefabInstance:
 --- !u!4 &2864330719148222237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6931301553307420344, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
+  m_PrefabInstance: {fileID: 5183867020471509413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2950570617500779380 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7999030444413149905, guid: 11574ea6a3fdb3f4cbf2e6f69520cfbe, type: 3}
   m_PrefabInstance: {fileID: 5183867020471509413}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4163574102866594482 stripped
