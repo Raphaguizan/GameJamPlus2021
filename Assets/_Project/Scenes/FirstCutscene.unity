@@ -1908,7 +1908,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858512436}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1858512439
 Camera:
   m_ObjectHideFlags: 0
@@ -2208,11 +2208,14 @@ MonoBehaviour:
   runSpeed: 200
   rotationSpeed: 650
   jumpForce: 4
+  canMove: 1
   chickenSound: {fileID: 6479607417234223250}
   stepSound: {fileID: 7696620068640140178}
   lantern: {fileID: 2567982107887540548}
   _walkStepCooldown: 0.25
   _runStepCooldown: 0.15
+  chickenHit: {fileID: 0}
+  hitenabled: 0
 --- !u!1 &1207953315471636799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,6 +3092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: b0ea2d5bc20892b4bac1dcc3b7764d56, type: 2}
+  itemBaloon: {fileID: 0}
 --- !u!82 &2187295523971848392
 AudioSource:
   m_ObjectHideFlags: 0

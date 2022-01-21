@@ -3369,9 +3369,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185532944063290381, guid: 3659680d16416eb4a83f5ccede273880, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 185532944063290381, guid: 3659680d16416eb4a83f5ccede273880, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 185532944595887440, guid: 3659680d16416eb4a83f5ccede273880, type: 3}
       propertyPath: m_Name
       value: CornBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 185532944595887441, guid: 3659680d16416eb4a83f5ccede273880, type: 3}
+      propertyPath: m_Spring
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 185532944595887441, guid: 3659680d16416eb4a83f5ccede273880, type: 3}
+      propertyPath: m_Tolerance
+      value: 1.00000005e-20
       objectReference: {fileID: 0}
     - target: {fileID: 185532944595887447, guid: 3659680d16416eb4a83f5ccede273880, type: 3}
       propertyPath: m_RootOrder
