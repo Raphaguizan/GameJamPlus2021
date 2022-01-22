@@ -40,6 +40,7 @@ public class Chicken : MonoBehaviour
 
     private float _stepCooldown;
     private float _currentStepCooldown = 0;
+    private Vector3 _moveDirection;
 
     private void OnEnable()
     {
@@ -113,7 +114,6 @@ public class Chicken : MonoBehaviour
             lantern.intensity = 2;
     }
 
-    private Vector3 _moveDirection;
     private void FixedUpdate()
     {
 
@@ -127,8 +127,13 @@ public class Chicken : MonoBehaviour
         if (value.Get<Vector2>() != Vector2.zero && canMove)
         {
             _isMoving = true;
-            _moveDirection = new Vector3(value.Get<Vector2>().x, _myRB.velocity.y, value.Get<Vector2>().y);
-            _toRotation = Quaternion.LookRotation(new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y), Vector3.up);
+            Vector3 forwardProj = (Vector3.Project(Vector3.forward, Camera.main.transform.forward)+ Camera.main.transform.forward).normalized * value.Get<Vector2>().y;
+            Vector3 rightProj = (Vector3.Project(Vector3.right, Camera.main.transform.right)+ Camera.main.transform.right).normalized * value.Get<Vector2>().x;
+
+            _moveDirection = forwardProj + rightProj;
+            _moveDirection.y = _myRB.velocity.y;
+
+            _toRotation = Quaternion.LookRotation(new Vector3(_moveDirection.x, 0, _moveDirection.z));
 
             if(_currentSpeed == speed)
             {

@@ -7,7 +7,7 @@ public class RandomIAWalk : MonoBehaviour
 {
     public float moveRadius;
     public NavMeshAgent NavAgent;
-    public float targetHeigth;
+    public float targetRadius;
     public Vector2 randomWaitTime;
     [Space]
     public Animator anim;
@@ -23,8 +23,9 @@ public class RandomIAWalk : MonoBehaviour
     }
     void Update()
     {
+        if (NavAgent.enabled == false) return;
         NavAgent.SetDestination(randomposition);
-        if(Vector3.Distance(NavAgent.transform.position, randomposition) < targetHeigth && _isWalking)
+        if ((Vector3.Distance(NavAgent.transform.position, randomposition) < targetRadius) && _isWalking)
         {
             NavAgent.speed = 0;
             _isWalking = false;
@@ -76,17 +77,18 @@ public class RandomIAWalk : MonoBehaviour
         if ((Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
             || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity))&& hit.transform.CompareTag("ground"))
         {
-            position.y = hit.transform.position.y + targetHeigth;
+            position.y = hit.point.y;
+            _isWalking = true;
+            return position;
         }
-        _isWalking = true;
-        return position;
+        return Vector3.zero;
     }
 
     void OnDrawGizmos()
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(randomposition, 1);
+        Gizmos.DrawSphere(randomposition, targetRadius);
     }
 
     IEnumerator WaitToWalkAgain()
