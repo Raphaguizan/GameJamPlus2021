@@ -16,6 +16,7 @@ public class FarmerController : Singleton<FarmerController>
     private float initalSpeed;
     private List<Transform> points;
     private int pathIndex = 0;
+    private int pathIndexCtrl = 1;
     private RandomSound rantSound;
     private FarmerActions _curretAction;
     // Start is called before the first frame update
@@ -26,8 +27,11 @@ public class FarmerController : Singleton<FarmerController>
         initalSpeed = agent.speed;
         for (int i = 0; i < farmerPoints.childCount; i++)
         {
-            points.Add(farmerPoints.GetChild(i));
+            Transform p = farmerPoints.GetChild(i);
+            points.Add(p);
+            p.gameObject.SetActive(false);
         }
+        points[0].gameObject.SetActive(true);
         rantSound = GetComponent<RandomSound>();
     }
 
@@ -43,47 +47,45 @@ public class FarmerController : Singleton<FarmerController>
         var point = other.GetComponent<FarmerPathPoint>();
         if (point)
         {
-            if(point.action == FarmerActions.NONE)
-            {
-                NextPoint();
-            }
-
             if(point.action == FarmerActions.WC)
             {
-                _curretAction = FarmerActions.WC;
-                MoveToggle("stop");
-                anim.SetBool("search", true);
                 NextPoint();
-                StartCoroutine(WaitSomeTime(10f, "search"));
+                StartCoroutine(MakeAction(FarmerActions.WC, 10f, "search"));
+            }
+            else
+            {
+                NextPoint();
             }
         }
     }
 
-    IEnumerator WaitSomeTime(float time, string animName)
+    IEnumerator MakeAction(FarmerActions fActions, float time, string animName)
     {
+        _curretAction = FarmerActions.WC;
+        MoveToggle("stop");
+        anim.SetBool(animName, true);
+
         yield return new WaitForSeconds(time);
+
         anim.SetBool(animName, false);
         MoveToggle("walk");
         _curretAction = FarmerActions.NONE;
     }
 
-
-
     private void NextPoint()
     {
-        if (pathIndex + 1 >= points.Count)
+        if (pathIndex + pathIndexCtrl >= points.Count || pathIndex + pathIndexCtrl < 0)
         {
-            pathIndex = 0;
+            pathIndexCtrl *= -1;
         }
-        else
-        {
-            pathIndex++;
-        }
+        points[pathIndex].gameObject.SetActive(false);
+        pathIndex += pathIndexCtrl;
+        points[pathIndex].gameObject.SetActive(true);
     }
 
-    public void MoveToggle(string b)
+    public void MoveToggle(string value)
     {
-        if (b.Equals("walk"))
+        if (value.Equals("walk"))
         {
             agent.speed = initalSpeed;
         }

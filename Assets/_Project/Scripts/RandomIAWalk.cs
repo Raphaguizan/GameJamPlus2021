@@ -24,15 +24,28 @@ public class RandomIAWalk : MonoBehaviour
     void Update()
     {
         if (NavAgent.enabled == false) return;
-        NavAgent.SetDestination(randomposition);
-        if ((Vector3.Distance(NavAgent.transform.position, randomposition) < targetRadius) && _isWalking)
+
+        if ((Vector3.Distance(NavAgent.transform.position, randomposition) <= targetRadius) && _isWalking)
         {
             NavAgent.speed = 0;
             _isWalking = false;
             StartCoroutine(WaitToWalkAgain());
         }
 
-        if(!_isWalking)
+        if (NavAgent.SetDestination(randomposition))
+        {
+            if (!NavAgent.hasPath)
+            {
+                randomposition = ChoosePoint();
+            }
+        }
+
+        WalkAnimation();
+    }
+
+    private void WalkAnimation()
+    {
+        if (!_isWalking)
         {
             anim.SetBool("Walk", false);
         }
@@ -73,6 +86,7 @@ public class RandomIAWalk : MonoBehaviour
     private Vector3 ChoosePoint()
     {
         Vector3 position = transform.position + Random.insideUnitSphere * moveRadius;
+        position.y = 100f;
         RaycastHit hit;
         if ((Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
             || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity))&& hit.transform.CompareTag("ground"))
