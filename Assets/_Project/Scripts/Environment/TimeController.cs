@@ -26,6 +26,7 @@ public class TimeController : MonoBehaviour
     {
         _isDay = true;
         RunTime = true;
+        StartCoroutine(ColorAdjustTimer(10f));
     }
 
     // Update is called once per frame
@@ -43,8 +44,16 @@ public class TimeController : MonoBehaviour
             _isDay = false;
             TimeChange?.Invoke();
         }
-        AdjustColors();
         RotateLightByTime();
+    }
+
+    IEnumerator ColorAdjustTimer(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            AdjustColors();
+        }
     }
 
     private void AdjustColors()
