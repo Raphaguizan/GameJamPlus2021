@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class InsideBuildingController : MonoBehaviour
 {
-    public List<GameObject> ObjectsToToggle;
+    public List<GameObject> Objectsinside;
+    public List<GameObject> ObjectsOutside;
 
-    private bool _controller = true;
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Chicken>() && _controller)
+        if (other.GetComponent<Chicken>())
         {
-            foreach(GameObject gO in ObjectsToToggle)
+            foreach(GameObject gO in Objectsinside)
             {
-                gO.SetActive(!gO.activeInHierarchy);
+                gO.SetActive(true);
             }
-            _controller = false;
+            foreach (GameObject gO in ObjectsOutside)
+            {
+                gO.SetActive(false);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        _controller = true;
+        if (other.GetComponent<Chicken>())
+        {
+            foreach (GameObject gO in Objectsinside)
+            {
+                gO.SetActive(false);
+            }
+            foreach (GameObject gO in ObjectsOutside)
+            {
+                gO.SetActive(true);
+            }
+        }
     }
 }
