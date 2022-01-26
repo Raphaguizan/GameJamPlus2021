@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 5932692237511380165}
   - component: {fileID: 8558825981831799151}
   - component: {fileID: 8379096737878283193}
+  - component: {fileID: 1572684522721155779}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Player
@@ -1251,6 +1252,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: b0ea2d5bc20892b4bac1dcc3b7764d56, type: 2}
   itemBaloon: {fileID: 4347189434859938350}
+--- !u!114 &1572684522721155779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072751161765134764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95588d3d6065624b82cd75ec03f80e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posAdjust: {x: 0.6, y: 0}
+  chiken: {fileID: 9071096079947809954}
 --- !u!1 &9072768291888476806
 GameObject:
   m_ObjectHideFlags: 0

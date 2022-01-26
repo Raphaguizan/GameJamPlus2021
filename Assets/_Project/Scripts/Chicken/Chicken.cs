@@ -103,10 +103,6 @@ public class Chicken : MonoBehaviour
         }else if(_isMoving){
             _currentStepCooldown -= Time.deltaTime;
         }
-
-        // movimenta a grama no shader
-        Shader.SetGlobalFloat("_obsx", transform.position.x);
-        Shader.SetGlobalFloat("_obsy", transform.position.z);
     }
 
     public void ToggleLantern()
