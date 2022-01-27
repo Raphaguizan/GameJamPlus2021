@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Util;
 
 [ExecuteInEditMode]
-public class TimeController : MonoBehaviour
+public class TimeController : Singleton<TimeController>
 {
     [Range(0f,24f)]
     public float time;
@@ -14,7 +15,7 @@ public class TimeController : MonoBehaviour
     public Transform mainLight;
 
 
-    public static bool _isDay;
+    public static bool IsDay;
     public static Action TimeChange;
     [SerializeField]
     private List<Material> materialsToAdjust;
@@ -24,8 +25,9 @@ public class TimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _isDay = true;
+        IsDay = true;
         RunTime = true;
+        TimeChange?.Invoke();
         StartCoroutine(ColorAdjustTimer(10f));
     }
 
@@ -34,14 +36,14 @@ public class TimeController : MonoBehaviour
     {
         if(RunTime)time += timeSpeed/10 * Time.deltaTime;
         if (time >= 24f) time = 0;
-        if(time >= 6 && time < 18)
+        if(time >= 6 && time < 18 && !IsDay)
         {
-            _isDay = true;
+            IsDay = true;
             TimeChange?.Invoke();
         }
-        else
+        else if((time < 6 || time >= 18) && IsDay)
         {
-            _isDay = false;
+            IsDay = false;
             TimeChange?.Invoke();
         }
         RotateLightByTime();

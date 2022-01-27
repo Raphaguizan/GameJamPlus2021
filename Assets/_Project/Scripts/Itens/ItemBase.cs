@@ -7,4 +7,5 @@ public class ItemBase : ScriptableObject
 {
     public int ID;
     public Sprite image;
+    public ItemType type = ItemType.Default; 
 }

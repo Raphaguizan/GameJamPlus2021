@@ -9,14 +9,11 @@ public class Chicken : MonoBehaviour
 {
     [SerializeField] float speed = 100f;
     [SerializeField] float runSpeed = 200f;
-    [Space]
-    [SerializeField] float rotationSpeed = 200f;
-    [Space]
-    [SerializeField] float jumpForce = 200f;
-    [Space]
-    public bool canMove = true;
-    [Space]
-    [SerializeField] RandomSound chickenSound;
+    [Space, SerializeField] float rotationSpeed = 200f;
+    [Space, SerializeField] float jumpForce = 4;
+    [SerializeField] float bootsJumpForce = 8;
+    [Space] public bool canMove = true;
+    [Space, SerializeField] RandomSound chickenSound;
     [SerializeField] RandomSound stepSound;
 
     Animator anim;
@@ -36,7 +33,10 @@ public class Chicken : MonoBehaviour
 
     [Header("hit")]
     public HitController chickenHit;
-    public bool hitenabled = false;
+    public bool hitEnabled = false;
+
+    [Header("Jump Boots")]
+    public bool bootsEnabled = false;
 
     private float _stepCooldown;
     private float _currentStepCooldown = 0;
@@ -107,7 +107,7 @@ public class Chicken : MonoBehaviour
 
     public void ToggleLantern()
     {
-        bool val = TimeController._isDay;
+        bool val = TimeController.IsDay;
         if(val)
             lantern.intensity = 0;
         else
@@ -228,13 +228,26 @@ public class Chicken : MonoBehaviour
 
     public void OnHit()
     {
-        if (!hitenabled) return;
+        if (!hitEnabled) return;
 
         anim.SetTrigger("MakeHit");
         if (chickenSound) chickenSound.PlayRandom();
 
         chickenHit.Hit();
     }
+
+    // Active PowerUps
+    public void ActiveHit()
+    {
+        hitEnabled = true;
+    } 
+    public void ActiveBoot()
+    {
+        bootsEnabled = true;
+        jumpForce = bootsJumpForce;
+    }
+    //--------------------------
+
 
     public void ChangeIsJump(bool val)
     {

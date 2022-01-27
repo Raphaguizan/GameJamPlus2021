@@ -6,7 +6,7 @@ public class AntennaConsumeItem : ConsumeItem
 {
     public override void CheckItem()
     {
-        if (!TimeController._isDay && ChickenBag.Instance.RemoveItem(item))
+        if (!TimeController.IsDay && ChickenBag.Instance.RemoveItem(item))
         {
             Event?.Invoke();
         }

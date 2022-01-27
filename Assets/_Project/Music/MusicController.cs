@@ -10,7 +10,7 @@ public class MusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(TimeController._isDay){
+        if(TimeController.IsDay){
             music.pitch = 1f;
         }else{
             music.pitch = 0.8f;

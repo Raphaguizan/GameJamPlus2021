@@ -1155,6 +1155,7 @@ MonoBehaviour:
   runSpeed: 200
   rotationSpeed: 650
   jumpForce: 4
+  bootsJumpForce: 6
   canMove: 1
   chickenSound: {fileID: 3801115215243153869}
   stepSound: {fileID: 568462454635219661}
@@ -1162,7 +1163,8 @@ MonoBehaviour:
   _walkStepCooldown: 0.25
   _runStepCooldown: 0.15
   chickenHit: {fileID: 8566886883228500187}
-  hitenabled: 1
+  hitEnabled: 0
+  bootsEnabled: 0
 --- !u!114 &6806412497196870545
 MonoBehaviour:
   m_ObjectHideFlags: 0
