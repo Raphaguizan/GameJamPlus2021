@@ -53,8 +53,8 @@ public class TimeController : Singleton<TimeController>
     {
         while (true)
         {
-            yield return new WaitForSeconds(delay);
             AdjustColors();
+            yield return new WaitForSeconds(delay);
         }
     }
 
