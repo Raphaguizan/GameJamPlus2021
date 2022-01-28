@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8639678814228382408}
   - component: {fileID: 3954077145421036524}
   - component: {fileID: 2322417617941651916}
+  - component: {fileID: 9068517256208620693}
   - component: {fileID: 509406946024461577}
   - component: {fileID: 7135758833406755920}
   m_Layer: 0
@@ -124,6 +125,18 @@ MonoBehaviour:
   agent: {fileID: 8639678814228382408}
   anim: {fileID: 8140348480509088688}
   chickenCooldown: 15
+--- !u!114 &9068517256208620693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140348480501833784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bd4c4782d7b64fa3c1eed2d49b53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &509406946024461577
 AudioSource:
   m_ObjectHideFlags: 0

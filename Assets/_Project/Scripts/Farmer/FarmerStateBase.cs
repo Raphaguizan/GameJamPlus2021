@@ -24,7 +24,7 @@ namespace Game.Farmer.StateMachine
     {
         public override void OnStateEnter(object o = null)
         {
-            //Debug.Log("Entrou no estado");
+            Debug.Log("Entrou no estado Walk");
         }
         public override void OnStateStay()
         {
@@ -32,7 +32,7 @@ namespace Game.Farmer.StateMachine
         }
         public override void OnStateExit()
         {
-            //Debug.Log("Saiu no estado");
+            Debug.Log("Saiu no estado Walk");
         }
     }
     public class FarmerStateWc : FarmerStateBase

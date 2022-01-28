@@ -16,7 +16,6 @@ namespace Game.Farmer.StateMachine
 
         private FarmerStateBase _currentState;
 
-
         #endregion
 
         #region states controller

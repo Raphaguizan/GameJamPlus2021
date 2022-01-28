@@ -26,7 +26,6 @@ namespace Game.Farmer
         void Start()
         {
             points = new List<Transform>();
-            FarmerStateMachine.Walk(this);
             initalSpeed = agent.speed;
             for (int i = 0; i < farmerPoints.childCount; i++)
             {
@@ -36,6 +35,7 @@ namespace Game.Farmer
             }
             points[0].gameObject.SetActive(true);
             rantSound = GetComponent<RandomSound>();
+            FarmerStateMachine.Walk(this);
         }
 
         // Update is called once per frame
