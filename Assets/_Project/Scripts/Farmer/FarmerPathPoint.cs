@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FarmerPathPoint : MonoBehaviour
+namespace Game.Farmer
 {
-    public FarmerActions action;
+    public class FarmerPathPoint : MonoBehaviour
+    {
+        public FarmerActions action;
+    }
+
 }
