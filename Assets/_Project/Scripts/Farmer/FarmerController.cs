@@ -48,7 +48,7 @@ namespace Game.Farmer
         private void OnTriggerEnter(Collider other)
         {
             var point = other.GetComponent<FarmerPathPoint>();
-            if (point)
+            if (point && other.CompareTag("PathPoint"))
             {
                 FarmerStateMachine.Instance.SwitchState(point.action, this);
             }

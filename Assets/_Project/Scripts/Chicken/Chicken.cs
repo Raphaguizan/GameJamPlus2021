@@ -261,11 +261,17 @@ public class Chicken : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        _CollisionObj = other;
+        if (!other.CompareTag("ground"))
+        {
+            _CollisionObj = other;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _CollisionObj = null;
+        if (!other.CompareTag("ground"))
+        {
+            _CollisionObj = null;
+        }
     }
 }
