@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: 9068517256208620693}
   - component: {fileID: 509406946024461577}
   - component: {fileID: 7135758833406755920}
+  - component: {fileID: 1835271459803939219}
+  - component: {fileID: 1571998151032120608}
+  - component: {fileID: 4780946916388163392}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -125,6 +128,9 @@ MonoBehaviour:
   agent: {fileID: 8639678814228382408}
   anim: {fileID: 8140348480509088688}
   chickenCooldown: 15
+  itemDrop: {fileID: 1571998151032120608}
+  pathIndex: 0
+  points: []
 --- !u!114 &9068517256208620693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9bd4c4782d7b64fa3c1eed2d49b53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentAction: 0
 --- !u!82 &509406946024461577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -278,3 +285,49 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5303a0a50c0aa22498a5da9f43a25505, type: 3}
   - {fileID: 8300000, guid: 0e76816d9c6703341b468179280611b7, type: 3}
   - {fileID: 8300000, guid: a094c6cb3e29e98458ba7587c85d6e90, type: 3}
+--- !u!114 &1835271459803939219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140348480501833784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.7837882, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1571998151032120608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140348480501833784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3101b2b19e78d4d900cc52ab6215c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 95643c46aae3f2042afb64f3649ef8c5, type: 2}
+  outline: {fileID: 1835271459803939219}
+  itemPrefab: {fileID: 6455113385414053492, guid: 7b94de7ed5860e14a9afa21789edd874, type: 3}
+--- !u!135 &4780946916388163392
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140348480501833784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.6019377
+  m_Center: {x: 0, y: 0.99807703, z: 0}

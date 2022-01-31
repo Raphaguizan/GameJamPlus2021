@@ -14,11 +14,16 @@ namespace Game.Farmer
         public Animator anim;
         [Space]
         public float chickenCooldown = 5f;
+        [Space]
+        public DropItem itemDrop;
+
+        [HideInInspector]
+        public int pathIndex = 0;
+        [HideInInspector]
+        public List<Transform> points;
 
         private bool canBeHited = true;
         private float initalSpeed;
-        private List<Transform> points;
-        private int pathIndex = 0;
         private int pathIndexCtrl = 1;
         private RandomSound rantSound;
         
@@ -35,49 +40,21 @@ namespace Game.Farmer
             }
             points[0].gameObject.SetActive(true);
             rantSound = GetComponent<RandomSound>();
+            ToggleItemDrop(false);
             FarmerStateMachine.Walk(this);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (agent.enabled == false) return;
-            agent.SetDestination(points[pathIndex].position);
-        }
 
         private void OnTriggerEnter(Collider other)
         {
             var point = other.GetComponent<FarmerPathPoint>();
             if (point)
             {
-                if (point.action == FarmerActions.WC)
-                {
-                    NextPoint();
-                    StartCoroutine(MakeAction(FarmerActions.WC, 10f, "search"));
-                }
-                else
-                {
-                    NextPoint();
-                }
+                FarmerStateMachine.Instance.SwitchState(point.action, this);
             }
         }
 
-        IEnumerator MakeAction(FarmerActions fActions, float time, string animName)
-        {
-            FarmerStateMachine.WC(this);
-            //_curretAction = FarmerActions.WC;
-            MoveToggle(false);
-            anim.SetBool(animName, true);
-
-            yield return new WaitForSeconds(time);
-
-            anim.SetBool(animName, false);
-            MoveToggle(true);
-            FarmerStateMachine.Walk(this);
-            //_curretAction = FarmerActions.WALK;
-        }
-
-        private void NextPoint()
+        public void NextPoint()
         {
             if (pathIndex + pathIndexCtrl >= points.Count || pathIndex + pathIndexCtrl < 0)
             {
@@ -86,6 +63,11 @@ namespace Game.Farmer
             points[pathIndex].gameObject.SetActive(false);
             pathIndex += pathIndexCtrl;
             points[pathIndex].gameObject.SetActive(true);
+        }
+
+        public void ToggleItemDrop(bool val)
+        {
+            itemDrop.enabled = val;
         }
 
         public void MoveToggle(string value)
@@ -105,6 +87,11 @@ namespace Game.Farmer
                 MoveToggle("walk");
             else
                 MoveToggle("stop");
+        }
+
+        public void ChangeCanbiHited(bool val)
+        {
+            canBeHited = val;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -136,11 +123,7 @@ namespace Game.Farmer
 
         public void Kill()
         {
-            anim.SetTrigger("die");
-            canBeHited = false;
-            agent.enabled = false;
-            var collider = GetComponent<Collider>();
-            if (collider) collider.enabled = false;
+            FarmerStateMachine.Die(this);
         }
     }
 }

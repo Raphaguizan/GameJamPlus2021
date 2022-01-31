@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Game.Farmer.StateMachine
 {
-    public class FarmerStateBase
+    public class FarmerStateBase 
     {
-        public virtual void OnStateEnter(object o = null)
+        protected FarmerController myFarmer;
+        public virtual void OnStateEnter(FarmerController o)
         {
             //Debug.Log("Entrou no estado");
         }
@@ -22,67 +23,67 @@ namespace Game.Farmer.StateMachine
 
     public class FarmerStateWalk : FarmerStateBase
     {
-        public override void OnStateEnter(object o = null)
+        public override void OnStateEnter(FarmerController o)
         {
-            Debug.Log("Entrou no estado Walk");
+            if (o == null) return;
+            myFarmer = o;
+            o.NextPoint();
+            myFarmer.MoveToggle(true);
         }
         public override void OnStateStay()
         {
-            //Debug.Log("Est� no estado");
+            if (myFarmer.agent.enabled == false) return;
+            myFarmer.agent.SetDestination(myFarmer.points[myFarmer.pathIndex].position);
         }
         public override void OnStateExit()
         {
-            Debug.Log("Saiu no estado Walk");
+            myFarmer.MoveToggle(false);
         }
     }
     public class FarmerStateWc : FarmerStateBase
     {
-        public override void OnStateEnter(object o = null)
+        public override void OnStateEnter(FarmerController o)
         {
-            //Debug.Log("Entrou no estado");
-        }
-        public override void OnStateStay()
-        {
-            //Debug.Log("Est� no estado");
+            myFarmer = o;
+            myFarmer.anim.SetBool("search", true);
+            FarmerStateMachine.ActiveAutoStateChange(10f, FarmerActions.WALK, myFarmer);
         }
         public override void OnStateExit()
         {
-            //Debug.Log("Saiu no estado");
-        }
-    }
-    public class FarmerStateYell : FarmerStateBase
-    {
-        public override void OnStateEnter(object o = null)
-        {
-            //Debug.Log("Entrou no estado");
-        }
-        public override void OnStateStay()
-        {
-            //Debug.Log("Est� no estado");
-        }
-        public override void OnStateExit()
-        {
-            //Debug.Log("Saiu no estado");
+            myFarmer.anim.SetBool("search", false);
         }
     }
     public class FarmerStateWell : FarmerStateBase
     {
-        public override void OnStateEnter(object o = null)
+        public override void OnStateEnter(FarmerController o)
         {
-            //Debug.Log("Entrou no estado");
-        }
-        public override void OnStateStay()
-        {
-            //Debug.Log("Est� no estado");
+            myFarmer = o;
+            myFarmer.anim.SetBool("search", true);
+            myFarmer.ToggleItemDrop(true);
+            FarmerStateMachine.ActiveAutoStateChange(10f, FarmerActions.WALK, myFarmer);
         }
         public override void OnStateExit()
         {
-            //Debug.Log("Saiu no estado");
+            myFarmer.anim.SetBool("search", false);
+            myFarmer.ToggleItemDrop(false);
         }
     }
     public class FarmerStateFarm : FarmerStateBase
     {
-        public override void OnStateEnter(object o = null)
+        public override void OnStateEnter(FarmerController o)
+        {
+            myFarmer = o;
+            myFarmer.anim.SetBool("search", true);
+            FarmerStateMachine.ActiveAutoStateChange(10f, FarmerActions.WALK, myFarmer);
+        }
+        public override void OnStateExit()
+        {
+            myFarmer.anim.SetBool("search", false);
+        }
+    }
+    public class FarmerStateTalk : FarmerStateBase
+    {
+        public override void OnStateEnter(FarmerController o)
         {
             //Debug.Log("Entrou no estado");
         }
@@ -95,19 +96,15 @@ namespace Game.Farmer.StateMachine
             //Debug.Log("Saiu no estado");
         }
     }
-    public class FarmerStateTalk : FarmerStateBase
+    public class FarmerStateDie : FarmerStateBase
     {
-        public override void OnStateEnter(object o = null)
+        public override void OnStateEnter(FarmerController o)
         {
-            //Debug.Log("Entrou no estado");
-        }
-        public override void OnStateStay()
-        {
-            //Debug.Log("Est� no estado");
-        }
-        public override void OnStateExit()
-        {
-            //Debug.Log("Saiu no estado");
+            o.anim.SetTrigger("die");
+            o.ChangeCanbiHited(false);
+            o.agent.enabled = false;
+            var collider = o.GetComponent<Collider>();
+            if (collider) collider.enabled = false;
         }
     }
 }
