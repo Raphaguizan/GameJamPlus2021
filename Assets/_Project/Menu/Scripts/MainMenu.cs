@@ -13,6 +13,7 @@ public class MainMenu : Singleton<MainMenu>
     [SerializeField] GameObject optionsCanvas;
     [SerializeField] GameObject creditsCanvas;
     [SerializeField] TextMeshProUGUI statistics;
+    [SerializeField] Animator optionsAnim;
    
     public void MouseEnter(int button)
     {
@@ -46,6 +47,16 @@ public class MainMenu : Singleton<MainMenu>
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void OpenControls()
+    {
+        optionsAnim.SetTrigger("OpenControls");
+    }
+
+    public void CloseControls()
+    {
+        optionsAnim.SetTrigger("CloseControls");
     }
 
     public void SetStatistics(int scapesFound)
