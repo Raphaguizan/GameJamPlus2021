@@ -676,7 +676,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 95643c46aae3f2042afb64f3649ef8c5, type: 2}
   outline: {fileID: 8527556634155576021}
-  outlineWidth: 2
   Event:
     m_PersistentCalls:
       m_Calls:
@@ -2097,6 +2096,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 686eba2943196e24795e7f48551c306d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 686eba2943196e24795e7f48551c306d, type: 3}
+      propertyPath: m_TagString
+      value: interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686eba2943196e24795e7f48551c306d, type: 3}

@@ -33,7 +33,7 @@ public class Chicken : MonoBehaviour
 
     [Header("hit")]
     public HitController chickenHit;
-    public bool hitEnabled = false;
+    public bool HitEnabled => chickenHit.gameObject.activeInHierarchy;
 
     [Header("Jump Boots")]
     public bool bootsEnabled = false;
@@ -61,6 +61,7 @@ public class Chicken : MonoBehaviour
         _isMoving = false;
         _isJumping = false;
         _currentSpeed = speed;
+        chickenHit.gameObject.SetActive(false);
 
         StartCoroutine(RandomAnimations());
     }
@@ -228,7 +229,7 @@ public class Chicken : MonoBehaviour
 
     public void OnHit()
     {
-        if (!hitEnabled) return;
+        if (!HitEnabled) return;
 
         anim.SetTrigger("MakeHit");
         if (chickenSound) chickenSound.PlayRandom();
@@ -239,8 +240,8 @@ public class Chicken : MonoBehaviour
     // Active PowerUps
     public void ActiveHit()
     {
-        hitEnabled = true;
-    } 
+        chickenHit.gameObject.SetActive(true);
+    }
     public void ActiveBoot()
     {
         bootsEnabled = true;
@@ -261,7 +262,7 @@ public class Chicken : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.CompareTag("ground"))
+        if (other.CompareTag("interactable"))
         {
             _CollisionObj = other;
         }
@@ -269,7 +270,7 @@ public class Chicken : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("ground"))
+        if (other.CompareTag("interactable"))
         {
             _CollisionObj = null;
         }

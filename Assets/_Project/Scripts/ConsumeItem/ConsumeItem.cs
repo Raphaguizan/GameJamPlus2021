@@ -7,25 +7,27 @@ public class ConsumeItem : MonoBehaviour
 {
     public ItemBase item;
     public Outline outline;
-    public float outlineWidth = 2f;
     public UnityEvent Event;
 
+    private float outline_initial_size = 2f;
     protected void Start()
     {
+        outline_initial_size = outline.OutlineWidth;
         outline.OutlineWidth = 0f;
     }
-    protected void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         var player = other.gameObject.GetComponent<Chicken>();
-        if (player)
+        if (player && other.CompareTag("Player"))
         {
-            outline.OutlineWidth = outlineWidth;
+            outline.OutlineWidth = outline_initial_size;
         }
     }
-    protected void OnTriggerExit(Collider other)
+
+    private void OnTriggerExit(Collider other)
     {
         var player = other.gameObject.GetComponent<Chicken>();
-        if (player)
+        if (player && other.CompareTag("Player"))
         {
             outline.OutlineWidth = 0f;
         }

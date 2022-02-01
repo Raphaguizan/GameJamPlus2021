@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8603941115682944970}
   m_Layer: 0
   m_Name: 'Satellite antenna '
-  m_TagString: Untagged
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 4bbe5c5e298403c498cfc211ced41297, type: 2}
   outline: {fileID: 5041233456613781050}
-  outlineWidth: 2
   Event:
     m_PersistentCalls:
       m_Calls: []
