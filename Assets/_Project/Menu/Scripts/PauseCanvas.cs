@@ -5,13 +5,30 @@ using UnityEngine;
 public class PauseCanvas : MonoBehaviour
 {
     [SerializeField] Animator chickenMenu;
+    bool controlsImageIsOn = false;
 
     public void CloseMenu()
     {
+        if(controlsImageIsOn)
+        {
+            CloseControls();
+            
+        }
         this.GetComponent<Animator>().SetTrigger("Close");
        
     }
 
+    public void OpenControls()
+    {
+        controlsImageIsOn = true;
+        this.GetComponent<Animator>().SetTrigger("OpenControls");
+    }
+
+    public void CloseControls()
+    {
+        controlsImageIsOn = false;
+        this.GetComponent<Animator>().SetTrigger("CloseControls");
+    }
     public void CallChicken()
     {
         chickenMenu.SetBool("Hit", true);
