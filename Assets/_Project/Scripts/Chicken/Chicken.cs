@@ -125,7 +125,7 @@ public class Chicken : MonoBehaviour
     }
     public void OnMove(InputValue value)
     {
-        if (value.Get<Vector2>() != Vector2.zero && canMove)
+        if (value.Get<Vector2>() != Vector2.zero && canMove && !GameManager.onPause)
         {
             _isMoving = true;
             Vector3 forwardProj = (Vector3.Project(Vector3.forward, Camera.main.transform.forward)+ Camera.main.transform.forward).normalized * value.Get<Vector2>().y;
@@ -206,7 +206,7 @@ public class Chicken : MonoBehaviour
 
     public void OnJump()
     {
-        if (!_isJumping && canMove)
+        if (!_isJumping && canMove && !GameManager.onPause)
         {
             if (chickenSound) chickenSound.PlayRandom();
             anim.SetTrigger("Jump");
@@ -217,14 +217,6 @@ public class Chicken : MonoBehaviour
     public void OnMenu()
     {
         GameManager.Instance.TogglePause();
-        if (GameManager.onPause)
-        {
-            canMove = false;
-        }
-        else
-        {
-            canMove = true;
-        }
     }
 
     public void OnHit()
