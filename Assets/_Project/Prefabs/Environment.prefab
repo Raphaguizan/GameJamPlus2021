@@ -116,7 +116,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8757597441898311813}
-  m_LocalRotation: {x: 0.7972531, y: 0.10289229, z: -0.14131205, w: 0.5777817}
+  m_LocalRotation: {x: 0.7733962, y: 0.10839909, z: -0.13712277, w: 0.6093483}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b13826525de274da7e5b3694e64514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 13.208626
-  RunTime: 1
+  time: 12.901744
+  RunTime: 0
   iluminationColor:
     serializedVersion: 2
     key0: {r: 0.28235295, g: 0.44705883, b: 0.42352942, a: 1}
@@ -212,6 +212,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bfec3632b8ddeac47bb49059f5b0c2b9, type: 2}
   - {fileID: 2100000, guid: d547080fd180fba4ba2813717eaf50bb, type: 2}
   - {fileID: 2100000, guid: 37189b2c9338e9249aa80526ae8f48d5, type: 2}
+  - {fileID: 2100000, guid: 382e2b1b7fbf94945963320a17603c7c, type: 2}
+  - {fileID: 2100000, guid: e41f42f5e81b018479b0091156c9ecc6, type: 2}
   terrain: {fileID: 0}
 --- !u!1 &8757597442497641922
 GameObject:
