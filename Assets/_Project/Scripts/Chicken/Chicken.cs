@@ -32,10 +32,12 @@ public class Chicken : MonoBehaviour
     public float _runStepCooldown = 0.15f;
 
     [Header("hit")]
+    public ShowTutorial hitTutorial;
     public HitController chickenHit;
     public bool HitEnabled => chickenHit.gameObject.activeInHierarchy;
 
     [Header("Jump Boots")]
+    public ShowTutorial bootsTutorial;
     public bool bootsEnabled = false;
 
     private float _stepCooldown;
@@ -232,10 +234,12 @@ public class Chicken : MonoBehaviour
     // Active PowerUps
     public void ActiveHit()
     {
+        if(hitTutorial)hitTutorial.Show();
         chickenHit.gameObject.SetActive(true);
     }
     public void ActiveBoot()
     {
+        if(bootsTutorial)bootsTutorial.Show();
         bootsEnabled = true;
         jumpForce = bootsJumpForce;
     }
@@ -252,6 +256,12 @@ public class Chicken : MonoBehaviour
         canMove = val;
     }
 
+
+    public void ResetInteractiveCollider()
+    {
+        _CollisionObj = null;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("interactable"))
@@ -264,7 +274,7 @@ public class Chicken : MonoBehaviour
     {
         if (other.CompareTag("interactable"))
         {
-            _CollisionObj = null;
+            ResetInteractiveCollider();
         }
     }
 }

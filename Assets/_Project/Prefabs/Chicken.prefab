@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5c01dd626fff44189c29133a156cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rbHitForce: 20
 --- !u!65 &1258614135839043684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -292,7 +293,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -301,7 +302,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 22
+  MaxDistance: 17.958614
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -366,7 +367,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -388,7 +389,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -397,7 +398,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 17.958614
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -462,7 +463,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1154,15 +1155,17 @@ MonoBehaviour:
   speed: 100
   runSpeed: 200
   rotationSpeed: 650
-  jumpForce: 4
-  bootsJumpForce: 6
+  jumpForce: 3
+  bootsJumpForce: 5
   canMove: 1
   chickenSound: {fileID: 3801115215243153869}
   stepSound: {fileID: 568462454635219661}
   lantern: {fileID: 5660805536555202587}
   _walkStepCooldown: 0.25
   _runStepCooldown: 0.15
+  hitTutorial: {fileID: 0}
   chickenHit: {fileID: 8566886883228500187}
+  bootsTutorial: {fileID: 0}
   bootsEnabled: 0
 --- !u!114 &6806412497196870545
 MonoBehaviour:
@@ -1855,8 +1858,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9074737313756401696}
-  m_LocalRotation: {x: 0.50000006, y: -0.50000006, z: -0.49999997, w: 0.49999997}
-  m_LocalPosition: {x: 0.054115757, y: -0.00000000378634, z: -0.0155746825}
+  m_LocalRotation: {x: 0.44259477, y: -0.44259477, z: -0.55146164, w: 0.55146164}
+  m_LocalPosition: {x: 0.054115757, y: -0.0000000024691464, z: -0.04570856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9071096079947809954}

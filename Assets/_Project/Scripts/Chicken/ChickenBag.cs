@@ -22,8 +22,10 @@ public class ChickenBag : Singleton<ChickenBag>
 
     public void AddItem(ItemBase item)
     {
-        if (item.type == ItemType.Boot) _chicken.ActiveBoot();
-        else if (item.type == ItemType.Karate) _chicken.ActiveHit();
+        if (item.type == ItemType.Boot)
+        {
+            _chicken.ActiveBoot();
+        }
         else if (itemList.itens.Count < MAX_ITEM)
         {
             itemList.itens.Add(item);
