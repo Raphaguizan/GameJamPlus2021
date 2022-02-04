@@ -16,6 +16,7 @@ public class ShowTutorial : MonoBehaviour
 
     public void Show()
     {
+        TutorialScreensCtrl.CleanScreens();
         _toShow.SetActive(true);
         StartCoroutine(Showing());
     }
