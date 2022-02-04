@@ -53,7 +53,7 @@ public class TimeController : Singleton<TimeController>
     {
         while (true)
         {
-            AdjustColors();
+            if(RunTime)AdjustColors();
             yield return new WaitForSeconds(delay);
         }
     }
