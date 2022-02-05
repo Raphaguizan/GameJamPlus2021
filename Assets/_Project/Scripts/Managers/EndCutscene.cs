@@ -6,7 +6,7 @@ public class EndCutscene : MonoBehaviour
 {
    public void End()
     {
-        GameManager.Instance.MainMenu(true, 0);
+        GameManager.Instance.MainMenu(true, 1);
     }
 
     public void EndFirstCutscene()

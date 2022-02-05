@@ -22,6 +22,15 @@ public class TimeController : Singleton<TimeController>
 
     [SerializeField]
     private Terrain terrain;
+
+    private void OnEnable()
+    {
+        GameManager.UnloadScene += ResetColors;
+    }
+    private void OnDisable()
+    {
+        GameManager.UnloadScene -= ResetColors;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +74,13 @@ public class TimeController : Singleton<TimeController>
         foreach (Material m in materialsToAdjust) m.color = currentColor;
         terrain.terrainData.RefreshPrototypes();
     }
+
+    private void ResetColors()
+    {
+        foreach (Material m in materialsToAdjust) m.color = Color.white;
+        terrain.terrainData.RefreshPrototypes();
+    }
+
     private void OnValidate()
     {
         RotateLightByTime();

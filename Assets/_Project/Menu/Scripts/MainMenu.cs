@@ -61,7 +61,7 @@ public class MainMenu : Singleton<MainMenu>
 
     public void SetStatistics(int scapesFound)
     {
-        statistics.text = "Escapes found: " + scapesFound + "/10";
+        statistics.text = "Escapes found: " + scapesFound + "/3";
     }
 
     IEnumerator ChangingScene()

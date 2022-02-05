@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public static bool onPause = false;
+    public static Action UnloadScene;
     public void TogglePause()
     {
         onPause = !onPause;
@@ -34,8 +36,10 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(GoingToGame());
     }
 
-    public void MainMenu(bool endingCutscene = false, int cutScene = 0)
+    public void MainMenu(bool endingCutscene = false, int cutScene = 1)
     {
+        UnloadScene?.Invoke();
+
         if (!endingCutscene)
             TogglePause();
 
@@ -48,8 +52,6 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
 
         SceneManager.LoadScene("MainMenu");
-
-
     }
 
     IEnumerator GoingToFinalScene(int scene)
@@ -67,6 +69,12 @@ public class GameManager : Singleton<GameManager>
         {
             Statistics.Instance.UpdateStatistics("Fall");
             SceneManager.LoadScene("Fall");
+        }
+        if (scene == 3)
+        {
+            Statistics.Instance.UpdateStatistics("UFO");
+            MainMenu(true);
+            //SceneManager.LoadScene("UFO");
         }
     }
 

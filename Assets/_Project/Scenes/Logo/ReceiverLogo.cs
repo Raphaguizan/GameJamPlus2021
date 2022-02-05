@@ -6,6 +6,6 @@ public class ReceiverLogo : MonoBehaviour
 {
     public void ChangeScene()
     {
-        GameManager.Instance.MainMenu(true, 0);
+        GameManager.Instance.MainMenu(true, 1);
     }
 }

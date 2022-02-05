@@ -317,7 +317,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 51a33d9a49ffe854ea69fc1dd6326faa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -995,8 +995,8 @@ MonoBehaviour:
     life of those two forever now, operation Chicken Vengeance begins. She needs
     to escape at any cost.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 470deac4630535040a772020a6776d99, type: 2}
-  m_sharedMaterial: {fileID: 3811269293638436042, guid: 470deac4630535040a772020a6776d99, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 345a1e1115afb0648b4922436c407049, type: 2}
+  m_sharedMaterial: {fileID: 8677358914675409568, guid: 345a1e1115afb0648b4922436c407049, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1195,8 +1195,8 @@ MonoBehaviour:
 
     (Evil laughs in Chicken language)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 470deac4630535040a772020a6776d99, type: 2}
-  m_sharedMaterial: {fileID: 3811269293638436042, guid: 470deac4630535040a772020a6776d99, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 345a1e1115afb0648b4922436c407049, type: 2}
+  m_sharedMaterial: {fileID: 8677358914675409568, guid: 345a1e1115afb0648b4922436c407049, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1492,7 +1492,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 177311e57aca5714c9e9d0f7e08d501f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2040,8 +2040,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: " bah, bah, bah, bah, bah. \r\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 470deac4630535040a772020a6776d99, type: 2}
-  m_sharedMaterial: {fileID: 3811269293638436042, guid: 470deac4630535040a772020a6776d99, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 345a1e1115afb0648b4922436c407049, type: 2}
+  m_sharedMaterial: {fileID: 8677358914675409568, guid: 345a1e1115afb0648b4922436c407049, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2215,7 +2215,9 @@ MonoBehaviour:
   lantern: {fileID: 2567982107887540548}
   _walkStepCooldown: 0.25
   _runStepCooldown: 0.15
+  hitTutorial: {fileID: 0}
   chickenHit: {fileID: 0}
+  bootsTutorial: {fileID: 0}
   bootsEnabled: 0
 --- !u!1 &1207953315471636799
 GameObject:
