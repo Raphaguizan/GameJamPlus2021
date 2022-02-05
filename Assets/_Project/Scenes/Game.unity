@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.41950652, g: 0.44865066, b: 0.45429862, a: 1}
+  m_IndirectSpecularColor: {r: 0.420301, g: 0.44951272, b: 0.4551754, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25078,6 +25078,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f7bfeffe85a729488cb81810f812906, type: 3}
   m_PrefabInstance: {fileID: 757873767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &758784983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8757597441692678236, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
+  m_PrefabInstance: {fileID: 1360157270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &758784984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758784983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UsePipelineSettings: 1
 --- !u!1 &764124281
 GameObject:
   m_ObjectHideFlags: 0
@@ -37182,15 +37200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.27396604
+      value: 0.273966
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.010224979
+      value: 0.010224978
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0029129176
+      value: -0.0029129179
       objectReference: {fileID: 0}
     - target: {fileID: 2666915012084913381, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_CustomBlends
@@ -45897,21 +45915,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8757597441692678235, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757597441692678235, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 5.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757597441692678235, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5283874
+      value: 0.5143681
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.830815
+      value: 0.8395682
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.09426941
+      value: 0.09182068
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.14719513
+      value: -0.14872715
       objectReference: {fileID: 0}
     - target: {fileID: 8757597442496928806, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_RootOrder
@@ -45959,7 +45989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8757597442496928807, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: time
-      value: 12.902344
+      value: 13.8
       objectReference: {fileID: 0}
     - target: {fileID: 8757597442496928807, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: terrain
