@@ -13,6 +13,7 @@ public class LightSpeed : MonoBehaviour
     [SerializeField] float speed2;
     [SerializeField] float minValue;
     float factor = 0;
+    [SerializeField] TrailRenderer tr;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,5 +80,11 @@ public class LightSpeed : MonoBehaviour
     {
         stoped = true;
 
+    }
+
+    public void EnableTrailRenderer()
+    {
+
+        tr.enabled = true;
     }
 }
