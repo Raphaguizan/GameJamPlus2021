@@ -74,7 +74,7 @@ public class GameManager : Singleton<GameManager>
         {
             Statistics.Instance.UpdateStatistics("UFO");
             MainMenu(true);
-            //SceneManager.LoadScene("UFO");
+         //   SceneManager.LoadScene("UFO");
         }
     }
 
