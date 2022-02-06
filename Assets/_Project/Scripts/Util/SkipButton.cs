@@ -10,21 +10,15 @@ public class SkipButton : MonoBehaviour
     [SerializeField] PlayableDirector timeline;
     bool pressing;
     float time;
-    Image image;
+    [SerializeField] Image image;
     bool skiped = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        image = this.GetComponent<Image>();
-    }
-
-    // Update is called once per frame
+  
     void Update()
     {
         if (pressing)
         {
             time += Time.deltaTime;
-            image.fillAmount = 1 - (time / waitTime);
+            image.fillAmount = (time / waitTime);
             if (time >= waitTime && !skiped)
             {
                 Debug.Log("skipping");
@@ -46,6 +40,6 @@ public class SkipButton : MonoBehaviour
     {
         pressing = false;
         time = 0;
-        image.fillAmount = 1;
+        image.fillAmount = 0;
     }
 }
