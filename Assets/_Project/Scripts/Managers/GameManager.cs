@@ -58,7 +58,7 @@ public class GameManager : Singleton<GameManager>
     {
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
-
+        UnloadScene?.Invoke();
         if (scene == 1)
         {
             Statistics.Instance.UpdateStatistics("City");
@@ -73,8 +73,8 @@ public class GameManager : Singleton<GameManager>
         if (scene == 3)
         {
             Statistics.Instance.UpdateStatistics("UFO");
-            MainMenu(true);
-         //   SceneManager.LoadScene("UFO");
+            //MainMenu(true);
+            SceneManager.LoadScene("UFO");
         }
     }
 
