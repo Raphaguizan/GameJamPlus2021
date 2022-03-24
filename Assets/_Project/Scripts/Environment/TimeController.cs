@@ -18,7 +18,7 @@ public class TimeController : Singleton<TimeController>
     public static bool IsDay;
     public static Action TimeChange;
     [SerializeField]
-    private List<Material> materialsToAdjust;
+    private List<Material> materialsToAdjust = new List<Material>();
 
     [SerializeField]
     private Terrain terrain;
@@ -29,6 +29,7 @@ public class TimeController : Singleton<TimeController>
     }
     private void OnDisable()
     {
+        RunTime = false;
         GameManager.UnloadScene -= ResetColors;
     }
     // Start is called before the first frame update
@@ -37,7 +38,26 @@ public class TimeController : Singleton<TimeController>
         IsDay = true;
         RunTime = true;
         TimeChange?.Invoke();
+        InitializeMaterials();
         StartCoroutine(ColorAdjustTimer(10f));
+    }
+
+    private void InitializeMaterials()
+    {
+        Renderer[] arrend = (Renderer[])Resources.FindObjectsOfTypeAll(typeof(Renderer));
+        foreach (Renderer rend in arrend)
+        {
+            foreach (Material mat in rend.sharedMaterials)
+            {
+                if (!materialsToAdjust.Contains(mat))
+                {
+                    if (mat != null && mat.shader != null && mat.shader.name != null && mat.shader.name == "Unlit/ToonShader")
+                    {
+                        materialsToAdjust.Add(mat);
+                    }
+                }
+            }
+        }
     }
 
     // Update is called once per frame
