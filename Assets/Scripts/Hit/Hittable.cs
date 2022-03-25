@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Chicken;
 
 [RequireComponent(typeof(Outline), typeof(Animator))]
 public class Hittable : MonoBehaviour

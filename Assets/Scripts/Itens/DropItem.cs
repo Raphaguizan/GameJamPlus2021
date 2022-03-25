@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropItem : ItemCollectableBase
+public class DropItem : CollectItemBase
 {
     public GameObject itemPrefab;
     public Collider triggerSphere;

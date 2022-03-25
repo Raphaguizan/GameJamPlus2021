@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Game.Util;
+using Game.Chicken;
 
 public class DialogManager : Singleton<DialogManager>
 {

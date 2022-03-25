@@ -3,53 +3,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
+using Game.Item;
 
-[RequireComponent(typeof(Chicken))]
-public class ChickenBag : Singleton<ChickenBag>
+namespace Game.Chicken
 {
-    public SO_Bag itemList;
-    public static Action UpdateInterface;
-    public RequiredItemUI itemBaloon;
-
-    private readonly int MAX_ITEM = 6;
-    private Chicken _chicken;
-
-    private void Start()
+    public class ChickenBag : Singleton<ChickenBag>
     {
-        itemList.itens = new List<ItemBase>();
-        _chicken = GetComponent<Chicken>();
-    }
+        public SO_Bag itemList;
+        public static Action UpdateInterface;
+        public RequiredItemUI itemBaloon;
 
-    public void AddItem(ItemBase item)
-    {
-        if (item.type == ItemType.Boot)
-        {
-            _chicken.ActiveBoot();
-        }
-        else if (itemList.itens.Count < MAX_ITEM)
-        {
-            itemList.itens.Add(item);
-            UpdateInterface?.Invoke();
-        }
-        else
-        {
-            Debug.Log("n�o h� espa�o para mais itens");
-        }
-    }
+        private readonly int MAX_ITEM = 6;
 
-    public bool RemoveItem(ItemBase item)
-    {
-        bool removed = itemList.itens.Remove(item);
-        if (removed)
+        private void Start()
         {
-            UpdateInterface?.Invoke();
+            itemList.itens = new List<ItemCollectable>();
         }
-        else
+
+        public void AddItem(ItemBase item)
         {
-            itemBaloon.ShowBaloon(item.image);
-            Debug.Log("você nâo tem esse item");
+            //FIX colocar código mais genérico
+            if (item is IUseItem)
+            {
+                Debug.Log("Item Usável");
+                (item as IUseItem).Use();
+            }
+            else if (itemList.itens.Count < MAX_ITEM)
+            {
+                Debug.Log("Item Colecionavel");
+                itemList.itens.Add((item as ItemCollectable));
+                UpdateInterface?.Invoke();
+            }
+            else
+            {
+                Debug.Log("n�o h� espa�o para mais itens");
+            }
         }
-        return removed;
+
+        public bool RemoveItem(ItemCollectable item)
+        {
+            bool removed = itemList.itens.Remove(item);
+            if (removed)
+            {
+                UpdateInterface?.Invoke();
+            }
+            else
+            {
+                itemBaloon.ShowBaloon(item.image);
+                Debug.Log("você nâo tem esse item");
+            }
+            return removed;
+        }
+
     }
 
 }

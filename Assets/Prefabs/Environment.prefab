@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757597441692678234}
   - component: {fileID: 8757597441692678235}
+  - component: {fileID: 758784984}
   m_Layer: 0
   m_Name: Directional day Light
   m_TagString: Untagged
@@ -53,8 +54,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
-    m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_Bias: 5.27
+    m_NormalBias: 3
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -93,6 +94,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &758784984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757597441692678236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UsePipelineSettings: 1
 --- !u!1 &8757597441898311813
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8757597441898311813}
-  m_LocalRotation: {x: 0.78256774, y: 0.10633635, z: -0.13873386, w: 0.59752256}
+  m_LocalRotation: {x: 0.5787292, y: 0.14100362, z: -0.10278259, w: 0.7966344}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -169,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b13826525de274da7e5b3694e64514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 13.017808
-  RunTime: 1
+  time: 10.8
+  RunTime: 0
   iluminationColor:
     serializedVersion: 2
     key0: {r: 0.28235295, g: 0.44705883, b: 0.42352942, a: 1}
@@ -202,19 +216,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   timeSpeed: 0.2
   mainLight: {fileID: 8757597441898311812}
-  materialsToAdjust:
-  - {fileID: 2100000, guid: 76b6f4ba718d22a488e9dd42850c49fd, type: 2}
-  - {fileID: 2100000, guid: 51721036a51aecf4a8e8e7ea7bd6a055, type: 2}
-  - {fileID: 2100000, guid: 9cd912fb1aa45144f996a779383f127d, type: 2}
-  - {fileID: 2100000, guid: 5425e03d45f77ff4db6b7452dc4df8dc, type: 2}
-  - {fileID: 2100000, guid: f36e649c2c482e2498ba537bb07ae67b, type: 2}
-  - {fileID: 2100000, guid: 583ef2df7771e894faefb5451c175247, type: 2}
-  - {fileID: 2100000, guid: bfec3632b8ddeac47bb49059f5b0c2b9, type: 2}
-  - {fileID: 2100000, guid: d547080fd180fba4ba2813717eaf50bb, type: 2}
-  - {fileID: 2100000, guid: 37189b2c9338e9249aa80526ae8f48d5, type: 2}
-  - {fileID: 2100000, guid: 382e2b1b7fbf94945963320a17603c7c, type: 2}
-  - {fileID: 2100000, guid: e41f42f5e81b018479b0091156c9ecc6, type: 2}
-  terrain: {fileID: 0}
 --- !u!1 &8757597442497641922
 GameObject:
   m_ObjectHideFlags: 0

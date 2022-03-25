@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Item;
+using Game.Chicken;
 
-public class ItemCollectableBase : MonoBehaviour
+public class CollectItemBase : MonoBehaviour
 {
     public ItemBase item;
     public Outline outline;

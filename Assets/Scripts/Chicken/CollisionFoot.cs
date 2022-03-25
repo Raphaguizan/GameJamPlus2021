@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionFoot : MonoBehaviour
+namespace Game.Chicken.foot
 {
-    public Chicken galinha;
-    public float heightLimit;
-
-    private void Update()
+    public class CollisionFoot : MonoBehaviour
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
+        public Chicken galinha;
+        public float heightLimit;
+
+        private void Update()
         {
-            if(hit.distance < heightLimit)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
             {
-                galinha.ChangeIsJump(false);
+                if (hit.distance < heightLimit)
+                {
+                    galinha.ChangeIsJump(false);
+                }
+                else
+                {
+                    galinha.ChangeIsJump(true);
+                }
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * heightLimit, Color.red);
             }
-            else
-            {
-                galinha.ChangeIsJump(true);
-            }
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * heightLimit, Color.red);
         }
     }
 }
+

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Game.Item;
+using Game.Chicken;
 
 public class ConsumeItem : MonoBehaviour
 {
-    public ItemBase item;
+    public ItemCollectable item;
     public Outline outline;
     public UnityEvent Event;
 
@@ -36,7 +38,7 @@ public class ConsumeItem : MonoBehaviour
     public virtual void CheckItem() 
     {
         Debug.Log("cheking Item");
-        if (!item)
+        if (item == null)
         {
             Event?.Invoke();
             return;

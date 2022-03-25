@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Farmer;
+using Game.Chicken;
 
 public class RockFinal : MonoBehaviour
 {
