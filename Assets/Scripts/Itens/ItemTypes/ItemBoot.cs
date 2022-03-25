@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Chicken;
 
 namespace Game.Item
 {
@@ -9,7 +10,7 @@ namespace Game.Item
     {
         public void Use()
         {
-            Debug.Log("Usou a bota");
+            ChickenPowerUps.ActiveBoots();
         }
     }
 }

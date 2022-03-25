@@ -12,13 +12,16 @@ namespace Game.Chicken
         [SerializeField] float speed = 100f;
         [SerializeField] float runSpeed = 200f;
         [Space, SerializeField] float rotationSpeed = 200f;
-        [Space, SerializeField] float jumpForce = 4;
-        [SerializeField] float bootsJumpForce = 8;
+        [Space, SerializeField] float jumpForce = 3f;
         [Space] public bool canMove = true;
         [Space, SerializeField] RandomSound chickenSound;
         [SerializeField] RandomSound stepSound;
 
+        [Header("PowerUps")]
+        public ChickenPowerUps powerUps;
+
         Animator anim;
+        [Space]
         public Light lantern;
 
 
@@ -32,15 +35,6 @@ namespace Game.Chicken
         private float _randomTime;
         public float _walkStepCooldown = 0.25f;
         public float _runStepCooldown = 0.15f;
-
-        [Header("hit")]
-        public ShowTutorial hitTutorial;
-        public HitController chickenHit;
-        public bool HitEnabled => chickenHit.gameObject.activeInHierarchy;
-
-        [Header("Jump Boots")]
-        public ShowTutorial bootsTutorial;
-        public bool bootsEnabled = false;
 
         private float _stepCooldown;
         private float _currentStepCooldown = 0;
@@ -65,7 +59,6 @@ namespace Game.Chicken
             _isMoving = false;
             _isJumping = false;
             _currentSpeed = speed;
-            chickenHit.gameObject.SetActive(false);
 
             StartCoroutine(RandomAnimations());
         }
@@ -228,32 +221,23 @@ namespace Game.Chicken
 
         public void OnHit()
         {
-            if (!HitEnabled) return;
+            if (!powerUps.HitEnabled) return;
 
             anim.SetTrigger("MakeHit");
             if (chickenSound) chickenSound.PlayRandom();
 
-            chickenHit.Hit();
+            powerUps.chickenHit.Hit();
         }
-
-        // Active PowerUps
-        public void ActiveHit()
-        {
-            if (hitTutorial) hitTutorial.Show();
-            chickenHit.gameObject.SetActive(true);
-        }
-        public void ActiveBoot()
-        {
-            if (bootsTutorial) bootsTutorial.Show();
-            bootsEnabled = true;
-            jumpForce = bootsJumpForce;
-        }
-        //--------------------------
 
 
         public void ChangeIsJump(bool val)
         {
             _isJumping = val;
+        }
+
+        public float JumpForce { 
+            get => jumpForce; 
+            set => jumpForce = value; 
         }
 
         public void ChangeCanMove(bool val)

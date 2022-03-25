@@ -1,3 +1,4 @@
+using Game.Chicken;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Game.Item
     {
         public void Use()
         {
-            Debug.Log("Usou Zamazana");
+            ChickenPowerUps.ActiveParachute();
         }
     }
 }
