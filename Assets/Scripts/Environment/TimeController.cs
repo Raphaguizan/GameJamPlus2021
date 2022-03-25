@@ -17,11 +17,6 @@ public class TimeController : Singleton<TimeController>
 
     public static bool IsDay;
     public static Action TimeChange;
-    [SerializeField]
-    private List<Material> materialsToAdjust = new List<Material>();
-
-    [SerializeField]
-    private Terrain terrain;
 
     private void OnEnable()
     {
@@ -38,26 +33,6 @@ public class TimeController : Singleton<TimeController>
         IsDay = true;
         RunTime = true;
         TimeChange?.Invoke();
-        InitializeMaterials();
-        StartCoroutine(ColorAdjustTimer(10f));
-    }
-
-    private void InitializeMaterials()
-    {
-        Renderer[] arrend = (Renderer[])Resources.FindObjectsOfTypeAll(typeof(Renderer));
-        foreach (Renderer rend in arrend)
-        {
-            foreach (Material mat in rend.sharedMaterials)
-            {
-                if (!materialsToAdjust.Contains(mat))
-                {
-                    if (mat != null && mat.shader != null && mat.shader.name != null && mat.shader.name == "Unlit/ToonShader")
-                    {
-                        materialsToAdjust.Add(mat);
-                    }
-                }
-            }
-        }
     }
 
     // Update is called once per frame
@@ -76,43 +51,30 @@ public class TimeController : Singleton<TimeController>
             TimeChange?.Invoke();
         }
         RotateLightByTime();
+        AdjustColors();
     }
 
-    IEnumerator ColorAdjustTimer(float delay)
-    {
-        while (true)
-        {
-            if(RunTime)AdjustColors();
-            yield return new WaitForSeconds(delay);
-        }
-    }
 
     private void AdjustColors()
     {
-        float value = Remap(time, 0, 24, 0, 1);
+        float value = time.Remap(0, 24, 0, 1);
         Color currentColor = iluminationColor.Evaluate(value);
-        foreach (Material m in materialsToAdjust) m.color = currentColor;
-        terrain.terrainData.RefreshPrototypes();
+        Shader.SetGlobalColor("_LightColor", currentColor);
     }
 
     private void ResetColors()
     {
-        foreach (Material m in materialsToAdjust) m.color = Color.white;
-        terrain.terrainData.RefreshPrototypes();
+        Shader.SetGlobalColor("_LightColor", Color.white);
     }
 
     private void OnValidate()
     {
         RotateLightByTime();
+        AdjustColors();
     }
 
     private void RotateLightByTime()
     {
-        mainLight.localEulerAngles = new Vector3(Remap(time, 6, 18, 0, 180), 20, mainLight.localRotation.z);
-    }
-
-    float Remap(float s, float a1, float a2, float b1, float b2)
-    {
-        return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
+        mainLight.localEulerAngles = new Vector3(time.Remap(6, 18, 0, 180), 20, mainLight.localRotation.z);
     }
 }

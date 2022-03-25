@@ -28,6 +28,7 @@ Shader "Unlit/ToonShader"
     half4 _Color;
     sampler2D _MainTex;
     float4 _MainTex_ST;
+    uniform half4 _LightColor;
    
     struct appdata
     {
@@ -51,7 +52,7 @@ Shader "Unlit/ToonShader"
    
     half4 frag (v2f i) : SV_Target
     {
-        return tex2D(_MainTex, i.uv) * _Color;
+        return tex2D(_MainTex, i.uv) * _Color * _LightColor;
     }
     struct v2fShadow {
         V2F_SHADOW_CASTER;
