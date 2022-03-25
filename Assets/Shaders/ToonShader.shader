@@ -3,8 +3,9 @@ Shader "Unlit/ToonShader"
     Properties
     {
         [HDR]_Color("Albedo", Color) = (1,1,1,1)
+
         _MainTex ("Texture", 2D) = "white" {}
-       
+
         [Header(Stencil)]
         _Stencil ("Stencil ID [0;255]", Float) = 0
         _ReadMask ("ReadMask [0;255]", Int) = 255
@@ -52,6 +53,10 @@ Shader "Unlit/ToonShader"
    
     half4 frag (v2f i) : SV_Target
     {
+        if (all(_LightColor == float4(0, 0, 0, 0)))
+        {
+          _LightColor = float4(1, 1, 1, 1);
+        }
         return tex2D(_MainTex, i.uv) * _Color * _LightColor;
     }
     struct v2fShadow {

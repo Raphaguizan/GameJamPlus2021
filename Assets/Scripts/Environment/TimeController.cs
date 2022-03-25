@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
 
-[ExecuteInEditMode]
 public class TimeController : Singleton<TimeController>
 {
     [Range(0f,24f)]
@@ -53,8 +52,6 @@ public class TimeController : Singleton<TimeController>
         RotateLightByTime();
         AdjustColors();
     }
-
-
     private void AdjustColors()
     {
         float value = time.Remap(0, 24, 0, 1);
