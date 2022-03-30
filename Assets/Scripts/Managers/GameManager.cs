@@ -85,7 +85,15 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
 
         SceneManager.LoadScene("Game");
+    }
 
+    public void LoadAditiveScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
 
+    public void UnloadAditiveScene(string sceneName)
+    {
+        SceneManager.UnloadSceneAsync(sceneName);
     }
 }
