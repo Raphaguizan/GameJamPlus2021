@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BeachWater
+  m_Shader: {fileID: -6465566751694194690, guid: 7cded39f0b845f342b2d74eb1c9e3269, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_16cec24d4ebb4629b5281cd786c9f567:
+        m_Texture: {fileID: 2800000, guid: 47d0f48b91c1a9941bef8dfa7fdeb984, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_1e8c4dcec5bc4b6ca4b3e8a4bcad6e19:
+        m_Texture: {fileID: 2800000, guid: 316f1aa457117d241b372fa4b6f96436, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_42a8be8a0bca44528d397c441587f56e: 0.035
+    - Vector1_58f3d95dee6c495b87b8573824d880b2: 3
+    - Vector1_75c4a98d0b0c45d6940459617ac4cb50: 0.4
+    - Vector1_ceebd9b1b7ab458cbbec0a93fd3eaa2d: 0.564
+    - Vector1_d912bf75419d480396133b1ef89725d1: 0.9
+    m_Colors:
+    - Color_11a51c77c3ec403da41ead27c17bc870: {r: 0.9386792, g: 1, b: 0.99884653, a: 0.7882353}
+    - Color_c338c775deee4ae6a1241d63fef17b9c: {r: 0.19241722, g: 0.85412997, b: 0.8679245, a: 0.56078434}
+  m_BuildTextureStacks: []
