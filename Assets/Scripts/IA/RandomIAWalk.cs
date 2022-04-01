@@ -1,114 +1,123 @@
+using Game.NPC.StateMachine;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RandomIAWalk : MonoBehaviour
+namespace Game.NPC
 {
-    public float moveRadius;
-    public NavMeshAgent NavAgent;
-    public float targetRadius;
-    public Vector2 randomWaitTime;
-    [Space]
-    public Animator anim;
-
-    private bool _isWalking = false;
-    Vector3 randomposition;
-    float initialSpeed;
-    private void Start()
+    public class RandomIAWalk : MonoBehaviour
     {
-        randomposition = ChoosePoint();
-        initialSpeed = NavAgent.speed;
-        StartCoroutine(RandomAnimations());
-    }
-    void Update()
-    {
-        if (NavAgent.enabled == false) return;
+        public NPCStateMachine stateMachine;
+        public NavMeshAgent NavAgent;
 
-        if ((Vector3.Distance(NavAgent.transform.position, randomposition) <= targetRadius) && _isWalking)
+        [Header("Target Params")]
+        public bool drawDebugPosition = false;
+        public float moveRadius;
+        public float targetRadius;
+        public Vector2 randomWaitTime;
+        [Space]
+        public Animator anim;
+
+        Vector3 randomposition;
+        float initialSpeed;
+        private void Start()
         {
-            NavAgent.speed = 0;
-            _isWalking = false;
+            initialSpeed = NavAgent.speed;
+            StartCoroutine(RandomAnimations());
+            stateMachine.Walk(this);
+        }
+
+        public void VerifyGoal()
+        {
+            if (NavAgent.enabled == false) return;
+
+            if ((Vector3.Distance(NavAgent.transform.position, randomposition) <= targetRadius))
+            {
+                stateMachine.Wait(this);
+            }
+        }
+
+        public void Move()
+        {
+            if (NavAgent.enabled == false) return;
+
+            if (!NavAgent.SetDestination(randomposition) || !NavAgent.hasPath)
+            {
+                stateMachine.Walk(this);
+            }
+        }
+
+        public void ToggleMove(bool isOn)
+        {
+            if (NavAgent.enabled == false) return;
+            if (isOn)
+                NavAgent.speed = initialSpeed;
+            else
+                NavAgent.speed = 0;
+            anim.SetBool("Walk", isOn);
+        }
+
+        IEnumerator RandomAnimations()
+        {
+            while (true)
+            {
+                if (stateMachine.currentAction == NPCActions.WAIT)
+                {
+                    float _randomTime = Random.Range(randomWaitTime.x, randomWaitTime.y / 2);
+                    yield return new WaitForSeconds(_randomTime);
+                    if (stateMachine.currentAction == NPCActions.WAIT)
+                    {
+                        float randomaux = Random.value;
+                        if (randomaux >= 0.5f)
+                        {
+                            anim.SetTrigger("Eat");
+                        }
+                        else
+                        {
+                            anim.SetTrigger("TurnHead");
+                        }
+                    }
+                }
+                else
+                {
+                    yield return null;
+                }
+            }
+        }
+
+        public void ChoosePoint()
+        {
+            Vector3 position = transform.position + Random.insideUnitSphere * moveRadius;
+            position.y = 100f;
+            RaycastHit hit;
+            if ((Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
+                || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity)) && hit.transform.CompareTag("ground"))
+            {
+                position.y = hit.point.y;
+
+                randomposition = position;
+                return;
+            }
+            randomposition = Vector3.zero;
+        }
+
+        void OnDrawGizmos()
+        {
+            if (!drawDebugPosition) return;
+            // Draw a yellow sphere at the transform's position
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(randomposition, targetRadius);
+        }
+
+        public void StartWaitTime()
+        {
             StartCoroutine(WaitToWalkAgain());
         }
 
-        if (NavAgent.SetDestination(randomposition))
+        IEnumerator WaitToWalkAgain()
         {
-            if (!NavAgent.hasPath)
-            {
-                randomposition = ChoosePoint();
-            }
+            yield return new WaitForSeconds(Random.Range(randomWaitTime.x, randomWaitTime.y));
+            stateMachine.Walk(this);
         }
-
-        WalkAnimation();
-    }
-
-    private void WalkAnimation()
-    {
-        if (!_isWalking)
-        {
-            anim.SetBool("Walk", false);
-        }
-        else
-        {
-            anim.SetBool("Walk", true);
-        }
-    }
-
-    IEnumerator RandomAnimations()
-    {
-        while (true)
-        {
-            if (!_isWalking)
-            {
-                float _randomTime = Random.Range(randomWaitTime.x, randomWaitTime.y/2);
-                yield return new WaitForSeconds(_randomTime);
-                if (!_isWalking)
-                {
-                    float randomaux = Random.value;
-                    if (randomaux >= 0.5f)
-                    {
-                        anim.SetTrigger("Eat");
-                    }
-                    else
-                    {
-                        anim.SetTrigger("TurnHead");
-                    }
-                }
-            }
-            else
-            {
-                yield return null;
-            }
-        }
-    }
-
-    private Vector3 ChoosePoint()
-    {
-        Vector3 position = transform.position + Random.insideUnitSphere * moveRadius;
-        position.y = 100f;
-        RaycastHit hit;
-        if ((Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
-            || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity))&& hit.transform.CompareTag("ground"))
-        {
-            position.y = hit.point.y;
-            _isWalking = true;
-            return position;
-        }
-        return Vector3.zero;
-    }
-
-    void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(randomposition, targetRadius);
-    }
-
-    IEnumerator WaitToWalkAgain()
-    {
-        yield return new WaitForSeconds(Random.Range(randomWaitTime.x, randomWaitTime.y));
-        randomposition = ChoosePoint();
-        NavAgent.speed = initialSpeed;
     }
 }
