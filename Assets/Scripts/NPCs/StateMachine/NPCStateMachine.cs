@@ -22,8 +22,10 @@ namespace Game.NPC.StateMachine
         private void Awake()
         {
             dictionaryState = new Dictionary<NPCActions, NPCStateBase>();
-            dictionaryState.Add(NPCActions.WALK, new FarmerStateWalk());
-            dictionaryState.Add(NPCActions.WAIT, new FarmerStateWait());
+            dictionaryState.Add(NPCActions.WALK, new NPCStateWalk());
+            dictionaryState.Add(NPCActions.WAIT, new NPCStateWait());
+            dictionaryState.Add(NPCActions.FOLLOW, new NPCStateFollow());
+            dictionaryState.Add(NPCActions.RUN, new NPCStateRun());
         }
 
         public void SwitchState(NPCActions state, RandomIAWalk o)
@@ -58,6 +60,14 @@ namespace Game.NPC.StateMachine
         public void Wait(RandomIAWalk ia)
         {
             SwitchState(NPCActions.WAIT, ia);
+        }
+        public void Follow(RandomIAWalk ia)
+        {
+            SwitchState(NPCActions.FOLLOW, ia);
+        }
+        public void Run(RandomIAWalk ia)
+        {
+            SwitchState(NPCActions.RUN, ia);
         }
         #endregion
     }

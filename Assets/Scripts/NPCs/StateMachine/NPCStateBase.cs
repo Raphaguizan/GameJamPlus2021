@@ -22,7 +22,7 @@ namespace Game.NPC.StateMachine
         }
     }
 
-    public class FarmerStateWalk : NPCStateBase
+    public class NPCStateWalk : NPCStateBase
     {
         public override void OnStateEnter(RandomIAWalk o)
         {
@@ -41,7 +41,7 @@ namespace Game.NPC.StateMachine
         }
     }
 
-    public class FarmerStateWait : NPCStateBase
+    public class NPCStateWait : NPCStateBase
     {
         public override void OnStateEnter(RandomIAWalk o)
         {
@@ -55,6 +55,44 @@ namespace Game.NPC.StateMachine
         public override void OnStateExit()
         {
             //Debug.Log("Saiu no estado");
+        }
+    }
+
+    public class NPCStateFollow : NPCStateBase
+    {
+        public override void OnStateEnter(RandomIAWalk o)
+        {
+            base.OnStateEnter(o);
+            myIA.ToggleMove(true);
+        }
+        public override void OnStateStay()
+        {
+            myIA.PlayerPosition(true);
+            myIA.Move();
+            myIA.VerifyGoal();
+        }
+        public override void OnStateExit()
+        {
+            myIA.ToggleMove(false);
+        }
+    }
+
+    public class NPCStateRun : NPCStateBase
+    {
+        public override void OnStateEnter(RandomIAWalk o)
+        {
+            base.OnStateEnter(o);
+            myIA.ToggleMove(true);
+        }
+        public override void OnStateStay()
+        {
+            myIA.PlayerPosition(false);
+            myIA.Move();
+            myIA.VerifyGoal();
+        }
+        public override void OnStateExit()
+        {
+            myIA.ToggleMove(false);
         }
     }
 }

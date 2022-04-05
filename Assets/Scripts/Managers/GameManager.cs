@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
 using UnityEngine.SceneManagement;
+using NaughtyAttributes;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -75,6 +76,12 @@ public class GameManager : Singleton<GameManager>
             Statistics.Instance.UpdateStatistics("UFO");
             //MainMenu(true);
             SceneManager.LoadScene("UFO");
+        }
+        if (scene == 4)
+        {
+            Statistics.Instance.UpdateStatistics("Beach");
+            //MainMenu(true);
+            SceneManager.LoadScene("Beach");
         }
     }
 

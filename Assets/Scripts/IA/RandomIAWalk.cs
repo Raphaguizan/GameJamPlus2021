@@ -2,6 +2,7 @@ using Game.NPC.StateMachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using NaughtyAttributes;
 
 namespace Game.NPC
 {
@@ -15,10 +16,13 @@ namespace Game.NPC
         public float moveRadius;
         public float targetRadius;
         public Vector2 randomWaitTime;
+        [Header("Follow Params")]
+        public Transform playerTrans;
+        public float distaceOfTarget = 1f;
         [Space]
         public Animator anim;
 
-        Vector3 randomposition;
+        Vector3 targetPosition;
         float initialSpeed;
         private void Start()
         {
@@ -31,8 +35,11 @@ namespace Game.NPC
         {
             if (NavAgent.enabled == false) return;
 
-            if ((Vector3.Distance(NavAgent.transform.position, randomposition) <= targetRadius))
+            if ((Vector3.Distance(NavAgent.transform.position, targetPosition) <= targetRadius + distaceOfTarget))
             {
+                if(stateMachine.currentAction == NPCActions.FOLLOW)
+                    GetTarget();
+
                 stateMachine.Wait(this);
             }
         }
@@ -41,7 +48,7 @@ namespace Game.NPC
         {
             if (NavAgent.enabled == false) return;
 
-            if (!NavAgent.SetDestination(randomposition) || !NavAgent.hasPath)
+            if (!NavAgent.SetDestination(targetPosition) || !NavAgent.hasPath)
             {
                 stateMachine.Walk(this);
             }
@@ -85,20 +92,39 @@ namespace Game.NPC
             }
         }
 
+        public void PlayerPosition(bool direction)
+        {
+            if (direction)
+            {
+                targetPosition = playerTrans.position;
+            }
+            else
+            {
+                targetPosition = AdjustToFloor(transform.position + (transform.position - playerTrans.position).normalized);
+            }
+        }
+
+        public void GetTarget()
+        {
+            Debug.Log("Pegou o player");
+        }
+
         public void ChoosePoint()
         {
             Vector3 position = transform.position + Random.insideUnitSphere * moveRadius;
-            position.y = 100f;
-            RaycastHit hit;
-            if ((Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
-                || Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity)) && hit.transform.CompareTag("ground"))
-            {
-                position.y = hit.point.y;
+            targetPosition = AdjustToFloor(position);
+        }
 
-                randomposition = position;
-                return;
+        private Vector3 AdjustToFloor(Vector3 point)
+        {
+            point.y = 100;
+            RaycastHit hit;
+            if ((Physics.Raycast(point, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity)
+                || Physics.Raycast(point, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity)) && hit.transform.CompareTag("ground"))
+            {
+                point.y = hit.point.y;
             }
-            randomposition = Vector3.zero;
+            return point;
         }
 
         void OnDrawGizmos()
@@ -106,7 +132,7 @@ namespace Game.NPC
             if (!drawDebugPosition) return;
             // Draw a yellow sphere at the transform's position
             Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(randomposition, targetRadius);
+            Gizmos.DrawSphere(targetPosition, targetRadius);
         }
 
         public void StartWaitTime()
@@ -117,7 +143,19 @@ namespace Game.NPC
         IEnumerator WaitToWalkAgain()
         {
             yield return new WaitForSeconds(Random.Range(randomWaitTime.x, randomWaitTime.y));
-            stateMachine.Walk(this);
+            if(stateMachine.currentAction == NPCActions.WAIT)
+                stateMachine.Walk(this);
+        }
+
+        [Button]
+        public void ChangeStateToFollow()
+        {
+            stateMachine.Follow(this);
+        }
+        [Button]
+        public void ChangeStateToRun()
+        {
+            stateMachine.Run(this);
         }
     }
 }

@@ -359,9 +359,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 3815285213935757979}
   NavAgent: {fileID: 6639908362928359406}
+  drawDebugPosition: 0
   moveRadius: 10
-  targetRadius: 1
+  targetRadius: 0.2
   randomWaitTime: {x: 1, y: 15}
+  playerTrans: {fileID: 0}
+  distaceOfTarget: 0.5
   anim: {fileID: 6733280092499429733}
 --- !u!114 &3815285213935757979
 MonoBehaviour:
