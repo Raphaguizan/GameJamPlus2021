@@ -2,21 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NaughtyAttributes;
 
 public class RequiredItemUI : MonoBehaviour
 {
-    public GameObject baloon;
+    public Animator baloon;
     public Image itemSprite;
     public float showTime = 2f;
+    [Header("Ballon ANimation")]
+    public bool baloonIsOpen = false;
+    public string openBool = "Open";
    
     private Canvas canvas;
     private Coroutine _currentCoroutine = null;
-    // Start is called before the first frame update
-    void Start()
-    {
-        baloon.SetActive(false);
-    }
 
+    #region TESTE
+    [Header("TESTE")]
+    public Sprite teste;
+
+    [Button]
+    public void ShowTeste()
+    {
+        ShowBaloon(teste);
+    }
+    #endregion
+
+    private void Start()
+    {
+        baloon.gameObject.SetActive(true);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -37,9 +51,9 @@ public class RequiredItemUI : MonoBehaviour
 
     IEnumerator BallonTime(Sprite img)
     {
-        baloon.SetActive(true);
+        if (baloon != null) baloon.SetBool(openBool, true);
         itemSprite.sprite = img;
-        yield return new WaitForSeconds(showTime);
-        baloon.SetActive(false);
+        yield return new WaitForSeconds(showTime + 1f);//(+1) a animação de abrir tem 1 seg
+        if (baloon != null) baloon.SetBool(openBool, false);
     }
 }
