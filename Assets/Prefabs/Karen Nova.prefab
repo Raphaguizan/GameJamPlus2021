@@ -1659,7 +1659,7 @@ GameObject:
   - component: {fileID: 8727060856496739160}
   m_Layer: 0
   m_Name: Karen Nova
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1799,10 +1799,10 @@ MonoBehaviour:
   rotationSpeed: 650
   jumpForce: 3
   canMove: 1
-  chickenSound: {fileID: 0}
-  stepSound: {fileID: 0}
-  powerUps: {fileID: 0}
-  lantern: {fileID: 0}
+  chickenSound: {fileID: 4130845773274336852}
+  stepSound: {fileID: 8307601043315888667}
+  powerUps: {fileID: 7996682424490560918}
+  lantern: {fileID: 3126413064203733067}
   _walkStepCooldown: 0.25
   _runStepCooldown: 0.15
 --- !u!114 &7996682424490560918
@@ -1818,11 +1818,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitTutorial: {fileID: 0}
-  chickenHit: {fileID: 0}
+  chickenHit: {fileID: 1238202283899069163}
   bootsTutorial: {fileID: 0}
   bootsJumpForce: 8
   bootsEnabled: 0
-  parachute: {fileID: 0}
+  parachute: {fileID: 2617776831286492851}
 --- !u!114 &3482560578528449025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: b0ea2d5bc20892b4bac1dcc3b7764d56, type: 2}
-  itemBaloon: {fileID: 0}
+  itemBaloon: {fileID: 2528622052912868794}
 --- !u!114 &8727060856496739160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posAdjust: {x: 0.6, y: 0}
-  chiken: {fileID: 0}
+  chiken: {fileID: 4658056562644920961}
 --- !u!1 &5730885709126276261
 GameObject:
   m_ObjectHideFlags: 0
