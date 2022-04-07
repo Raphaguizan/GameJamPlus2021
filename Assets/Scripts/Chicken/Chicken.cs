@@ -58,7 +58,7 @@ namespace Game.Chicken
 
             _isMoving = false;
             _isJumping = false;
-            _currentSpeed = speed;
+            _currentSpeed = runSpeed;
 
             StartCoroutine(RandomAnimations());
         }
@@ -159,11 +159,12 @@ namespace Game.Chicken
 
         public void OnRun(InputValue value)
         {
-            if (value.isPressed)
+            if (!value.isPressed)
             {
                 _currentSpeed = runSpeed;
                 if (_isMoving)
                 {
+                    anim.SetBool("Walk", false);
                     anim.SetBool("Run", true);
                 }
             }
@@ -172,6 +173,7 @@ namespace Game.Chicken
                 _currentSpeed = speed;
                 if (_isMoving)
                 {
+                    anim.SetBool("Walk", true);
                     anim.SetBool("Run", false);
                 }
             }
