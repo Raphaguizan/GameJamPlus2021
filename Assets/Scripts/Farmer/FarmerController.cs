@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.AI;
 using Game.Util;
 using Game.Farmer.StateMachine;
@@ -16,6 +17,11 @@ namespace Game.Farmer
         public float chickenCooldown = 5f;
         [Space]
         public DropItem itemDrop;
+        [Header("Death Event")]
+        [SerializeField]
+        private float EventDelay = 5f;
+        [SerializeField]
+        private UnityEvent OnKillCallback;
 
         [HideInInspector]
         public int pathIndex = 0;
@@ -123,7 +129,14 @@ namespace Game.Farmer
 
         public void Kill()
         {
+            StartCoroutine(KillEventDelay());
             FarmerStateMachine.Die(this);
+        }
+
+        IEnumerator KillEventDelay()
+        {
+            yield return new WaitForSeconds(EventDelay);
+            OnKillCallback.Invoke();
         }
     }
 }
