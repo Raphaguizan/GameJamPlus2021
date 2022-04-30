@@ -1082,6 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6e6b520c24058469a2b04824956703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentStateType: 0
 --- !u!114 &1828272261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,9 +1099,9 @@ MonoBehaviour:
   agent: {fileID: 1828272258}
   graphic: {fileID: 233761599}
   player: {fileID: 442507004}
+  finishPos: {fileID: 207707045}
   currentTarget: {fileID: 0}
   waitTime: 5
-  finishPos: {fileID: 207707045}
 --- !u!1 &2059746542
 GameObject:
   m_ObjectHideFlags: 0
