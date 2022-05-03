@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.StateMachine;
 
-namespace Game.MiniGame.FollowTherChick
+namespace Game.Minigame.FollowTheChick
 {
     public class ChickStateBase : StateBase
     {
@@ -26,12 +26,12 @@ namespace Game.MiniGame.FollowTherChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
-            chick.GetNextPoint();
+            if(chick.GetNextPoint())
+                chick.MoveChick();
         }
 
         public override void OnStateStay() 
         {
-            chick.MoveChick();
         }
 
         public override void OnStateExit() 

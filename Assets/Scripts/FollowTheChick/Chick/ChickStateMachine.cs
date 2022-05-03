@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.StateMachine;
 
-namespace Game.MiniGame.FollowTherChick
+namespace Game.Minigame.FollowTheChick
 {
     public class ChickStateMachine : StateMachineBase<ChickStateEnum>
     {

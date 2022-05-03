@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Game.MiniGame.FollowTherChick
+namespace Game.Minigame.FollowTheChick
 {
     [RequireComponent(typeof(ChickStateMachine))]
     public class ChickController : MonoBehaviour
@@ -35,29 +35,38 @@ namespace Game.MiniGame.FollowTherChick
             stateMachine.Begin(this);
         }
 
-        public void GetNextPoint()
+        public bool GetNextPoint()
         {
             if (currentTarget == finishPos)
             {
                 stateMachine.Finish(this);
+                return false;
             }
             currentTarget = matrix.NextPathPoint();
             if(currentTarget == null)
             {
                 currentTarget = finishPos;
             }
+            return true;
         }
 
         public void MoveChick()
         {
             if (!currentTarget) return;
-
+            StartCoroutine(MoveControl());
+        }
+        IEnumerator MoveControl()
+        {
+            yield return new WaitForEndOfFrame();
             agent.SetDestination(currentTarget.position);
-
-            if (agent.remainingDistance <= agent.radius)
+            yield return new WaitForEndOfFrame();
+            while (agent.remainingDistance > agent.radius)
             {
-                stateMachine.Wait(this);
+                yield return null;
             }
+            Debug.Log("MAKING Animation");
+            matrix.HitPoint(waitTime);
+            stateMachine.Wait(this);
         }
 
         public void Wait()
