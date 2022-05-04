@@ -64,7 +64,6 @@ namespace Game.Minigame.FollowTheChick
             {
                 yield return null;
             }
-            Debug.Log("MAKING Animation");
             matrix.HitPoint(waitTime);
             stateMachine.Wait(this);
         }

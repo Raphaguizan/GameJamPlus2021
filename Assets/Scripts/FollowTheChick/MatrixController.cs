@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using Game.Util.Matrix;
+using UnityEngine.SceneManagement;
 
 namespace Game.Minigame.FollowTheChick
 {
@@ -26,6 +27,7 @@ namespace Game.Minigame.FollowTheChick
         private StudentChicken currentPoint;
 
         private int pathIndex = 0;
+        private int playerPathIndex = 0;
         void Start()
         {
             path = new List<Vector2Int>();
@@ -44,6 +46,8 @@ namespace Game.Minigame.FollowTheChick
                     matrix.SetPos(i, j, aux);
                     aux.transform.position = transform.position + new Vector3(space * j, 0, space * i);
                     aux.gameObject.name = "(" + i + "," + j + ")";
+                    StudentChicken stdChicken = aux.gameObject.GetComponent<StudentChicken>();
+                    if (stdChicken) stdChicken.Initialize(this, new Vector2Int(i, j));
                 }
             }
         }
@@ -97,6 +101,32 @@ namespace Game.Minigame.FollowTheChick
                 currentPoint.MakeAnimation(timeDelay);
                 currentPoint = null;
             }
+        }
+
+        public void VerifyPlayerPath(Vector2Int pathPoint)
+        {
+            if(path[playerPathIndex] == pathPoint)
+            {
+                playerPathIndex++;
+            }
+            else
+            {
+                GameOver();
+            }
+
+            if (playerPathIndex == path.Count)
+            {
+                Win();
+            }
+        }
+        public void Win()
+        {
+            Debug.Log("Você venceu!!!!!!!!");
+        }
+        public void GameOver()
+        {
+            Debug.Log("Você perdeu!!!!!!!!!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

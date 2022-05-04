@@ -10,16 +10,27 @@ namespace Game.Minigame.FollowTheChick
     public class StudentChicken : MonoBehaviour
     {
         [SerializeField]
+        private Vector2Int myPosition;
+        private MatrixController myController;
+        [SerializeField]
         private string animationString = "Act";
 
         [SerializeField]
         private NavMeshObstacle navMeshObstacle;
         [SerializeField]
         private Animator animator;
+
+        private bool _collisionController = true;
         private void OnValidate()
         {
             if(navMeshObstacle == null)navMeshObstacle = GetComponent<NavMeshObstacle>();
             if(animator == null)animator = GetComponent<Animator>();
+        }
+
+        public void Initialize(MatrixController ctrl, Vector2Int pos)
+        {
+            myController = ctrl;
+            myPosition = pos;
         }
 
         #region Chick
@@ -46,10 +57,19 @@ namespace Game.Minigame.FollowTheChick
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.name);
+            if (other.gameObject.GetComponent<Chicken.Chicken>() && _collisionController)
+            {
+                _collisionController = false;
+                MakeAnimation();
+                myController.VerifyPlayerPath(myPosition);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
             if (other.gameObject.GetComponent<Chicken.Chicken>())
             {
-                MakeAnimation();
+                _collisionController = true;
             }
         }
 
