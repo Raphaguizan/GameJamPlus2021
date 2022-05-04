@@ -18,6 +18,7 @@ namespace Game.Minigame.FollowTheChick
             RegisterState(ChickStateEnum.WAIT, new ChickStateWait());
             RegisterState(ChickStateEnum.BEGIN, new ChickStateBegin());
             RegisterState(ChickStateEnum.FINISH, new ChickStateFinish());
+            RegisterState(ChickStateEnum.WIN, new ChickStateWin());
         }
         public void RegisterController(ChickController ctrl)
         {
@@ -43,6 +44,11 @@ namespace Game.Minigame.FollowTheChick
         {
             if (!controller) return;
             SwitchState(ChickStateEnum.FINISH, controller);
+        }
+        public void Win()
+        {
+            if (!controller) return;
+            SwitchState(ChickStateEnum.WIN, controller);
         }
     }
 }

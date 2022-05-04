@@ -15,6 +15,8 @@ namespace Game.Minigame.FollowTheChick
 
         [SerializeField]
         private Transform finishPos;
+        [SerializeField]
+        private Transform finishPos2;
         
         [Space]
         public Transform currentTarget;
@@ -44,6 +46,11 @@ namespace Game.Minigame.FollowTheChick
                 currentTarget = finishPos;
             }
             return true;
+        }
+
+        public void MoveToFinishPoint2()
+        {
+            agent.SetDestination(finishPos2.position);
         }
 
         public void MoveChick()

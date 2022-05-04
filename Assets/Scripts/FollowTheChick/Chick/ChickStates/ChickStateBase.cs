@@ -83,4 +83,21 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateExit() { }
 
     }
+    public class ChickStateWin : ChickStateBase
+    {
+
+        public override void OnStateEnter(params object[] o)
+        {
+            base.OnStateEnter(o);
+            chick.MoveToFinishPoint2();
+        }
+
+        public override void OnStateStay() 
+        {
+            
+        }
+
+        public override void OnStateExit() { }
+
+    }
 }

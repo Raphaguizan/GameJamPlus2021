@@ -11,6 +11,8 @@ namespace Game.Minigame.FollowTheChick
     {
         public Chicken.Chicken chicken;
         public ChickStateMachine chickStateMachine;
+        [Space, SerializeField]
+        private GameObject finalWall;
 
         [Header("Cameras"), SerializeField]
         public GameObject beginCamera;
@@ -33,6 +35,7 @@ namespace Game.Minigame.FollowTheChick
         private void Start()
         {
             DisableAllCameras();
+            FinalWallActive(true);
             stateMachine.Begin();
         }
 
@@ -47,6 +50,11 @@ namespace Game.Minigame.FollowTheChick
         public void StateWait(FollowTheChickStates state, float time)
         {
             stateMachine.SwitchState(state, time, this);
+        }
+
+        public void FinalWallActive(bool val)
+        {
+            finalWall.SetActive(val);
         }
 
         public void ReloadScene()

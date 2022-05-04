@@ -72,8 +72,10 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            manager.chicken.ChangeCanMove(true);
             manager.winCamera.SetActive(true);
-            manager.ReloadScene(5f);
+            manager.FinalWallActive(false);
+            manager.chickStateMachine.Win();
         }
         public override void OnStateExit()
         {

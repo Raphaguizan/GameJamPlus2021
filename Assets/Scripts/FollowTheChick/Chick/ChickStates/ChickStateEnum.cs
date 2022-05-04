@@ -9,6 +9,7 @@ namespace Game.Minigame.FollowTheChick
         RUN = 0,
         WAIT = 1,
         BEGIN = 2,
-        FINISH = 3
+        FINISH = 3,
+        WIN = 4,
     }
 }
