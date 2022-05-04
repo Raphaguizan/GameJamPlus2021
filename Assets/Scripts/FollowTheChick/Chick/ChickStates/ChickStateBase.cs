@@ -59,7 +59,6 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
-            chick.WaitBegin();
         }
 
         public override void OnStateStay() { }
@@ -73,6 +72,7 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            chick.matrix.CallKarenTurn();
         }
 
         public override void OnStateStay() 

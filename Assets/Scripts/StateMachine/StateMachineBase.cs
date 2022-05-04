@@ -58,6 +58,17 @@ namespace Game.StateMachine
             _currentState = dictionaryState[state];
             _currentState.OnStateEnter(o);
         }
+        public void SwitchState(T state, float time, params object[] o)
+        {
+            StartCoroutine(WaitToChangeState(state, time, o));
+        }
+
+        IEnumerator WaitToChangeState(T state, float time, params object[] o)
+        {
+            yield return new WaitForSeconds(time);
+            SwitchState(state, o);
+        }
+
         public bool IsCurrentState(T stateType)
         {
             return _currentStateType.Equals(stateType);

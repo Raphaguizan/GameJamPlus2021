@@ -15,6 +15,7 @@ namespace Game.Minigame.FollowTheChick
     }
     public class FollowTheChickStateMachine : StateMachineBase<FollowTheChickStates>
     {
+        private FollowTheChickManager manager;
         private void Awake()
         {
             Initialize();
@@ -28,24 +29,34 @@ namespace Game.Minigame.FollowTheChick
             RegisterState(FollowTheChickStates.WIN, new FollowTheChickStateWin());
         }
 
-        public void Begin(FollowTheChickManager manager)
+        public void RegisterManager(FollowTheChickManager manag)
         {
+            manager = manag;
+        }
+
+        public void Begin()
+        {
+            if (!manager) return;
             SwitchState(FollowTheChickStates.BEGIN, manager);
         }
-        public void ChickRun(FollowTheChickManager manager)
+        public void ChickRun()
         {
+            if (!manager) return;
             SwitchState(FollowTheChickStates.CHICK_RUN, manager);
         }
-        public void KarenTurn(FollowTheChickManager manager)
+        public void KarenTurn()
         {
+            if (!manager) return;
             SwitchState(FollowTheChickStates.KAREN_TURN, manager);
         }
-        public void Lose(FollowTheChickManager manager)
+        public void Lose()
         {
+            if (!manager) return;
             SwitchState(FollowTheChickStates.LOSE, manager);
         }
-        public void Win(FollowTheChickManager manager)
+        public void Win()
         {
+            if (!manager) return;
             SwitchState(FollowTheChickStates.WIN, manager);
         }
     }

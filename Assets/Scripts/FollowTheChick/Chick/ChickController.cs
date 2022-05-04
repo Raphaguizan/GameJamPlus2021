@@ -27,19 +27,15 @@ namespace Game.Minigame.FollowTheChick
         private void Awake()
         {
             stateMachine = GetComponent<ChickStateMachine>();
+            stateMachine.RegisterController(this);
             graphic.localRotation = Quaternion.identity;
-        }
-
-        private void Start()
-        {
-            stateMachine.Begin(this);
         }
 
         public bool GetNextPoint()
         {
             if (currentTarget == finishPos)
             {
-                stateMachine.Finish(this);
+                stateMachine.Finish();
                 return false;
             }
             currentTarget = matrix.NextPathPoint();
@@ -65,7 +61,7 @@ namespace Game.Minigame.FollowTheChick
                 yield return null;
             }
             matrix.HitPoint(waitTime);
-            stateMachine.Wait(this);
+            stateMachine.Wait();
         }
 
         public void Wait()
@@ -75,23 +71,12 @@ namespace Game.Minigame.FollowTheChick
         IEnumerator WaitCoroutine()
         {
             yield return new WaitForSeconds(waitTime);
-            stateMachine.Run(this);
+            stateMachine.Run();
         }
 
         public void LookAtPlayer()
         {
             graphic.LookAt(player, Vector3.up);
-        }
-
-        // provisório
-        public void WaitBegin()
-        {
-            StartCoroutine(WaitBeginCoroutine());
-        }
-        IEnumerator WaitBeginCoroutine()
-        {
-            yield return new WaitForSeconds(waitTime);
-            stateMachine.Run(this);
         }
     }
 }

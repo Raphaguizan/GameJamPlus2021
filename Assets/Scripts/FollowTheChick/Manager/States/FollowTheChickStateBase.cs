@@ -7,7 +7,7 @@ namespace Game.Minigame.FollowTheChick
 {
     public class FollowTheChickStateBase : StateBase
     {
-        FollowTheChickManager manager;
+        protected FollowTheChickManager manager;
         public override void OnStateEnter(params object[] o)
         {
             manager = (FollowTheChickManager)o[0];
@@ -18,6 +18,16 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            manager.chicken.ChangeCanMove(false);
+            manager.beginCamera.SetActive(true);
+            manager.chickStateMachine.Begin();
+
+            manager.StateWait(FollowTheChickStates.CHICK_RUN , 5f);
+        }
+        public override void OnStateExit()
+        {
+            manager.chickStateMachine.Run();
+            manager.beginCamera.SetActive(false);
         }
     }
     public class FollowTheChickStateChickRun : FollowTheChickStateBase
@@ -25,6 +35,11 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            manager.runCamera.SetActive(true);
+        }
+        public override void OnStateExit()
+        {
+            manager.runCamera.SetActive(false);
         }
     }
     public class FollowTheChickStateKarenTurn : FollowTheChickStateBase
@@ -32,6 +47,11 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            manager.chicken.ChangeCanMove(true);
+        }
+        public override void OnStateExit()
+        {
+            manager.chicken.ChangeCanMove(false);
         }
     }
     public class FollowTheChickStateLose : FollowTheChickStateBase
@@ -39,6 +59,12 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            manager.loseCamera.SetActive(true);
+            manager.ReloadScene(5f);
+        }
+        public override void OnStateExit()
+        {
+            manager.loseCamera.SetActive(false);
         }
     }
     public class FollowTheChickStateWin : FollowTheChickStateBase
@@ -46,6 +72,12 @@ namespace Game.Minigame.FollowTheChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            manager.winCamera.SetActive(true);
+            manager.ReloadScene(5f);
+        }
+        public override void OnStateExit()
+        {
+            manager.winCamera.SetActive(false);
         }
     }
 }

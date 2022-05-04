@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using Game.Util.Matrix;
-using UnityEngine.SceneManagement;
 
 namespace Game.Minigame.FollowTheChick
 {
     public class MatrixController : MonoBehaviour
     {
+        [SerializeField]
+        private FollowTheChickStateMachine manager;
         [SerializeField]
         private GameObject chickenPrefab;
         [SerializeField]
@@ -111,22 +112,18 @@ namespace Game.Minigame.FollowTheChick
             }
             else
             {
-                GameOver();
+                manager.Lose();
             }
 
             if (playerPathIndex == path.Count)
             {
-                Win();
+                manager.Win();
             }
         }
-        public void Win()
+
+        public void CallKarenTurn()
         {
-            Debug.Log("Você venceu!!!!!!!!");
-        }
-        public void GameOver()
-        {
-            Debug.Log("Você perdeu!!!!!!!!!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            manager.KarenTurn();
         }
     }
 }
