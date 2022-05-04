@@ -10,6 +10,10 @@ namespace Game.Minigame.FollowTheChick
         
         private void Awake()
         {
+            Initialize();
+        }
+        protected override void InitialRegister()
+        {
             RegisterState(ChickStateEnum.RUN, new ChickStateRun());
             RegisterState(ChickStateEnum.WAIT, new ChickStateWait());
             RegisterState(ChickStateEnum.BEGIN, new ChickStateBegin());
