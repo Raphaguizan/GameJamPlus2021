@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 758784986}
-  m_IndirectSpecularColor: {r: 0.516334, g: 0.46916187, b: 0.63138, a: 1}
+  m_IndirectSpecularColor: {r: 0.516334, g: 0.46916187, b: 0.63137996, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1313,7 +1313,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5668788170693331272, guid: 2b1325df85a89c44f8f64e8d68a93482, type: 3}
 --- !u!114 &30543280
@@ -3317,7 +3317,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 2009975190}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -3633,11 +3633,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Karen Nova
       objectReference: {fileID: 0}
+    - target: {fileID: 7547709915174024591, guid: 636a4c4bc316bc440875ca667d9967f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 636a4c4bc316bc440875ca667d9967f3, type: 3}
 --- !u!4 &109283338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4658056562644920961, guid: 636a4c4bc316bc440875ca667d9967f3, type: 3}
+  m_PrefabInstance: {fileID: 109283337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &109283339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3926970683083453052, guid: 636a4c4bc316bc440875ca667d9967f3, type: 3}
+  m_PrefabInstance: {fileID: 109283337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109283340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c57a9f172f154a42a20c8eb3341cbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &109283340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5471712396635598907, guid: 636a4c4bc316bc440875ca667d9967f3, type: 3}
   m_PrefabInstance: {fileID: 109283337}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &109848281 stripped
@@ -4482,7 +4502,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 83430157}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -4714,7 +4734,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 5961873}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -31058,7 +31078,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 595337611}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -38613,6 +38633,10 @@ PrefabInstance:
       value: 0.40029937
       objectReference: {fileID: 0}
     - target: {fileID: 2322417617941651916, guid: ccdf53ad8cc69d9418dea3711ec0db47, type: 3}
+      propertyPath: EventDelay
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322417617941651916, guid: ccdf53ad8cc69d9418dea3711ec0db47, type: 3}
       propertyPath: farmerPoints
       value: 
       objectReference: {fileID: 347449621}
@@ -38642,7 +38666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2322417617941651916, guid: ccdf53ad8cc69d9418dea3711ec0db47, type: 3}
       propertyPath: OnKillCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2322417617941651916, guid: ccdf53ad8cc69d9418dea3711ec0db47, type: 3}
       propertyPath: OnKillCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -38808,7 +38832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9616806
+      value: 0.96168065
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -38816,11 +38840,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.010226156
+      value: 0.010224451
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433323, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0029132534
+      value: -0.0029127672
       objectReference: {fileID: 0}
     - target: {fileID: 2666915012084913381, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_CustomBlends
@@ -39740,6 +39764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -40395,7 +40420,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 1995309021}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -44172,7 +44197,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 1998389644}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -59866,7 +59891,7 @@ GameObject:
   - component: {fileID: 1710955701}
   - component: {fileID: 1710955700}
   m_Layer: 0
-  m_Name: CM vcam2
+  m_Name: CM RockFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59879,14 +59904,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710955698}
-  m_LocalRotation: {x: -0.0055743866, y: 0.7994221, z: 0.0074185156, w: 0.6006982}
-  m_LocalPosition: {x: -12.717279, y: -0.748312, z: 3.2297497}
+  m_LocalRotation: {x: -0.006180484, y: 0.84725815, z: 0.006921689, w: 0.5311004}
+  m_LocalPosition: {x: -10.05, y: -3.8, z: 3.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1439372249}
   m_Father: {fileID: 1896580339}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.048, y: 115.839, z: -0.179}
 --- !u!114 &1710955700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59919,7 +59944,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 12
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -64068,8 +64093,8 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Chicken, Assembly-CSharp
+      - m_Target: {fileID: 109283339}
+        m_TargetAssemblyTypeName: Game.Chicken.Chicken, Assembly-CSharp
         m_MethodName: ChangeCanMove
         m_Mode: 6
         m_Arguments:
@@ -64140,14 +64165,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0803fafc077bed44983f3f6793f61ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToMove: {fileID: 0}
+  ObjectToMove: {fileID: 109283338}
   moveTo: {fileID: 160143507}
   time: 5
   ease: 11
   completeMoveEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 109283340}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -66603,8 +66628,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Chicken, Assembly-CSharp
+      - m_Target: {fileID: 109283339}
+        m_TargetAssemblyTypeName: Game.Chicken.Chicken, Assembly-CSharp
         m_MethodName: ChangeCanMove
         m_Mode: 6
         m_Arguments:
@@ -72035,14 +72060,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 1765159093}
-  dropItens:
-  - {fileID: 2044951524150053571, guid: 24f85f78f355f36478bb64735092c5a2, type: 3}
-  - {fileID: 9055852890567428702, guid: 75c004b3ca48ff5469a681a9ae6edee0, type: 3}
-  - {fileID: 6840603276996387377, guid: 34b4f5a575051c14cafe396c71c807c7, type: 3}
-  - {fileID: 7940898280213841400, guid: fbc1042c7ff6bd048953ba7eac6f73ab, type: 3}
+  dropItens: []
   wc: {fileID: 3290685}
   virtualCamera: {fileID: 1710955698}
-  reward: {fileID: 6455113385414053492, guid: 7b94de7ed5860e14a9afa21789edd874, type: 3}
+  reward: {fileID: 0}
   rollSound: {fileID: 326158680}
   explosionSound: {fileID: 2081320504}
 --- !u!54 &2081320503
@@ -77641,7 +77662,7 @@ PrefabInstance:
     - target: {fileID: 4245098327114612062, guid: 153d45751ab900e449e241a1905ee7dc, type: 3}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 109283339}
     - target: {fileID: 4245098327114612062, guid: 153d45751ab900e449e241a1905ee7dc, type: 3}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: ChangeCanMove
@@ -77713,7 +77734,7 @@ PrefabInstance:
     - target: {fileID: 7899006785193033792, guid: 153d45751ab900e449e241a1905ee7dc, type: 3}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 109283339}
     - target: {fileID: 7899006785193033792, guid: 153d45751ab900e449e241a1905ee7dc, type: 3}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 

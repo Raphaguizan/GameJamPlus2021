@@ -83,6 +83,12 @@ public class GameManager : Singleton<GameManager>
             //MainMenu(true);
             SceneManager.LoadScene("Beach");
         }
+        if (scene == 5)
+        {
+            Statistics.Instance.UpdateStatistics("Jail");
+            //MainMenu(true);
+            SceneManager.LoadScene("Jail");
+        }
     }
 
     IEnumerator GoingToGame()
