@@ -11,8 +11,10 @@ public class TimeController : Singleton<TimeController>
     public bool RunTime = false;
     public Gradient iluminationColor;
     public float timeSpeed;
+    [Space]
     public Transform mainLight;
-
+    public Light dayLight;
+    public Light nightLight;
 
     public static bool IsDay;
     public static Action TimeChange;
@@ -38,17 +40,7 @@ public class TimeController : Singleton<TimeController>
     void Update()
     {
         if(RunTime)time += timeSpeed/10 * Time.deltaTime;
-        if (time >= 24f) time = 0;
-        if(time >= 6 && time < 18 && !IsDay)
-        {
-            IsDay = true;
-            TimeChange?.Invoke();
-        }
-        else if((time < 6 || time >= 18) && IsDay)
-        {
-            IsDay = false;
-            TimeChange?.Invoke();
-        }
+        DayAndNightController();
         RotateLightByTime();
         AdjustColors();
     }
@@ -59,6 +51,22 @@ public class TimeController : Singleton<TimeController>
         Shader.SetGlobalColor("_LightColor", currentColor);
     }
 
+    private void DayAndNightController()
+    {
+        if (time >= 24f) time = 0;
+        if (time >= 6 && time < 18 && !IsDay)
+        {
+            IsDay = true;
+            TimeChange?.Invoke();
+            AdjustMainLight();
+        }
+        else if ((time < 6 || time >= 18) && IsDay)
+        {
+            IsDay = false;
+            TimeChange?.Invoke();
+            AdjustMainLight();
+        }
+    }
     private void ResetColors()
     {
         Shader.SetGlobalColor("_LightColor", Color.white);
@@ -67,7 +75,22 @@ public class TimeController : Singleton<TimeController>
     private void OnValidate()
     {
         RotateLightByTime();
+        DayAndNightController();
         AdjustColors();
+    }
+
+    private void AdjustMainLight()
+    {
+        if (IsDay)
+        {
+            dayLight.intensity = 1;
+            nightLight.intensity = 0f;
+        }
+        else
+        {
+            nightLight.intensity = .4f;
+            dayLight.intensity = 0f;
+        }
     }
 
     private void RotateLightByTime()
