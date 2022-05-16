@@ -112,7 +112,7 @@ namespace Game.Chicken
             if (val)
                 lantern.intensity = 0;
             else
-                lantern.intensity = 2;
+                lantern.intensity = 1.5f;
         }
 
         private void FixedUpdate()
