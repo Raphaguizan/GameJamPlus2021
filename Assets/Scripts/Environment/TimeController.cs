@@ -18,16 +18,9 @@ public class TimeController : Singleton<TimeController>
 
     public static bool IsDay;
     public static Action TimeChange;
+    public static Color GetTimeColor() => Instance.GetColor();
 
-    private void OnEnable()
-    {
-        GameManager.UnloadScene += ResetColors;
-    }
-    private void OnDisable()
-    {
-        RunTime = false;
-        GameManager.UnloadScene -= ResetColors;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +39,16 @@ public class TimeController : Singleton<TimeController>
     }
     private void AdjustColors()
     {
+        Color currentColor = GetColor();
+        dayLight.color = currentColor;
+        nightLight.color = currentColor;
+    }
+
+    
+    private Color GetColor()
+    {
         float value = time.Remap(0, 24, 0, 1);
-        Color currentColor = iluminationColor.Evaluate(value);
-        Shader.SetGlobalColor("_LightColor", currentColor);
+        return iluminationColor.Evaluate(value);
     }
 
     private void DayAndNightController()
@@ -67,29 +67,17 @@ public class TimeController : Singleton<TimeController>
             AdjustMainLight();
         }
     }
-    private void ResetColors()
-    {
-        Shader.SetGlobalColor("_LightColor", Color.white);
-    }
-
-    private void OnValidate()
-    {
-        RotateLightByTime();
-        DayAndNightController();
-        AdjustColors();
-    }
-
     private void AdjustMainLight()
     {
         if (IsDay)
         {
-            dayLight.intensity = 1;
-            nightLight.intensity = 0f;
+            dayLight.enabled = true;
+            nightLight.enabled = false;
         }
         else
         {
-            nightLight.intensity = .4f;
-            dayLight.intensity = 0f;
+            nightLight.enabled = true;
+            dayLight.enabled = false;
         }
     }
 
@@ -97,4 +85,13 @@ public class TimeController : Singleton<TimeController>
     {
         mainLight.localEulerAngles = new Vector3(time.Remap(6, 18, 0, 180), 20, mainLight.localRotation.z);
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        RotateLightByTime();
+        DayAndNightController();
+        AdjustColors();
+    }
+#endif
 }

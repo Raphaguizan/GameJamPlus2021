@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 758784986}
-  m_IndirectSpecularColor: {r: 0.52262515, g: 0.47530264, b: 0.62742466, a: 1}
+  m_IndirectSpecularColor: {r: 0.48902792, g: 0.45796704, b: 0.4392323, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -48940,19 +48940,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.85917735
+      value: 0.077005334
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.48108473
+      value: 0.9817502
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.15186629
+      value: 0.015108419
       objectReference: {fileID: 0}
     - target: {fileID: 8757597441898311812, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.08548918
+      value: -0.1732295
       objectReference: {fileID: 0}
     - target: {fileID: 8757597442496928806, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: m_RootOrder
@@ -49000,7 +49000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8757597442496928807, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: time
-      value: 9.9
+      value: 17.4
       objectReference: {fileID: 0}
     - target: {fileID: 8757597442496928807, guid: cc25cff34470a4b4fb26383d88d4972b, type: 3}
       propertyPath: RunTime
@@ -65079,7 +65079,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e303b7db4ecd2134ba8e379a52e49e18, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 76b6f4ba718d22a488e9dd42850c49fd, type: 2}
+      objectReference: {fileID: 2100000, guid: bc6b7769bcbba2f4a8506c6d97a1b7e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e303b7db4ecd2134ba8e379a52e49e18, type: 3}
       propertyPath: m_Name
       value: Walkie_Talkie
@@ -80859,6 +80859,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1553860971}
     m_Modifications:
+    - target: {fileID: 5448129497138795194, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc6b7769bcbba2f4a8506c6d97a1b7e5, type: 2}
     - target: {fileID: 6654685585702388072, guid: 606e502605639124da8863f979fc043b, type: 3}
       propertyPath: m_Name
       value: PFB_Boots

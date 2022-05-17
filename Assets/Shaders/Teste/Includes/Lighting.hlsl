@@ -50,7 +50,7 @@ void AddAdditionalLights_float(float Smoothness, float3 WorldPosition, float3 Wo
     int pixelLightCount = GetAdditionalLightsCount();
     for (int i = 0; i < pixelLightCount; ++i) {
         Light light = GetAdditionalLight(i, WorldPosition);
-        half NdotL = saturate(dot(WorldNormal, light.direction));
+        half NdotL = saturate(normalize(dot(WorldNormal, light.direction)));
         half atten = light.distanceAttenuation * light.shadowAttenuation;
         half thisDiffuse = atten * NdotL;
         half thisSpecular = LightingSpecular(thisDiffuse, light.direction, WorldNormal, WorldView, 1, Smoothness);
