@@ -14,12 +14,6 @@ namespace Game.Util
         private float fadeTime = 1f;
 
         [Space, SerializeField]
-        private Color dayColor = Color.white;
-        [SerializeField]
-        private Color nightColor = Color.blue;
-
-
-        [Space, SerializeField]
         private Ease ease = Ease.Linear;
 
         private Light myLight;
@@ -36,9 +30,6 @@ namespace Game.Util
 
         private void OnEnable()
         {
-            TimeController.TimeChange += AdjustColor;
-            AdjustColor();
-
             myLight.intensity = 0;
             myCoroutine = StartCoroutine(DelayTime());
         }
@@ -49,12 +40,14 @@ namespace Game.Util
             Fade();
         }
 
+        private void Update()
+        {
+            AdjustColor();
+        }
+
         private void AdjustColor()
         {
-            if (TimeController.IsDay)
-                myLight.color = dayColor;
-            else
-                myLight.color = nightColor;
+            myLight.color = TimeController.GetTimeColor();
         }
 
         private void Fade()
@@ -64,7 +57,6 @@ namespace Game.Util
 
         private void OnDisable()
         {
-            TimeController.TimeChange -= AdjustColor;
             mytween.Kill();
             StopCoroutine(myCoroutine);
         }
