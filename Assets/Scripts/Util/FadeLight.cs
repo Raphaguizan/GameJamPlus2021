@@ -52,7 +52,7 @@ namespace Game.Util
 
         private void Fade()
         {
-            mytween = myLight.DOIntensity(initialIntensity, fadeTime);
+            mytween = myLight.DOIntensity(initialIntensity, fadeTime).SetEase(ease);
         }
 
         private void OnDisable()

@@ -10,7 +10,9 @@ public class InsideBuildingVertical : MonoBehaviour
     public List<GameObject> downObjs;
     private void OnEnable()
     {
-        chicken = GameObject.FindObjectOfType<Chicken>().transform;
+        var obj = GameObject.FindObjectOfType<Chicken>();
+        if(obj)
+            chicken = obj.transform;
     }
     private void Update()
     {
