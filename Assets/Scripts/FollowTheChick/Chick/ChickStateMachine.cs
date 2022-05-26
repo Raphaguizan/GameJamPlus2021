@@ -3,34 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.StateMachine;
 
-namespace Game.MiniGame.FollowTherChick
+namespace Game.Minigame.FollowTheChick
 {
     public class ChickStateMachine : StateMachineBase<ChickStateEnum>
     {
-        
+        private ChickController controller;
         private void Awake()
+        {
+            Initialize();
+        }
+        protected override void InitialRegister()
         {
             RegisterState(ChickStateEnum.RUN, new ChickStateRun());
             RegisterState(ChickStateEnum.WAIT, new ChickStateWait());
             RegisterState(ChickStateEnum.BEGIN, new ChickStateBegin());
             RegisterState(ChickStateEnum.FINISH, new ChickStateFinish());
+            RegisterState(ChickStateEnum.WIN, new ChickStateWin());
+        }
+        public void RegisterController(ChickController ctrl)
+        {
+            controller = ctrl;
         }
 
-        public void Run(ChickController chick)
+        public void Run()
         {
-            SwitchState(ChickStateEnum.RUN, chick);
+            if (!controller) return;
+            SwitchState(ChickStateEnum.RUN, controller);
         }
-        public void Wait(ChickController chick)
+        public void Wait()
         {
-            SwitchState(ChickStateEnum.WAIT, chick);
+            if (!controller) return;
+            SwitchState(ChickStateEnum.WAIT, controller);
         }
-        public void Begin(ChickController chick)
+        public void Begin()
         {
-            SwitchState(ChickStateEnum.BEGIN, chick);
+            if (!controller) return;
+            SwitchState(ChickStateEnum.BEGIN, controller);
         }
-        public void Finish(ChickController chick)
+        public void Finish()
         {
-            SwitchState(ChickStateEnum.FINISH, chick);
+            if (!controller) return;
+            SwitchState(ChickStateEnum.FINISH, controller);
+        }
+        public void Win()
+        {
+            if (!controller) return;
+            SwitchState(ChickStateEnum.WIN, controller);
         }
     }
 }

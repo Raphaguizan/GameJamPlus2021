@@ -112,7 +112,7 @@ namespace Game.Chicken
             if (val)
                 lantern.intensity = 0;
             else
-                lantern.intensity = 2;
+                lantern.intensity = 1.5f;
         }
 
         private void FixedUpdate()
@@ -162,6 +162,7 @@ namespace Game.Chicken
             if (!value.isPressed)
             {
                 _currentSpeed = runSpeed;
+                _stepCooldown = _runStepCooldown;
                 if (_isMoving)
                 {
                     anim.SetBool("Walk", false);
@@ -171,6 +172,7 @@ namespace Game.Chicken
             else
             {
                 _currentSpeed = speed;
+                _stepCooldown = _walkStepCooldown;
                 if (_isMoving)
                 {
                     anim.SetBool("Walk", true);

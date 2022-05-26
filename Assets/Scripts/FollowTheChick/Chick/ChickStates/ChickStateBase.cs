@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.StateMachine;
 
-namespace Game.MiniGame.FollowTherChick
+namespace Game.Minigame.FollowTheChick
 {
     public class ChickStateBase : StateBase
     {
@@ -26,12 +26,12 @@ namespace Game.MiniGame.FollowTherChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
-            chick.GetNextPoint();
+            if(chick.GetNextPoint())
+                chick.MoveChick();
         }
 
         public override void OnStateStay() 
         {
-            chick.MoveChick();
         }
 
         public override void OnStateExit() 
@@ -59,7 +59,6 @@ namespace Game.MiniGame.FollowTherChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
-            chick.WaitBegin();
         }
 
         public override void OnStateStay() { }
@@ -73,11 +72,29 @@ namespace Game.MiniGame.FollowTherChick
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            chick.matrix.CallKarenTurn();
         }
 
         public override void OnStateStay() 
         {
             chick.LookAtPlayer();
+        }
+
+        public override void OnStateExit() { }
+
+    }
+    public class ChickStateWin : ChickStateBase
+    {
+
+        public override void OnStateEnter(params object[] o)
+        {
+            base.OnStateEnter(o);
+            chick.MoveToFinishPoint2();
+        }
+
+        public override void OnStateStay() 
+        {
+            
         }
 
         public override void OnStateExit() { }

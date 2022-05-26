@@ -29,7 +29,7 @@ public class RockFinal : MonoBehaviour
         vfx.Play();
         rollSound.Stop();
         explosionSound.Play();
-        if (FarmerController.TryKill(FarmerActions.WC))
+        if (FarmerController.TryKill(FarmerActions.WC) && reward != null)
         {
             var aux = Instantiate(reward);
             aux.transform.position = vfx.transform.position;

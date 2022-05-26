@@ -11,21 +11,16 @@ public class TimeController : Singleton<TimeController>
     public bool RunTime = false;
     public Gradient iluminationColor;
     public float timeSpeed;
+    [Space]
     public Transform mainLight;
-
+    public Light dayLight;
+    public Light nightLight;
 
     public static bool IsDay;
     public static Action TimeChange;
+    public static Color GetTimeColor() => Instance.GetColor();
 
-    private void OnEnable()
-    {
-        GameManager.UnloadScene += ResetColors;
-    }
-    private void OnDisable()
-    {
-        RunTime = false;
-        GameManager.UnloadScene -= ResetColors;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,40 +33,65 @@ public class TimeController : Singleton<TimeController>
     void Update()
     {
         if(RunTime)time += timeSpeed/10 * Time.deltaTime;
-        if (time >= 24f) time = 0;
-        if(time >= 6 && time < 18 && !IsDay)
-        {
-            IsDay = true;
-            TimeChange?.Invoke();
-        }
-        else if((time < 6 || time >= 18) && IsDay)
-        {
-            IsDay = false;
-            TimeChange?.Invoke();
-        }
+        DayAndNightController();
         RotateLightByTime();
         AdjustColors();
     }
     private void AdjustColors()
     {
+        Color currentColor = GetColor();
+        dayLight.color = currentColor;
+        nightLight.color = currentColor;
+    }
+
+    
+    private Color GetColor()
+    {
         float value = time.Remap(0, 24, 0, 1);
-        Color currentColor = iluminationColor.Evaluate(value);
-        Shader.SetGlobalColor("_LightColor", currentColor);
+        return iluminationColor.Evaluate(value);
     }
 
-    private void ResetColors()
+    private void DayAndNightController()
     {
-        Shader.SetGlobalColor("_LightColor", Color.white);
+        if (time >= 24f) time = 0;
+        if (time >= 6 && time < 18 && !IsDay)
+        {
+            IsDay = true;
+            TimeChange?.Invoke();
+            AdjustMainLight();
+        }
+        else if ((time < 6 || time >= 18) && IsDay)
+        {
+            IsDay = false;
+            TimeChange?.Invoke();
+            AdjustMainLight();
+        }
     }
-
-    private void OnValidate()
+    private void AdjustMainLight()
     {
-        RotateLightByTime();
-        AdjustColors();
+        if (IsDay)
+        {
+            dayLight.enabled = true;
+            nightLight.enabled = false;
+        }
+        else
+        {
+            nightLight.enabled = true;
+            dayLight.enabled = false;
+        }
     }
 
     private void RotateLightByTime()
     {
         mainLight.localEulerAngles = new Vector3(time.Remap(6, 18, 0, 180), 20, mainLight.localRotation.z);
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        RotateLightByTime();
+        DayAndNightController();
+        AdjustColors();
+    }
+#endif
 }

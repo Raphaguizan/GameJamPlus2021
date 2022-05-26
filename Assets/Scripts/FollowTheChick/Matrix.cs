@@ -2,28 +2,31 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class Matrix<T>
+namespace Game.Util.Matrix
 {
-    public int lines;
-    public int colluns;
-    
-    [SerializeField]
-    private T[,] myMatrix;
-    public Matrix(int l, int c)
+    [Serializable]
+    public class Matrix<T>
     {
-        lines = l;
-        colluns = c;
-        myMatrix = new T[lines, colluns];
-    }
+        public int lines;
+        public int colluns;
 
-    public T GetPos(int i, int j)
-    {
-        return myMatrix[i, j];
-    }
+        [SerializeField]
+        private T[,] myMatrix;
+        public Matrix(int l, int c)
+        {
+            lines = l;
+            colluns = c;
+            myMatrix = new T[lines, colluns];
+        }
 
-    public void SetPos(int i, int j, T value)
-    {
-        myMatrix[i, j] = value;
+        public T GetPos(int i, int j)
+        {
+            return myMatrix[i, j];
+        }
+
+        public void SetPos(int i, int j, T value)
+        {
+            myMatrix[i, j] = value;
+        }
     }
 }

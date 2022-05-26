@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Game.MiniGame.FollowTherChick
+namespace Game.Minigame.FollowTheChick
 {
     [RequireComponent(typeof(ChickStateMachine))]
     public class ChickController : MonoBehaviour
@@ -15,6 +15,8 @@ namespace Game.MiniGame.FollowTherChick
 
         [SerializeField]
         private Transform finishPos;
+        [SerializeField]
+        private Transform finishPos2;
         
         [Space]
         public Transform currentTarget;
@@ -27,37 +29,46 @@ namespace Game.MiniGame.FollowTherChick
         private void Awake()
         {
             stateMachine = GetComponent<ChickStateMachine>();
+            stateMachine.RegisterController(this);
             graphic.localRotation = Quaternion.identity;
         }
 
-        private void Start()
-        {
-            stateMachine.Begin(this);
-        }
-
-        public void GetNextPoint()
+        public bool GetNextPoint()
         {
             if (currentTarget == finishPos)
             {
-                stateMachine.Finish(this);
+                stateMachine.Finish();
+                return false;
             }
             currentTarget = matrix.NextPathPoint();
             if(currentTarget == null)
             {
                 currentTarget = finishPos;
             }
+            return true;
+        }
+
+        public void MoveToFinishPoint2()
+        {
+            agent.SetDestination(finishPos2.position);
         }
 
         public void MoveChick()
         {
             if (!currentTarget) return;
-
+            StartCoroutine(MoveControl());
+        }
+        IEnumerator MoveControl()
+        {
+            yield return new WaitForEndOfFrame();
             agent.SetDestination(currentTarget.position);
-
-            if (agent.remainingDistance <= agent.radius)
+            yield return new WaitForEndOfFrame();
+            while (agent.remainingDistance > agent.radius)
             {
-                stateMachine.Wait(this);
+                yield return null;
             }
+            matrix.HitPoint(waitTime);
+            stateMachine.Wait();
         }
 
         public void Wait()
@@ -67,23 +78,12 @@ namespace Game.MiniGame.FollowTherChick
         IEnumerator WaitCoroutine()
         {
             yield return new WaitForSeconds(waitTime);
-            stateMachine.Run(this);
+            stateMachine.Run();
         }
 
         public void LookAtPlayer()
         {
             graphic.LookAt(player, Vector3.up);
-        }
-
-        // provisório
-        public void WaitBegin()
-        {
-            StartCoroutine(WaitBeginCoroutine());
-        }
-        IEnumerator WaitBeginCoroutine()
-        {
-            yield return new WaitForSeconds(waitTime);
-            stateMachine.Run(this);
         }
     }
 }

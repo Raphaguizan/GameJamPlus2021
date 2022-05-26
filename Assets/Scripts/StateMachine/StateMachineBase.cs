@@ -22,11 +22,19 @@ namespace Game.StateMachine
         #region init
         public StateMachineBase()
         {
-            dictionaryState = new Dictionary<T, StateBase>();
+            Initialize();
+        }
 
+        public virtual void Initialize()
+        {
+            dictionaryState = new Dictionary<T, StateBase>();
+            InitialRegister();
+        }
+
+        protected virtual void InitialRegister()
+        {
             StateBase statebase = new StateBase();
             string[] enumString = System.Enum.GetNames(typeof(T));
-
             for (int i = 0; i < enumString.Length; i++)
             {
                 RegisterState((T)System.Enum.Parse(typeof(T), enumString[i]), statebase);
@@ -50,11 +58,27 @@ namespace Game.StateMachine
             _currentState = dictionaryState[state];
             _currentState.OnStateEnter(o);
         }
+        public void SwitchState(T state, float time, params object[] o)
+        {
+            StartCoroutine(WaitToChangeState(state, time, o));
+        }
+
+        IEnumerator WaitToChangeState(T state, float time, params object[] o)
+        {
+            yield return new WaitForSeconds(time);
+            SwitchState(state, o);
+        }
+
+        public bool IsCurrentState(T stateType)
+        {
+            return _currentStateType.Equals(stateType);
+        }
 
         private void Update()
         {
             if (_currentState != null) _currentState.OnStateStay();
         }
+
         #endregion
     }
 }
