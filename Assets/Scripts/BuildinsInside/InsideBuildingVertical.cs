@@ -14,6 +14,7 @@ public class InsideBuildingVertical : MonoBehaviour
     }
     private void Update()
     {
+        if (chicken == null) return;
         if(chicken.position.y >= transform.position.y)
         {
             foreach(GameObject go in upObjs) go.SetActive(true);
