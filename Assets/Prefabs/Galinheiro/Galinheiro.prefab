@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 4150113817980660340}
   m_Layer: 0
   m_Name: Galinheiro
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -882,8 +882,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.5
   fadeTime: 0.5
-  dayColor: {r: 1, g: 1, b: 1, a: 1}
-  nightColor: {r: 0.2627451, g: 0.45490196, b: 0.4627451, a: 1}
   ease: 1
 --- !u!1 &7455469941742868821
 GameObject:

@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.25
     agentHeight: 0.51
-    agentSlope: 34.2
-    agentClimb: 0.15
+    agentSlope: 38
+    agentClimb: 0.31
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -5697,6 +5697,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ground
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46c1ef69a20a72e428b5bba490dd85f9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c1ef69a20a72e428b5bba490dd85f9, type: 3}
 --- !u!4 &154596307 stripped
@@ -9181,6 +9185,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: wc
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4115bfe0de168064182bbcc546223fb0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4115bfe0de168064182bbcc546223fb0, type: 3}
 --- !u!4 &273648507 stripped
@@ -12320,6 +12328,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
       propertyPath: m_TagString
       value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
@@ -21782,6 +21794,10 @@ PrefabInstance:
       propertyPath: m_Targets.Array.data[1].target
       value: 
       objectReference: {fileID: 109283338}
+    - target: {fileID: 6309519676821230063, guid: 90569ce505817324d8a30679dd18448e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6912846473097323673, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -23522,6 +23538,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
       propertyPath: m_TagString
       value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
@@ -41552,6 +41572,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ground
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d6349c2f195b0e41b790e91e1fdaa87, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d6349c2f195b0e41b790e91e1fdaa87, type: 3}
 --- !u!4 &1202322000 stripped
@@ -46634,6 +46658,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ground
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d6349c2f195b0e41b790e91e1fdaa87, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d6349c2f195b0e41b790e91e1fdaa87, type: 3}
 --- !u!4 &1310012862 stripped
@@ -50444,6 +50472,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
       propertyPath: m_TagString
       value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
@@ -54274,6 +54306,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
       propertyPath: m_TagString
       value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6af4fc447b6244aac037d0468bcfc4, type: 3}
