@@ -37,7 +37,7 @@ public class ConsumeItem : MonoBehaviour
 
     public virtual void CheckItem() 
     {
-        Debug.Log("cheking Item");
+        Debug.Log(gameObject.name+" cheking Item");
         if (item == null)
         {
             Event?.Invoke();

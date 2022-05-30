@@ -183,6 +183,7 @@ namespace Game.Chicken
         public void OnInteract()
         {
             if (!_CollisionObj) return;
+            Debug.Log(_CollisionObj.name);
 
             var npc = _CollisionObj.GetComponent<InteractiveNPC>();
             if (chickenSound) chickenSound.PlayRandom();
