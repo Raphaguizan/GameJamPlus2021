@@ -40,13 +40,15 @@ namespace Game.Chicken
 
         #region static Actives
 
+        [ContextMenu("Active Boots")]
         public static void ActiveBoots()
         {
             if (Instance.bootsTutorial) Instance.bootsTutorial.Show();
             Instance.bootsEnabled = true;
             Instance.chicken.JumpForce = Instance.bootsJumpForce;
         }
-        public static void ActiveKongFu()
+        [ContextMenu("Active KungFu")]
+        public static void ActiveKungFu()
         {
             if (Instance.hitTutorial) Instance.hitTutorial.Show();
             Instance.chickenHit.gameObject.SetActive(true);
