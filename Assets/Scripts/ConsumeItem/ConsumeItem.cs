@@ -8,6 +8,7 @@ using Game.Chicken;
 public class ConsumeItem : MonoBehaviour
 {
     public ItemCollectable item;
+    public bool removeItem = true;
     public Outline outline;
     public UnityEvent Event;
 
@@ -43,9 +44,11 @@ public class ConsumeItem : MonoBehaviour
             Event?.Invoke();
             return;
         }
-        if (ChickenBag.Instance.RemoveItem(item))
+        if (ChickenBag.Instance.VerifyItem(item))
         {
             Event?.Invoke();
+            if (removeItem)
+                _ = ChickenBag.Instance.RemoveItem(item);
         }
     } 
 }

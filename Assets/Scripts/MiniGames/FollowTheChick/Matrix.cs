@@ -21,11 +21,13 @@ namespace Game.Util.Matrix
 
         public T GetPos(int i, int j)
         {
+            if (i >= lines || j >= colluns || i < 0 || j < 0) return default;
             return myMatrix[i, j];
         }
 
         public void SetPos(int i, int j, T value)
         {
+            if (i >= lines || j >= colluns || i < 0 || j < 0) return;
             myMatrix[i, j] = value;
         }
     }

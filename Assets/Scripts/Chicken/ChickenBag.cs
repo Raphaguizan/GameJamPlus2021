@@ -47,12 +47,18 @@ namespace Game.Chicken
             {
                 UpdateInterface?.Invoke();
             }
-            else
-            {
+            return removed;
+        }
+
+        public bool VerifyItem(ItemCollectable item)
+        {
+            bool Exists = itemList.itens.Exists(i => i.Equals(item));
+            if (!Exists)
+            { 
                 itemBaloon.ShowBaloon(item.image);
                 Debug.Log("você nâo tem esse item");
             }
-            return removed;
+            return Exists;
         }
 
     }
