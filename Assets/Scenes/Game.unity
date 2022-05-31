@@ -21403,7 +21403,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &612140169
 Transform:
@@ -21447,7 +21447,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &618122121
 Transform:
@@ -37258,7 +37258,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1074978983
 Transform:
@@ -51668,7 +51668,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1390248882
 Transform:
@@ -52820,7 +52820,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1420976258
 Transform:
@@ -52830,7 +52830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420976257}
   m_LocalRotation: {x: -1.5987212e-14, y: -0.80761445, z: 0.000000035301948, w: 0.5897109}
-  m_LocalPosition: {x: -3.72, y: 0.69, z: -1.77}
+  m_LocalPosition: {x: -3.87, y: 0.69, z: -1.82}
   m_LocalScale: {x: 2.992075, y: 1.710003, z: 0.25535}
   m_Children: []
   m_Father: {fileID: 155762995}
@@ -54504,7 +54504,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1454846814
 Transform:
@@ -83079,6 +83079,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383720198}
     m_Modifications:
+    - target: {fileID: 1076084325464178384, guid: 784693a955920ed49a5d1fda21ce6142, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1399
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076084325464178384, guid: 784693a955920ed49a5d1fda21ce6142, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2034
+      objectReference: {fileID: 0}
     - target: {fileID: 1076084325464178387, guid: 784693a955920ed49a5d1fda21ce6142, type: 3}
       propertyPath: m_Name
       value: ChaveTutorial
