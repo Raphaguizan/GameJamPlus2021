@@ -13200,7 +13200,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3079026330956093553, guid: de52c906273b0f142be605bcba8ff50d, type: 3}
   m_PrefabInstance: {fileID: 391554793}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1780037247}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9abb0613e80d1e84c85b92edf90570c8, type: 3}
@@ -21868,15 +21868,15 @@ PrefabInstance:
       objectReference: {fileID: 391554794}
     - target: {fileID: 7797548794265389384, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6859164
+      value: 8.998144
       objectReference: {fileID: 0}
     - target: {fileID: 7797548794265389384, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5311302
+      value: -0.21033633
       objectReference: {fileID: 0}
     - target: {fileID: 7797548794265389384, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.29035
+      value: 15.832691
       objectReference: {fileID: 0}
     - target: {fileID: 8210976248044067494, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: m_Targets.Array.data[1].target
@@ -39427,31 +39427,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.481873
+      value: 47.51957
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.22631
+      value: 27.36686
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.514019
+      value: -6.569145
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7957538
+      value: 0.79685456
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1984037
+      value: 0.28564054
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.55520254
+      value: -0.50115854
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13842754
+      value: 0.1796453
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433301, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_Name
@@ -39511,7 +39511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400977737465024308, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: far clip plane
-      value: 5000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7400977737465024308, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: near clip plane
@@ -63273,6 +63273,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f7bfeffe85a729488cb81810f812906, type: 3}
   m_PrefabInstance: {fileID: 1779163815}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1780037247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7313168675074236879, guid: de52c906273b0f142be605bcba8ff50d, type: 3}
+  m_PrefabInstance: {fileID: 391554793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780037248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780037247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d8a9048c3c88b47b6067cd04838abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cartton: {fileID: 11400000, guid: cf42ca64654c59345b575eaf3777740a, type: 2}
 --- !u!4 &1782146319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 478454, guid: 80e74acf412f1f7419369c6003532087, type: 3}
