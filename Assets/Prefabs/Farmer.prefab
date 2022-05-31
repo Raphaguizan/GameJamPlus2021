@@ -129,6 +129,10 @@ MonoBehaviour:
   anim: {fileID: 8140348480509088688}
   chickenCooldown: 15
   itemDrop: {fileID: 1571998151032120608}
+  EventDelay: 5
+  OnKillCallback:
+    m_PersistentCalls:
+      m_Calls: []
   pathIndex: 0
   points: []
 --- !u!114 &9068517256208620693
@@ -156,7 +160,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.264
+  m_Volume: 0.073
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -317,6 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 95643c46aae3f2042afb64f3649ef8c5, type: 2}
   outline: {fileID: 1835271459803939219}
+  timeToDestroy: 0
+  particles: {fileID: 0}
+  sound: {fileID: 0}
   itemPrefab: {fileID: 6455113385414053492, guid: 7b94de7ed5860e14a9afa21789edd874, type: 3}
   triggerSphere: {fileID: 4780946916388163392}
 --- !u!135 &4780946916388163392
