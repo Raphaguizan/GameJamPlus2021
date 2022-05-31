@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Game.Util;
 using Game.Chicken;
 
 public class DialogManager : Singleton<DialogManager>
 {
+    [SerializeField]
+    private List<Button> buttons;
 
-    [SerializeField] TextMeshProUGUI question;
+    [Space, SerializeField] TextMeshProUGUI question;
     [SerializeField] TextMeshProUGUI answer1;
     [SerializeField] TextMeshProUGUI answer2;
     [SerializeField] TextMeshProUGUI answer3;
@@ -25,14 +28,9 @@ public class DialogManager : Singleton<DialogManager>
         question.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void StartDialog(SO_Dialog dialog)
     {
+        ActiveButtons(true);
         Box.GetComponent<Animator>().SetTrigger("Open");
         this.dialog = dialog;
         StartCoroutine(Dialoging(dialog)); ;
@@ -44,6 +42,7 @@ public class DialogManager : Singleton<DialogManager>
 
     public void Replic( int replicNumber)
     {
+        ActiveButtons(false);
         answer1.text = "";
         answer2.text = "";
         answer3.text = "";
@@ -57,6 +56,14 @@ public class DialogManager : Singleton<DialogManager>
                 ChickenBag.Instance.AddItem(dialog.item);
                 dialog.hasItem = false;
             }
+        }
+    }
+
+    private void ActiveButtons(bool val)
+    {
+        foreach (Button b in buttons)
+        {
+            b.interactable = val;
         }
     }
 
