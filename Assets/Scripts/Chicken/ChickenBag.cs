@@ -25,12 +25,12 @@ namespace Game.Chicken
             //FIX colocar código mais genérico
             if (item is IUseItem)
             {
-                Debug.Log("Item Usável");
+                Debug.Log("Item Usável : "+ item.name);
                 (item as IUseItem).Use();
             }
             else if (itemList.itens.Count < MAX_ITEM)
             {
-                Debug.Log("Item Colecionavel");
+                Debug.Log("Item Colecionavel : " + item.name);
                 itemList.itens.Add((item as ItemCollectable));
                 UpdateInterface?.Invoke();
             }

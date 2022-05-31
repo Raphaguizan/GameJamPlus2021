@@ -8,6 +8,11 @@ public class CollectItemBase : MonoBehaviour
 {
     public ItemBase item;
     public Outline outline;
+    public float timeToDestroy = 0f;
+    [Space, SerializeField]
+    private ParticleSystem particles;
+
+    private bool collected = false;
 
     private float outline_initial_size;
     private void Start()
@@ -35,7 +40,13 @@ public class CollectItemBase : MonoBehaviour
 
     public virtual void Collect()
     {
-        Destroy(gameObject);
+        if (collected) return;
+
+        collected = true;
+        outline.enabled = false;
+        if (particles != null)particles.Play();
+
+        Destroy(gameObject, timeToDestroy);
         OnCollet();
     }
 

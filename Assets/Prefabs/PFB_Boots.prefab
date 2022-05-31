@@ -79,20 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 928e274ee1e390b4e9dd44e20d52168e, type: 2}
   outline: {fileID: 6654685585702388079}
---- !u!64 &6654685586142236221
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808333561562313583}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7387706064836869012, guid: 33dbd0e0c2cd9b14988dd1b2fc0b4574, type: 3}
+  timeToDestroy: 0
+  particles: {fileID: 0}
 --- !u!1001 &6654685586142236222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,7 +147,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 33dbd0e0c2cd9b14988dd1b2fc0b4574, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 76b6f4ba718d22a488e9dd42850c49fd, type: 2}
+      objectReference: {fileID: 2100000, guid: 768a7aa8f8901634e84a106669822fa9, type: 2}
     - target: {fileID: 919132149155446097, guid: 33dbd0e0c2cd9b14988dd1b2fc0b4574, type: 3}
       propertyPath: m_Name
       value: Boots
@@ -176,3 +164,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33dbd0e0c2cd9b14988dd1b2fc0b4574, type: 3}
   m_PrefabInstance: {fileID: 6654685586142236222}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &6654685586142236221
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808333561562313583}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7387706064836869012, guid: 33dbd0e0c2cd9b14988dd1b2fc0b4574, type: 3}
