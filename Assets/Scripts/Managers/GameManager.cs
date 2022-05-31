@@ -46,6 +46,11 @@ public class GameManager : Singleton<GameManager>
 
         StartCoroutine(GoingToMainMenu());
     }
+
+    public void Board()
+    {
+        StartCoroutine(GoingToBoard());
+    }
     IEnumerator GoingToMainMenu()
     {
 
@@ -89,6 +94,41 @@ public class GameManager : Singleton<GameManager>
             //MainMenu(true);
             SceneManager.LoadScene("Jail");
         }
+        if (scene == 6)
+        {
+            Statistics.Instance.UpdateStatistics("Server");
+            SceneManager.LoadScene("Server");
+        }
+
+        if (scene == 7)
+        {
+            Statistics.Instance.UpdateStatistics("Simulation");
+            SceneManager.LoadScene("Simulation");
+        }
+        if (scene == 8)
+        {
+            Statistics.Instance.UpdateStatistics("MagicalPlace");
+            //MainMenu(true);
+            SceneManager.LoadScene("MagicalPlace");
+        }
+        if (scene == 9)
+        {
+            Statistics.Instance.UpdateStatistics("Heaven");
+            //MainMenu(true);
+            SceneManager.LoadScene("Heaven");
+        }
+        if (scene == 10)
+        {
+            Statistics.Instance.UpdateStatistics("School");
+            //MainMenu(true);
+            SceneManager.LoadScene("School");
+        }
+        if (scene == 11)
+        {
+            Statistics.Instance.UpdateStatistics("Hell");
+            //MainMenu(true);
+            SceneManager.LoadScene("Hell");
+        }
     }
 
     IEnumerator GoingToGame()
@@ -98,6 +138,15 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
 
         SceneManager.LoadScene("Game");
+    }
+
+    IEnumerator GoingToBoard()
+    {
+
+        ScreenTransition.Instance.FadeIn();
+        yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
+
+        SceneManager.LoadScene("Board");
     }
 
     public void LoadAditiveScene(string sceneName)

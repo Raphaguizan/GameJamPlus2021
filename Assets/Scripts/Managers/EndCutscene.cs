@@ -7,10 +7,18 @@ public class EndCutscene : MonoBehaviour
 {
     [SerializeField] PlayableDirector cutscene;
     [SerializeField] PlayableDirector final;
-    [SerializeField] bool isFinal;
-   public void End()
+
+    [SerializeField] SO_FinalCartoon cartoon;
+    public void End()
     {
+        if (cartoon.IsCartoon)
+        {
+            cartoon.ResetFinalCartoon();
+            GameManager.Instance.Board();
+            return;
+        }
         GameManager.Instance.MainMenu(true, 1);
+
     }
 
     public void EndFirstCutscene()
@@ -20,7 +28,7 @@ public class EndCutscene : MonoBehaviour
 
     public void CheckCutscene()
     {
-        if(isFinal)
+        if (cartoon.IsCartoon)
         {
             cutscene.Pause();
             StartCoroutine(StopCutscene());
