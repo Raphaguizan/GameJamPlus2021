@@ -31,7 +31,7 @@ public class Statistics : MonoBehaviour
 
     public void UpdateStatistics(string scape)
     {
-        if(PlayerPrefs.GetInt(scape, 0) == 1)
+        if (PlayerPrefs.GetInt(scape, 0) == 1)
         {
             return;
         }
@@ -43,4 +43,9 @@ public class Statistics : MonoBehaviour
 
     }
 
+
+    public bool IsEscapeUnlocked(string escape)
+    {
+        return PlayerPrefs.GetInt(escape, 0) == 1;
+    }
 }
