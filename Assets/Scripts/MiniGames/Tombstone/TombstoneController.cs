@@ -19,8 +19,15 @@ namespace Game.Minigame.Tombstone
 
         public void InteractionSpread(int i, int j)
         {
+            if (TimeController.IsDay) return;
+
             int aux = -1;
 
+            // muda o clicado
+            aux = GetIndex(i, j);
+            if (aux >= 0) stones[aux].Toogle();
+
+            //muda os vizinhos
             aux = GetIndex(i + 1, j);
             if (aux >= 0) stones[aux].Toogle();
 

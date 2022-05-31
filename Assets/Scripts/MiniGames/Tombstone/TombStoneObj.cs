@@ -36,8 +36,6 @@ namespace Game.Minigame.Tombstone
         {
             if (!canInteract) return;
             
-            Toogle();
-            
             // chama controller;
             if (controller) controller.InteractionSpread(row, col);
         }
