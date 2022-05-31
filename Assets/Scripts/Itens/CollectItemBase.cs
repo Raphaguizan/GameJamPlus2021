@@ -9,8 +9,10 @@ public class CollectItemBase : MonoBehaviour
     public ItemBase item;
     public Outline outline;
     public float timeToDestroy = 0f;
-    [Space, SerializeField]
+    [Space, Header("Effects"), SerializeField]
     private ParticleSystem particles;
+    [SerializeField]
+    private AudioSource sound;
 
     private bool collected = false;
 
@@ -44,7 +46,9 @@ public class CollectItemBase : MonoBehaviour
 
         collected = true;
         outline.enabled = false;
+
         if (particles != null)particles.Play();
+        if(sound != null)sound.Play();
 
         Destroy(gameObject, timeToDestroy);
         OnCollet();
