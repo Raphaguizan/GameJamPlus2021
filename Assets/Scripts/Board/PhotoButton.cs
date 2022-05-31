@@ -10,6 +10,7 @@ public class PhotoButton : MonoBehaviour
     [SerializeField] int id;
     [SerializeField] new string name;
     [SerializeField] ChickenThoughts thought;
+    [SerializeField] BoardManager board;
 
     bool unlocked;
     bool seen;
@@ -51,5 +52,10 @@ public class PhotoButton : MonoBehaviour
     public void MouseExit()
     {
         text.fontSize = 0.015f;
+    }
+
+    public void Play()
+    {
+        board.RememberCutscene(id);
     }
 }
