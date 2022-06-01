@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoardManager : MonoBehaviour
 {
     [SerializeField] SO_FinalCartoon cartoon;
+    [SerializeField] List<PhotoButton> photos;
 
     private void OnEnable()
     {
@@ -30,6 +31,19 @@ public class BoardManager : MonoBehaviour
 
     public void SetPhotos()
     {
+
+        foreach(PhotoButton pb in photos)
+        {
+            string name = pb.GetName();
+            if(Statistics.Instance.IsEscapeUnlocked(name))
+            {
+                pb.SetLock(true);
+            }
+            else
+            {
+                pb.SetLock(false);
+            }
+        }
         for (int escape = 1; escape <= 10; escape++)
         {
             //if (escape == 1)

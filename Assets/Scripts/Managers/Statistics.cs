@@ -48,4 +48,18 @@ public class Statistics : MonoBehaviour
     {
         return PlayerPrefs.GetInt(escape, 0) == 1;
     }
+
+    public bool IsPhotoSeen(string name)
+    {
+        string key = name + "seen";
+        return PlayerPrefs.GetInt(key, 0) == 1;
+      
+    }
+
+    public void PhotoSeen(string name)
+    {
+
+        string key = name + "seen";
+        PlayerPrefs.SetInt(key, 1);
+    }
 }
