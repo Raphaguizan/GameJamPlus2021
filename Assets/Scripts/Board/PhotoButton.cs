@@ -28,15 +28,36 @@ public class PhotoButton : MonoBehaviour
 
     public void SetLock(bool unlocked)
     {
-        this.gameObject.SetActive(unlocked) ;
+        this.transform.GetChild(0).gameObject.SetActive(unlocked) ;
         this.unlocked = unlocked;
 
+        if(unlocked)
+        {
+
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            text.text = name;
+            if (Statistics.Instance.IsPhotoSeen(name))
+            {
+                SetSeen(true);
+            }
+            else
+            {
+                SetSeen(false);
+            }
+        }
+        else
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+            text.text = "?";
+            SetSeen(false);
+        }
     }
 
     public void SetSeen(bool seen)
     {
         note.SetActive(seen);
         this.seen = seen;
+       
     }
 
     public string GetName()
@@ -47,6 +68,23 @@ public class PhotoButton : MonoBehaviour
     public void MouseOver()
     {
         text.fontSize = 0.017f;
+        if(name == "MainMenu")
+        {
+            thought.Think("Let's get back");
+            return;
+        }
+        if(!unlocked)
+        {
+            thought.LockedThink();
+        }
+        else if(unlocked && !seen)
+        {
+            thought.UnlockedThink();
+        }
+        else if(seen)
+        {
+            thought.SeenThink();
+        }
     }
 
     public void MouseExit()
@@ -56,6 +94,17 @@ public class PhotoButton : MonoBehaviour
 
     public void Play()
     {
+        if (!unlocked)
+        {
+
+            return;
+        }
+        if (!Statistics.Instance.IsPhotoSeen(name))
+        {
+            Statistics.Instance.PhotoSeen(name);
+        }
         board.RememberCutscene(id);
     }
+
+  
 }

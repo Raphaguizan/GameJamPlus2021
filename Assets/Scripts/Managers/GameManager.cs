@@ -51,6 +51,11 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(GoingToBoard());
     }
+
+    public void BoardToMainMenu()
+    {
+        StartCoroutine(GoingToMainMenu());
+    }
     IEnumerator GoingToMainMenu()
     {
 
