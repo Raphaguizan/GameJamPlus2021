@@ -8,32 +8,34 @@ public class InsideBuildingController : MonoBehaviour
     public List<GameObject> Objectsinside;
     public List<GameObject> ObjectsOutside;
 
+    private void Start()
+    {
+        ActiveInside(false);
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<Chicken>())
         {
-            foreach(GameObject gO in Objectsinside)
-            {
-                gO.SetActive(true);
-            }
-            foreach (GameObject gO in ObjectsOutside)
-            {
-                gO.SetActive(false);
-            }
+            ActiveInside(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<Chicken>())
         {
-            foreach (GameObject gO in Objectsinside)
-            {
-                gO.SetActive(false);
-            }
-            foreach (GameObject gO in ObjectsOutside)
-            {
-                gO.SetActive(true);
-            }
+            ActiveInside(false);
+        }
+    }
+    private void ActiveInside(bool val)
+    {
+        foreach (GameObject gO in Objectsinside)
+        {
+            gO.SetActive(val);
+        }
+        foreach (GameObject gO in ObjectsOutside)
+        {
+            gO.SetActive(!val);
         }
     }
 }

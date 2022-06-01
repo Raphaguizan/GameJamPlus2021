@@ -154,6 +154,20 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("Board");
     }
 
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine(GoingToScene(sceneName));
+    }
+
+    IEnumerator GoingToScene(string sceneName)
+    {
+
+        ScreenTransition.Instance.FadeIn();
+        yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
+
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void LoadAditiveScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
