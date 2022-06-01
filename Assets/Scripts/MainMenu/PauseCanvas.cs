@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseCanvas : MonoBehaviour
 {
-    [SerializeField] Animator chickenMenu;
+  //  [SerializeField] Animator chickenMenu;
     bool controlsImageIsOn = false;
 
     public void CloseMenu()
@@ -29,24 +29,24 @@ public class PauseCanvas : MonoBehaviour
         controlsImageIsOn = false;
         this.GetComponent<Animator>().SetTrigger("CloseControls");
     }
-    public void CallChicken()
-    {
-        chickenMenu.SetBool("Hit", true);
-    }
+    //public void CallChicken()
+    //{
+    //    chickenMenu.SetBool("Hit", true);
+    //}
 
-    public void ChickenRuning()
-    {
-        chickenMenu.SetBool("Hit", false);
-    }
-    public void RotateChicken()
-    {
-        Quaternion rot = chickenMenu.transform.rotation;
-        rot.y *= -1;
-        chickenMenu.transform.rotation = rot;
-    }
+    //public void ChickenRuning()
+    //{
+    //    chickenMenu.SetBool("Hit", false);
+    //}
+    //public void RotateChicken()
+    //{
+    //    Quaternion rot = chickenMenu.transform.rotation;
+    //    rot.y *= -1;
+    //    chickenMenu.transform.rotation = rot;
+    //}
     public void Deactivate()
     {
-        ChickenRuning();
+       // ChickenRuning();
         this.gameObject.SetActive(false);
     }
 
