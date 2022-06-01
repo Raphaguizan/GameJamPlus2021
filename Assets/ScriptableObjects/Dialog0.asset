@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   initial: 0
-  question: "Voc\xEA achou que encontrou um bug? "
+  question: Did you think you found a bug?
   answer:
-  - Sim!!!
-  - Nunca faria isso!!!
-  - Quem? eu?
-  - "E isso n\xE3o \xE9 um bug?"
+  - Yes!!!
+  - I would never do that!!!
+  - Who? Me?
+  - But isn't this a bug?
   replica:
-  - "Pois \xE9, n\xE3o achou!!!"
-  - Ainda bem
-  - "N\xE3o, minha av\xF3"
-  - o que vc acha? Eu estou aqui a toa?
-  hasItem: 1
+  - Well, you didn't find it!!!
+  - Fortunately.
+  - No, my Mom.
+  - What do you think? Am i here for nothing?
+  hasItem: 0
   item: {fileID: 0}
   itemAnswer: -1
