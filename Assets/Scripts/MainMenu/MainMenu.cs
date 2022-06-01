@@ -30,7 +30,7 @@ public class MainMenu : Singleton<MainMenu>
 
     public void StartGame()
     {
-        StartCoroutine(ChangingScene());
+        StartCoroutine(ChangingScene("FirstCutscene"));
     }
 
     public void Options(bool show)
@@ -43,6 +43,10 @@ public class MainMenu : Singleton<MainMenu>
         creditsCanvas.SetActive(show);
     }
 
+    public void Board()
+    {
+        StartCoroutine(ChangingScene("Board"));
+    }
 
     public void QuitGame()
     {
@@ -61,14 +65,14 @@ public class MainMenu : Singleton<MainMenu>
 
     public void SetStatistics(int scapesFound)
     {
-        statistics.text = "Escapes found: " + scapesFound + "/3";
+        statistics.text = "Escapes found: \n" + scapesFound + "/10";
     }
 
-    IEnumerator ChangingScene()
+    IEnumerator ChangingScene(string scene)
     {
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
-        SceneManager.LoadScene("FirstCutscene");
+        SceneManager.LoadScene(scene);
     }
  
 }
