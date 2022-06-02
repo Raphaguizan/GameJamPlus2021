@@ -229,7 +229,7 @@ namespace Game.Chicken
 
         public void OnHit()
         {
-            if (!powerUps.HitEnabled) return;
+            if (!powerUps.HitEnabled || !canMove) return;
 
             anim.SetTrigger("MakeHit");
             if (chickenSound) chickenSound.PlayRandom();

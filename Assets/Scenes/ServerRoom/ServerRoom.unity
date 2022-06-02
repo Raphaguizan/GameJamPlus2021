@@ -826,7 +826,7 @@ Transform:
   m_Children:
   - {fileID: 1656766747}
   m_Father: {fileID: 852394537}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &196002404
 MonoBehaviour:
@@ -1385,7 +1385,7 @@ Transform:
   - {fileID: 1047000505}
   - {fileID: 760092198}
   m_Father: {fileID: 852394537}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &405339750
 GameObject:
@@ -2060,9 +2060,9 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Game.Chicken.Chicken, Assembly-CSharp
-        m_MethodName: ChangeCanMove
+      - m_Target: {fileID: 1420099317}
+        m_TargetAssemblyTypeName: FindKaren, Assembly-CSharp
+        m_MethodName: ChangeKarenGraphic
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2436,7 +2436,7 @@ Transform:
   - {fileID: 945003943}
   - {fileID: 647856651}
   m_Father: {fileID: 852394537}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760092197
 GameObject:
@@ -2874,6 +2874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 61316319}
+  - {fileID: 1420099316}
   - {fileID: 69624297}
   - {fileID: 337990486}
   - {fileID: 196002403}
@@ -3677,7 +3678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6455113385414053495, guid: 7b94de7ed5860e14a9afa21789edd874, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6455113385414053495, guid: 7b94de7ed5860e14a9afa21789edd874, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4316,6 +4317,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417474680}
   m_CullTransparentMesh: 1
+--- !u!1 &1420099315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1420099316}
+  - component: {fileID: 1420099317}
+  m_Layer: 0
+  m_Name: FindKaren
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1420099316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420099315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 852394537}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420099317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420099315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d726a589bf3784a9339041bd56d1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  karen: {fileID: 0}
 --- !u!1 &1560720365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,9 +5475,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Game.Chicken.Chicken, Assembly-CSharp
-        m_MethodName: ChangeCanMove
+      - m_Target: {fileID: 1420099317}
+        m_TargetAssemblyTypeName: FindKaren, Assembly-CSharp
+        m_MethodName: ChangeKarenGraphic
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6088,7 +6133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 103328656904091018, guid: a21f14fff2c863f459f88fdadb15ba8f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 103328656904091018, guid: a21f14fff2c863f459f88fdadb15ba8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6134,5 +6179,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: ServerRoom
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5608430355510203953, guid: a21f14fff2c863f459f88fdadb15ba8f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a21f14fff2c863f459f88fdadb15ba8f, type: 3}
+--- !u!1 &103328656969208932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 985849666426471044, guid: a21f14fff2c863f459f88fdadb15ba8f, type: 3}
+  m_PrefabInstance: {fileID: 103328656969208931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &103328656969208933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103328656969208932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45755005, y: 1.3768399, z: 0.11003873}
+  m_Center: {x: 0.0073296726, y: 0.68841994, z: 0.24937917}
+--- !u!65 &103328656969208934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103328656969208932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4770813, y: 0.54734623, z: 0.5687027}
+  m_Center: {x: 0.0024475977, y: 0.27367324, z: -0.004347801}
