@@ -9,6 +9,10 @@ public class CollectItemBase : MonoBehaviour
     public ItemBase item;
     public Outline outline;
     public float timeToDestroy = 0f;
+
+    [Space, SerializeField]
+    private GameObject art;
+
     [Space, Header("Effects"), SerializeField]
     private ParticleSystem particles;
     [SerializeField]
@@ -21,6 +25,7 @@ public class CollectItemBase : MonoBehaviour
     {
         outline_initial_size = outline.OutlineWidth;
         outline.OutlineWidth = 0f;
+        if(art)art.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +49,7 @@ public class CollectItemBase : MonoBehaviour
     {
         if (collected) return;
 
+        if (art) art.SetActive(false);
         collected = true;
         outline.enabled = false;
 

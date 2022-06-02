@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6455113385414053495}
-  - component: {fileID: 6455113385414053494}
   - component: {fileID: 6455113385414053481}
   - component: {fileID: 5209153436572388875}
   - component: {fileID: 6409841053037352195}
+  - component: {fileID: 6455113385414053494}
   - component: {fileID: 382452198596359032}
   - component: {fileID: 8529590212650188375}
   m_Layer: 7
@@ -38,19 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6455113385414053494
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6455113385414053492}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.2450993
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6455113385414053481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +53,7 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 95643c46aae3f2042afb64f3649ef8c5, type: 2}
   outline: {fileID: 5209153436572388875}
   timeToDestroy: 1
+  art: {fileID: 3249524534808737825}
   particles: {fileID: 8214221236369234574}
   sound: {fileID: 8529590212650188375}
 --- !u!114 &5209153436572388875
@@ -102,6 +90,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &6455113385414053494
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455113385414053492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2450993
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &382452198596359032
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5142,6 +5143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8e4258c6b6f96746be1eeeb6bafe2db, type: 3}
+--- !u!1 &3249524534808737825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e8e4258c6b6f96746be1eeeb6bafe2db, type: 3}
+  m_PrefabInstance: {fileID: 2439201163501749616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2761676296147739291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e8e4258c6b6f96746be1eeeb6bafe2db, type: 3}
