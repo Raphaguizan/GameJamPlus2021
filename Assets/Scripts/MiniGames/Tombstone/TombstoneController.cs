@@ -17,6 +17,11 @@ namespace Game.Minigame.Tombstone
         [Space]
         public UnityEvent OnWin;
 
+        private void Awake()
+        {
+            TimeController.TimeChange += ResetGame;
+        }
+
         public void InteractionSpread(int i, int j)
         {
             if (TimeController.IsDay) return;
@@ -62,6 +67,20 @@ namespace Game.Minigame.Tombstone
         {
             if(i >= matrixDimensions.x || j >= matrixDimensions.y || i < 0 || j < 0)return -1;
             return i*matrixDimensions.x + j;
+        }
+
+        public void ResetGame()
+        {
+            if (!TimeController.IsDay) return;
+            foreach (var item in stones)
+            {
+                item.Disable();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            TimeController.TimeChange -= ResetGame;
         }
     }
 }
