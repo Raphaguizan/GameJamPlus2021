@@ -115,7 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 2651269655400565148}
-  fadeSpeed: 5
+  fadeInSpeed: 5
+  fadeOutDelay: 1
+  fadeOutSpeed: 1
   colors: []
 --- !u!225 &2651269654071398488
 CanvasGroup:

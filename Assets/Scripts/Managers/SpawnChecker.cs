@@ -14,8 +14,16 @@ public class SpawnChecker : MonoBehaviour
     [SerializeField, ShowIf("onlyOneSpawn")]
     private int spawnIndex;
 
+    private GameObject chicken;
+    private void Awake()
+    {
+        chicken = GameObject.FindObjectOfType<Chicken>().gameObject;
+    }
+
     private void OnEnable()
     {
+        chicken.GetComponent<Rigidbody>().isKinematic = true;
+        ScreenTransition.OnStart += FreeKinematic;
         Spawn();
     }
 
@@ -23,9 +31,18 @@ public class SpawnChecker : MonoBehaviour
     {
         if (onlyOneSpawn)
         {
-            ChickenPowerUps.Instance.transform.position = spawnPos.GetSpawnPos(spawnIndex);
+            chicken.transform.position = spawnPos.GetSpawnPos(spawnIndex);
             return;
         }
-        ChickenPowerUps.Instance.transform.position = spawnPos.GetSpawnPos();
+        chicken.transform.position = spawnPos.GetSpawnPos();
+    }
+
+    private void FreeKinematic()
+    {
+        chicken.GetComponent<Rigidbody>().isKinematic = false;
+    }
+    private void OnDisable()
+    {
+        ScreenTransition.OnStart -= FreeKinematic;
     }
 }

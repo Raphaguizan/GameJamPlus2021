@@ -29,11 +29,13 @@ public class GameManager : Singleton<GameManager>
 
     public void CompleteScape(int finalScene)
     {
+        ScreenTransition.Instance.fadeOutDelay = 0;
         StartCoroutine(GoingToFinalScene(finalScene));
     }
 
     public void StartGame()
     {
+        ScreenTransition.Instance.fadeOutDelay = 1;
         StartCoroutine(GoingToGame());
     }
 
@@ -158,12 +160,14 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator GoingToGameScene(string sceneName)
     {
-        ChangeGameScene?.Invoke(sceneName);
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
+        ChangeGameScene?.Invoke(sceneName);
 
         if(!IsSceneLoaded(sceneName))
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        
+        ScreenTransition.Instance.FadeOut();
     }
 
     private bool IsSceneLoaded(string name)

@@ -11,7 +11,9 @@ public class ScreenTransition : MonoBehaviour
 
     #region Inspector
     [SerializeField] private Image fadeImage;
-    [SerializeField] private float fadeSpeed = 5f;
+    [SerializeField] private float fadeInSpeed = 5f;
+    [Tooltip("in seconds")] public float fadeOutDelay = 1f;
+    [SerializeField] private float fadeOutSpeed = 1f;
     [SerializeField] private List<Color> colors = new List<Color>();
     // [SerializeField] TextMeshProUGUI levelText;
     #endregion
@@ -22,11 +24,13 @@ public class ScreenTransition : MonoBehaviour
     private float fadeTarget = 0f;
     private float elapsedTime = 0;
     private float canvasAlpha = 1f;
+    private float currentFadeSpeed;
     bool onGame;
     #endregion
 
     #region Actions
     public static Action OnComplete;
+    public static Action OnStart;
     #endregion
 
     private void Awake()
@@ -34,6 +38,7 @@ public class ScreenTransition : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            currentFadeSpeed = fadeInSpeed;
             canvasGroup = GetComponent<CanvasGroup>();
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -61,7 +66,8 @@ public class ScreenTransition : MonoBehaviour
     {
         if (fading)
         {
-            elapsedTime += Time.deltaTime * fadeSpeed;
+            OnStart?.Invoke();
+            elapsedTime += Time.deltaTime * currentFadeSpeed;
             canvasGroup.alpha = Mathf.Lerp(canvasAlpha, fadeTarget, elapsedTime);
             if (elapsedTime >= 1f)
             {
@@ -92,6 +98,7 @@ public class ScreenTransition : MonoBehaviour
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
         canvasAlpha = canvasGroup.alpha;
+        currentFadeSpeed = fadeInSpeed;
         fadeTarget = 1f;
         fading = true;
     }
@@ -102,7 +109,13 @@ public class ScreenTransition : MonoBehaviour
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
         canvasAlpha = canvasGroup.alpha;
+        currentFadeSpeed = fadeOutSpeed;
         fadeTarget = 0;
+        StartCoroutine(FadeDelay());
+    }
+    IEnumerator FadeDelay()
+    {
+        yield return new WaitForSeconds(fadeOutDelay);
         fading = true;
     }
 
