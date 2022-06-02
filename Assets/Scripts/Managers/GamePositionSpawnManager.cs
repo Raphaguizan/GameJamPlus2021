@@ -32,6 +32,12 @@ namespace Game.SpawnPos
             Reset();
             return pos;
         }
+        public Vector3 GetSpawnPos(int index)
+        {
+            Vector3 pos = positions[index].Pos;
+            Reset();
+            return pos;
+        }
         public void SetNewSpawn(string name)
         {
             if(positions.Exists(p => p.name.Equals(name)))

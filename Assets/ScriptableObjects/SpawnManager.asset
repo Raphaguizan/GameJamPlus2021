@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f3647d58651b34a85273a9983ad71a, type: 3}
   m_Name: SpawnManager
   m_EditorClassIdentifier: 
+  _currentPos:
+    name: Default
+    Pos: {x: -12.4, y: 1.3, z: 32}
   positions:
   - name: Default
     Pos: {x: -12.4, y: 1.3, z: 32}
   - name: Well
     Pos: {x: -13.061, y: 2.347, z: 13.032}
+  - name: Server
+    Pos: {x: -34.3, y: 3.273, z: 144.33}

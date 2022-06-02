@@ -31,6 +31,7 @@ public class FindBootsController : MonoBehaviour
 
     private void VerifyBootState()
     {
+        if (!_boots) return;
         if (TimeController.IsDay)
             DisabeBoot();
         else

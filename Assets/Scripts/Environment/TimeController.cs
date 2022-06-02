@@ -83,6 +83,7 @@ public class TimeController : Singleton<TimeController>
 
     private void RotateLightByTime()
     {
+        if (!mainLight) return;
         mainLight.localEulerAngles = new Vector3(time.Remap(6, 18, 0, 180), 20, mainLight.localRotation.z);
     }
 

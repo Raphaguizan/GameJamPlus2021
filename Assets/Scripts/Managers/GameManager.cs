@@ -9,7 +9,7 @@ using NaughtyAttributes;
 public class GameManager : Singleton<GameManager>
 {
     public static bool onPause = false;
-    public static Action UnloadScene;
+    public static Action<string> ChangeGameScene;
     public void TogglePause()
     {
         onPause = !onPause;
@@ -39,8 +39,6 @@ public class GameManager : Singleton<GameManager>
 
     public void MainMenu(bool endingCutscene = false, int cutScene = 1)
     {
-        UnloadScene?.Invoke();
-
         if (!endingCutscene)
             TogglePause();
 
@@ -69,7 +67,6 @@ public class GameManager : Singleton<GameManager>
     {
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
-        UnloadScene?.Invoke();
         if (scene == 1)
         {
             Statistics.Instance.UpdateStatistics("City");
@@ -154,18 +151,29 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("Board");
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadGameScene(string sceneName)
     {
-        StartCoroutine(GoingToScene(sceneName));
+        StartCoroutine(GoingToGameScene(sceneName));
     }
 
-    IEnumerator GoingToScene(string sceneName)
+    IEnumerator GoingToGameScene(string sceneName)
     {
-
+        ChangeGameScene?.Invoke(sceneName);
         ScreenTransition.Instance.FadeIn();
         yield return new WaitUntil(() => !ScreenTransition.Instance.isFading());
 
-        SceneManager.LoadScene(sceneName);
+        if(!IsSceneLoaded(sceneName))
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
+
+    private bool IsSceneLoaded(string name)
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            if (SceneManager.GetSceneAt(i).name.Equals(name))
+                return true;
+        }
+        return false;
     }
 
     public void LoadAditiveScene(string sceneName)
