@@ -14,6 +14,10 @@ namespace Game.Chicken
         [Space, SerializeField] float rotationSpeed = 200f;
         [Space, SerializeField] float jumpForce = 3f;
         [Space] public bool canMove = true;
+
+        [Header("Graphic"), SerializeField]
+        private GraphicController graphic;
+
         [Space, SerializeField] RandomSound chickenSound;
         [SerializeField] RandomSound stepSound;
 
@@ -249,6 +253,10 @@ namespace Game.Chicken
             canMove = val;
         }
 
+        public void ChangeGraphic(bool val)
+        {
+            graphic.ActiveGraphic(val);
+        }
 
         public void ResetInteractiveCollider()
         {

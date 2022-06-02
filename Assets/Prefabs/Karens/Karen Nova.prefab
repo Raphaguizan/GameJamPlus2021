@@ -1810,6 +1810,7 @@ GameObject:
   - component: {fileID: 4854859603433264825}
   - component: {fileID: 5389696719369264501}
   - component: {fileID: 8727060856496739160}
+  - component: {fileID: 7606439591776704570}
   m_Layer: 3
   m_Name: Karen Nova
   m_TagString: Player
@@ -1952,6 +1953,7 @@ MonoBehaviour:
   rotationSpeed: 650
   jumpForce: 3
   canMove: 1
+  graphic: {fileID: 7606439591776704570}
   chickenSound: {fileID: 4130845773274336852}
   stepSound: {fileID: 8307601043315888667}
   powerUps: {fileID: 7996682424490560918}
@@ -1973,7 +1975,7 @@ MonoBehaviour:
   hitTutorial: {fileID: 0}
   chickenHit: {fileID: 1238202283899069163}
   bootsTutorial: {fileID: 0}
-  bootsJumpForce: 8
+  bootsJumpForce: 6
   bootsEnabled: 0
   parachute: {fileID: 2617776831286492851}
 --- !u!114 &3482560578528449025
@@ -2079,6 +2081,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posAdjust: {x: 0.6, y: 0}
   chiken: {fileID: 4658056562644920961}
+--- !u!114 &7606439591776704570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471712396635598907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f18fff935194e94e83536483851d588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _graphics:
+  - {fileID: 2777492557498429525}
+  - {fileID: 7547709915174024591}
 --- !u!1 &5730885709126276261
 GameObject:
   m_ObjectHideFlags: 0
