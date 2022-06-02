@@ -15,11 +15,6 @@ namespace Game.Chicken
 
         private readonly int MAX_ITEM = 6;
 
-        private void Start()
-        {
-            itemList.itens = new List<ItemCollectable>();
-        }
-
         public void AddItem(ItemBase item)
         {
             //FIX colocar código mais genérico
@@ -59,6 +54,11 @@ namespace Game.Chicken
                 Debug.Log("você nâo tem esse item");
             }
             return Exists;
+        }
+
+        private void OnApplicationQuit()
+        {
+            itemList.Reset();
         }
 
     }

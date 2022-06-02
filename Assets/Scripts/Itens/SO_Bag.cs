@@ -7,4 +7,12 @@ using Game.Item;
 public class SO_Bag : ScriptableObject
 {
     public List<ItemCollectable> itens;
+    private void Awake()
+    {
+        Reset();
+    }
+    public void Reset()
+    {
+        itens = new List<ItemCollectable>();
+    }
 }

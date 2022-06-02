@@ -12,6 +12,7 @@ public class UIItemManager : MonoBehaviour
     {
         UIList = new List<GameObject>();
         ChickenBag.UpdateInterface += UpdateUI;
+        UpdateUI();
     }
     private void OnDisable()
     {
