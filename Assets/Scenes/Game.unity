@@ -38254,6 +38254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 11400000, guid: 0f2342121944e7147b1ebec06faf2978, type: 2}
+  kinematicWait: 0
   onlyOneSpawn: 0
   spawnIndex: 0
 --- !u!4 &1098337618
@@ -40761,7 +40762,7 @@ PrefabInstance:
     - target: {fileID: 2666915012084913381, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_CustomBlends
       value: 
-      objectReference: {fileID: 11400000, guid: a99435f235802864399e4e5c7daaab77, type: 2}
+      objectReference: {fileID: 11400000, guid: 042b81a9687eb3446af88f2dd25a7ba8, type: 2}
     - target: {fileID: 5103329747178828183, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_Name
       value: Camera

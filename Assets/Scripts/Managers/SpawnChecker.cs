@@ -9,8 +9,10 @@ public class SpawnChecker : MonoBehaviour
 {
     public GamePositionSpawnManager spawnPos;
     [SerializeField]
-    private bool onlyOneSpawn = false;
+    private bool kinematicWait = false;
 
+    [Space,SerializeField]
+    private bool onlyOneSpawn = false;
     [SerializeField, ShowIf("onlyOneSpawn")]
     private int spawnIndex;
 
@@ -22,8 +24,11 @@ public class SpawnChecker : MonoBehaviour
 
     private void OnEnable()
     {
-        chicken.GetComponent<Rigidbody>().isKinematic = true;
-        ScreenTransition.OnStart += FreeKinematic;
+        if (kinematicWait)
+        {
+            chicken.GetComponent<Rigidbody>().isKinematic = true;
+            ScreenTransition.OnStart += FreeKinematic;
+        }
         Spawn();
     }
 
@@ -43,6 +48,9 @@ public class SpawnChecker : MonoBehaviour
     }
     private void OnDisable()
     {
-        ScreenTransition.OnStart -= FreeKinematic;
+        if (kinematicWait)
+        {
+            ScreenTransition.OnStart -= FreeKinematic;
+        }
     }
 }

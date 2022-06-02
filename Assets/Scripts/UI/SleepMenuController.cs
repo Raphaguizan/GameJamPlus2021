@@ -14,18 +14,18 @@ public class SleepMenuController : MonoBehaviour
         animator = GetComponent<Animator>();
         Close();
     }
-    private void ChangeParan(bool val)
+    private void ChangeParam(bool val)
     {
         animator.SetBool(ParamName, val);
     }
 
     public void Close()
     {
-        ChangeParan(false);
+        ChangeParam(false);
     }
 
     public void Open()
     {
-        ChangeParan(true);
+        ChangeParam(true);
     }
 }

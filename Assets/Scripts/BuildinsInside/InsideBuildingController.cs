@@ -8,11 +8,7 @@ public class InsideBuildingController : MonoBehaviour
     public List<GameObject> Objectsinside;
     public List<GameObject> ObjectsOutside;
 
-    private void Start()
-    {
-        ActiveInside(false);
-    }
-
+    private bool inside = false;
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<Chicken>())
@@ -29,6 +25,9 @@ public class InsideBuildingController : MonoBehaviour
     }
     private void ActiveInside(bool val)
     {
+        if (inside == val) return;
+        else inside = val;
+
         foreach (GameObject gO in Objectsinside)
         {
             gO.SetActive(val);
