@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
+using NaughtyAttributes;
 
 namespace Game.Chicken
 {
@@ -40,19 +41,20 @@ namespace Game.Chicken
 
         #region static Actives
 
-        [ContextMenu("Active Boots")]
+        [Button]
         public static void ActiveBoots()
         {
             if (Instance.bootsTutorial) Instance.bootsTutorial.Show();
             Instance.bootsEnabled = true;
             Instance.chicken.JumpForce = Instance.bootsJumpForce;
         }
-        [ContextMenu("Active KungFu")]
+        [Button]
         public static void ActiveKungFu()
         {
             if (Instance.hitTutorial) Instance.hitTutorial.Show();
             Instance.chickenHit.gameObject.SetActive(true);
         }
+        [Button]
         public static void ActiveParachute()
         {
             Instance.parachute.SetActive(true);

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Game.Chicken;
 
-[RequireComponent(typeof(Outline), typeof(Animator))]
+[RequireComponent(typeof(Animator))]
 public class Hittable : MonoBehaviour
 {
     public int life = 3;
@@ -13,6 +14,8 @@ public class Hittable : MonoBehaviour
 
     [SerializeField]
     private Outline outline;
+
+    public UnityEvent onDie;
 
     private float outlineSize;
     private bool dead = false;
@@ -37,7 +40,7 @@ public class Hittable : MonoBehaviour
     private void Die()
     {
         dead = true;
-
+        onDie.Invoke();
         if (anim) anim.SetTrigger("Die");
 
        Destroy(this.gameObject, 2f);
