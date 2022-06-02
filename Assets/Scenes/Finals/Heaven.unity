@@ -1364,6 +1364,7 @@ GameObject:
   - component: {fileID: 266154894}
   - component: {fileID: 266154896}
   - component: {fileID: 266154895}
+  - component: {fileID: 266154897}
   m_Layer: 5
   m_Name: final
   m_TagString: Untagged
@@ -1410,7 +1411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68c71d79f007b8d4ba2e1fd46d88309b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1c3f5c76238d1344addad0f4323b519, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1428,6 +1429,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266154893}
   m_CullTransparentMesh: 1
+--- !u!225 &266154897
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266154893}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &307871963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9147,6 +9160,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2434179836765501417, guid: 1d0f76f9561bf51419f0bc89e2217b7f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2529311617287522590, guid: 1d0f76f9561bf51419f0bc89e2217b7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0434228e-16
@@ -9506,6 +9523,10 @@ PrefabInstance:
     - target: {fileID: 8712856514894499056, guid: 1d0f76f9561bf51419f0bc89e2217b7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -24.05798
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016720830181628225, guid: 1d0f76f9561bf51419f0bc89e2217b7f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d0f76f9561bf51419f0bc89e2217b7f, type: 3}
@@ -11912,6 +11933,7 @@ GameObject:
   - component: {fileID: 1533385761}
   - component: {fileID: 1533385763}
   - component: {fileID: 1533385762}
+  - component: {fileID: 1533385764}
   m_Layer: 5
   m_Name: final_1
   m_TagString: Untagged
@@ -11958,7 +11980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 920efba57d5287f43afe671d129b1a3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1a2b09c14d4e2e44986146032163d0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11976,6 +11998,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533385760}
   m_CullTransparentMesh: 1
+--- !u!225 &1533385764
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533385760}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1542895797
 GameObject:
   m_ObjectHideFlags: 0
@@ -11987,6 +12021,7 @@ GameObject:
   - component: {fileID: 1542895798}
   - component: {fileID: 1542895800}
   - component: {fileID: 1542895799}
+  - component: {fileID: 1542895801}
   m_Layer: 5
   m_Name: final_2
   m_TagString: Untagged
@@ -12033,7 +12068,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe7efd7c50fb9124490fbd9ce311e528, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b3ff12f77ac53f48b8b9a53d7ddc6b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12051,6 +12086,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542895797}
   m_CullTransparentMesh: 1
+--- !u!225 &1542895801
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542895797}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1570128057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12991,7 +13038,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 4e4f09d9eb9e78c48b4438ef9df07cf9, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
