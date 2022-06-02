@@ -25,7 +25,7 @@ namespace Game.Minigame.Tombstone
 
         private void Awake()
         {
-            candle.SetActive(false);
+            Disable();
             controller = gameObject.GetComponentInParent<TombstoneController>();
 
             if (controller) controller.OnWin.AddListener(DisableInteraction);
@@ -43,6 +43,12 @@ namespace Game.Minigame.Tombstone
         {
             isActive = !isActive;
             candle.SetActive(isActive);
+        }
+
+        public void Disable()
+        {
+            isActive = false;
+            candle.SetActive(false);
         }
 
         private void DisableInteraction()

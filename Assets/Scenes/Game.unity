@@ -82744,6 +82744,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 765999919}
     m_Modifications:
+    - target: {fileID: 7949080892157974500, guid: d4925781899dfc746b0c0feda1ede190, type: 3}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949080892157974500, guid: d4925781899dfc746b0c0feda1ede190, type: 3}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 391554794}
+    - target: {fileID: 7949080892157974500, guid: d4925781899dfc746b0c0feda1ede190, type: 3}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CompleteScape
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949080892157974500, guid: d4925781899dfc746b0c0feda1ede190, type: 3}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949080892157974500, guid: d4925781899dfc746b0c0feda1ede190, type: 3}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7949080892157974501, guid: d4925781899dfc746b0c0feda1ede190, type: 3}
       propertyPath: m_Name
       value: TombStoneController
