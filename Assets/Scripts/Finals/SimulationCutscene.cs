@@ -27,4 +27,9 @@ public class SimulationCutscene : MonoBehaviour
     {
         videoPlayer.Stop();
     }
+
+    public void PauseVideo()
+    {
+        videoPlayer.Pause();
+    }
 }
