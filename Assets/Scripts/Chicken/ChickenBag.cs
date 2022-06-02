@@ -15,10 +15,13 @@ namespace Game.Chicken
 
         private readonly int MAX_ITEM = 6;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             itemList.Reset();
+            UpdateInterface?.Invoke();
         }
+
         public void AddItem(ItemBase item)
         {
             //FIX colocar código mais genérico
