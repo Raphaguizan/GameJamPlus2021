@@ -37,6 +37,16 @@ public class TimeController : Singleton<TimeController>
         RotateLightByTime();
         AdjustColors();
     }
+
+    public static void SetTime(float val)
+    {
+        if (val > 24)
+            val = 24;
+        else if (val < 0)
+            val = 0;
+
+        Instance.time = val;
+    }
     private void AdjustColors()
     {
         Color currentColor = GetColor();
