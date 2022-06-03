@@ -210,6 +210,7 @@ namespace Game.Chicken
                     }
                 }
             }
+            ResetInteractiveCollider();
         }
 
         public void OnJump()
