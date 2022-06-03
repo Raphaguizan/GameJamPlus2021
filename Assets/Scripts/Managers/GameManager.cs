@@ -111,9 +111,9 @@ public class GameManager : Singleton<GameManager>
         }
         if (scene == 8)
         {
-            Statistics.Instance.UpdateStatistics("MagicalPlace");
+            Statistics.Instance.UpdateStatistics("Forest");
             //MainMenu(true);
-            SceneManager.LoadScene("MagicalPlace");
+            SceneManager.LoadScene("Forest");
         }
         if (scene == 9)
         {
