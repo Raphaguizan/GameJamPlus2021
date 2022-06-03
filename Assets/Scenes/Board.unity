@@ -3262,10 +3262,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try To Remember?
+  m_text: I can continue with my mission
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39b78110c23b40e46b5c6b4d1130ca0d, type: 2}
-  m_sharedMaterial: {fileID: 8677358914675409568, guid: 345a1e1115afb0648b4922436c407049, type: 2}
+  m_sharedMaterial: {fileID: -1453573310545411094, guid: 39b78110c23b40e46b5c6b4d1130ca0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3289,11 +3289,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.07
-  m_fontSizeBase: 0.07
+  m_fontSize: 0.06
+  m_fontSizeBase: 0.06
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_fontSizeMin: 0.07
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -3328,7 +3328,7 @@ MonoBehaviour:
   m_margin: {x: 0.09960416, y: 0.16882384, z: 0.10495594, w: 0.048443303}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &166406167
@@ -16262,6 +16262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FeatherParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 5383239630184509492, guid: 85f2a399d0720644abca813d9f7aadf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5383239630184509493, guid: 85f2a399d0720644abca813d9f7aadf8, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -24442,7 +24446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934751571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.030000001, y: 2.4767811, z: -3.3376276}
+  m_LocalPosition: {x: -1.305, y: 2.1655414, z: -4.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27730,9 +27734,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1033138852}
   seenPhrases:
-  - That day was crazy!
+  - What a crazy day!
   - I remember now
-  - i can continue with my mission
+  - I can continue with my mission
   unlockedPhrases:
   - I must remember
   - What happen in this escape?
