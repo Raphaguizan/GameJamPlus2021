@@ -1090,6 +1090,8 @@ GameObject:
   - component: {fileID: 4150113817064421432}
   - component: {fileID: 4150113817064421431}
   - component: {fileID: 4150113817064421433}
+  - component: {fileID: 4150113817064421430}
+  - component: {fileID: 3673750077091695131}
   m_Layer: 0
   m_Name: Bed
   m_TagString: interactable
@@ -1144,9 +1146,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+        m_TargetAssemblyTypeName: SleepMenuController, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1154,6 +1156,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Game.Chicken.Chicken, Assembly-CSharp
+        m_MethodName: ChangeCanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &4150113817064421433
 MonoBehaviour:
@@ -1169,6 +1183,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wakeUptimeNight: 18
   wakeUptimeDay: 7
+--- !u!114 &4150113817064421430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8608943564779437515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e541777454ffbe478283180692ff635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _active: 1
+--- !u!95 &3673750077091695131
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8608943564779437515}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b51f1331523337045a0564f55e465b1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9110140695901375032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,14 +1350,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0d026ef9e0da844b86537a9b2b7fb0, type: 3}
---- !u!1 &3782029640580441686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e0d026ef9e0da844b86537a9b2b7fb0, type: 3}
-  m_PrefabInstance: {fileID: 4088457273004169991}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4555293471803178220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e0d026ef9e0da844b86537a9b2b7fb0, type: 3}
+  m_PrefabInstance: {fileID: 4088457273004169991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3782029640580441686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e0d026ef9e0da844b86537a9b2b7fb0, type: 3}
   m_PrefabInstance: {fileID: 4088457273004169991}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &6605098890879529538
@@ -1367,6 +1413,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8608943564779437515}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3673750077091695131}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: On
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &5863361719108661220
