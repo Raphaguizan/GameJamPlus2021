@@ -9,13 +9,26 @@ public class SecretButton : MonoBehaviour
     [SerializeField] GameObject panel;
     int index;
     bool isOpen;
-
+    bool animating;
+    float time;
     [SerializeField] Transform buttonOther;
     [SerializeField] Transform buttonKaren;
 
     private void Start()
     {
         index = 0;
+    }
+
+    void Update()
+    {
+        if (!animating) return;
+        time += Time.deltaTime;
+
+        if(time > .3f)
+        {
+            time = 0;
+            animating = false;
+        }
     }
     public void OpenPopUp()
     {
@@ -38,12 +51,22 @@ public class SecretButton : MonoBehaviour
 
     public void OpenSecretButton()
     {
+        if (animating) return;
+        animating = true;
         anim.SetBool("Open", true);
     }
 
     public void CloseSecretButton()
     {
+        if (animating) return;
+        animating = true;
         anim.SetBool("Open", false);
+    }
+
+    public void Unlock()
+    {
+        Statistics.Instance.CheatOn();
+        GameManager.Instance.Board();
     }
     IEnumerator Canceling()
     {
@@ -57,7 +80,13 @@ public class SecretButton : MonoBehaviour
         index = 0;
         panel.SetActive(false);
         isOpen = false;
-        CloseSecretButton();
+       // CloseSecretButton();
     }
 
+    public void SwapButtons()
+    {
+        Vector3 pos = buttonOther.position;
+        buttonOther.position = buttonKaren.position;
+        buttonKaren.position = pos;
+    }
 }

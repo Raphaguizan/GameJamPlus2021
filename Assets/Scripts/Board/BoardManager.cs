@@ -35,7 +35,7 @@ public class BoardManager : MonoBehaviour
         foreach(PhotoButton pb in photos)
         {
             string name = pb.GetName();
-            if(Statistics.Instance.IsEscapeUnlocked(name))
+            if(Statistics.Instance.IsCheatOn() || Statistics.Instance.IsEscapeUnlocked(name))
             {
                 pb.SetLock(true);
             }
@@ -44,57 +44,6 @@ public class BoardManager : MonoBehaviour
                 pb.SetLock(false);
             }
         }
-        for (int escape = 1; escape <= 10; escape++)
-        {
-            //if (escape == 1)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("City") == ;
-            //}
-
-            //if (escape == 2)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("Fall") == ;
-            //}
-
-            //if (escape == 3)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("UFO") == ;
-            //}
-
-            //if (escape == 4)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("Beach") == ;
-            //}
-
-            //if (escape == 5)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("Jail") == ;
-            //}
-
-            //if (escape == 6)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("Server") == ;
-            //}
-
-            //if (escape == 7)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("Simulation") == ;
-            //}
-
-            //if (escape == 8)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("MagicalPlace") == ;
-            //}
-
-            //if (escape == 9)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("Heaven") == ;
-            //}
-
-            //if (escape == 10)
-            //{
-            //    if (Statistics.Instance.IsEscapeUnlocked("School") == ;
-            //}
-        }
+       
     }
 }

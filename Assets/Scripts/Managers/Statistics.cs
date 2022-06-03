@@ -43,6 +43,21 @@ public class Statistics : MonoBehaviour
 
     }
 
+    public void ResetAll()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void CheatOn()
+    {
+        PlayerPrefs.SetInt("cheat", 1);
+    }
+
+    public bool IsCheatOn()
+    {
+        return PlayerPrefs.GetInt("cheat", 0) == 1;
+    }
+
 
     public bool IsEscapeUnlocked(string escape)
     {
