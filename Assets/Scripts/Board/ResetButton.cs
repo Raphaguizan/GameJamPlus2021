@@ -54,4 +54,5 @@ public class ResetButton : MonoBehaviour
         Statistics.Instance.ResetAll();
         GameManager.Instance.Board();
     }
+
 }

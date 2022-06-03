@@ -77,4 +77,9 @@ public class Statistics : MonoBehaviour
         string key = name + "seen";
         PlayerPrefs.SetInt(key, 1);
     }
+
+    public int GetEscapesQuantity()
+    {
+        return scapes;
+    }
 }
