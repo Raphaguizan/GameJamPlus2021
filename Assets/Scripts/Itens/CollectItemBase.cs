@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Game.Item;
 using Game.Chicken;
 
@@ -17,6 +18,11 @@ public class CollectItemBase : MonoBehaviour
     private ParticleSystem particles;
     [SerializeField]
     private AudioSource sound;
+
+    [Space]
+    public UnityEvent OnCollect;
+
+    public GameObject Art => art;
 
     private bool collected = false;
 
@@ -56,13 +62,14 @@ public class CollectItemBase : MonoBehaviour
         if (particles != null)particles.Play();
         if(sound != null)sound.Play();
 
-        Destroy(gameObject, timeToDestroy);
         OnCollet();
+        Destroy(gameObject, timeToDestroy);
     }
 
 
     protected virtual void OnCollet()
     {
+        OnCollect.Invoke();
         ChickenBag.Instance.AddItem(item);
     }
 }

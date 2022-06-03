@@ -57252,6 +57252,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1553860971}
   - component: {fileID: 1553860972}
+  - component: {fileID: 1553860974}
+  - component: {fileID: 1553860973}
   m_Layer: 0
   m_Name: FindBoots
   m_TagString: Untagged
@@ -57289,6 +57291,118 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bounderies: {fileID: 14477554}
   _boots: {fileID: 1997023730}
+  sound: {fileID: 1553860973}
+  beepDelay: {x: 0.1, y: 2}
+  isBeeping: 0
+--- !u!82 &1553860973
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553860970}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6917b31c40351ad4bae207d4cd1d15fb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.455
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!65 &1553860974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553860970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 24.203829, y: 18.92993, z: 49.99617}
+  m_Center: {x: -0.7496519, y: 3.6639414, z: -7.700081}
 --- !u!1001 &1554108930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65452,6 +65566,9 @@ MonoBehaviour:
   art: {fileID: 0}
   particles: {fileID: 0}
   sound: {fileID: 0}
+  OnCollect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1751489670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83812,6 +83929,34 @@ PrefabInstance:
     - target: {fileID: 6654685585702388073, guid: 606e502605639124da8863f979fc043b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1553860972}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopBeep
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FindBootsController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654685585702388078, guid: 606e502605639124da8863f979fc043b, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 606e502605639124da8863f979fc043b, type: 3}

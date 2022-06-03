@@ -56,6 +56,9 @@ MonoBehaviour:
   art: {fileID: 3249524534808737825}
   particles: {fileID: 8214221236369234574}
   sound: {fileID: 8529590212650188375}
+  OnCollect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5209153436572388875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +227,7 @@ GameObject:
   - component: {fileID: 8214221236369234574}
   - component: {fileID: 1529072529167881162}
   m_Layer: 7
-  m_Name: Particle System
+  m_Name: itemParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
