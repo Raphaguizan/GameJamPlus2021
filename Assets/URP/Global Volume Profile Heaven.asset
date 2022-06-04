@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile
+  m_Name: Global Volume Profile Heaven
   m_EditorClassIdentifier: 
   components:
   - {fileID: -7944286007617278643}
@@ -106,11 +106,11 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.09
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.31
+    m_Value: 0.45
     min: 0
   scatter:
     m_OverrideState: 0
