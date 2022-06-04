@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,8 @@ public class DialogManager : Singleton<DialogManager>
     [SerializeField] TextMeshProUGUI answer4;
     SO_Dialog dialog;
     [SerializeField] GameObject Box;
+
+    public static Action<bool> Answered;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,14 +52,7 @@ public class DialogManager : Singleton<DialogManager>
         answer4.text = "";
         StartCoroutine(Replicating(dialog, replicNumber));
 
-        if(replicNumber == dialog.itemAnswer)
-        {
-            if (dialog.item && dialog.hasItem)
-            {
-                ChickenBag.Instance.AddItem(dialog.item);
-                dialog.hasItem = false;
-            }
-        }
+        Answered?.Invoke(dialog.correctAnswerIndexList.Contains(replicNumber));
     }
 
     private void ActiveButtons(bool val)
