@@ -1396,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.a
       value: 0.3254902
       objectReference: {fileID: 0}
+    - target: {fileID: 6152364588079170074, guid: 39ca2c23f66be544e9d25781053169f7, type: 3}
+      propertyPath: pills
+      value: 
+      objectReference: {fileID: 57935260824931132}
     - target: {fileID: 6863266687164066810, guid: 39ca2c23f66be544e9d25781053169f7, type: 3}
       propertyPath: m_Colors.m_PressedColor.a
       value: 0.6156863
@@ -1606,6 +1610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ca2c23f66be544e9d25781053169f7, type: 3}
+--- !u!1 &57935260824931132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2836636607241752342, guid: 39ca2c23f66be544e9d25781053169f7, type: 3}
+  m_PrefabInstance: {fileID: 2850798522888029226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5635930934167889778 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7612995927770751832, guid: 39ca2c23f66be544e9d25781053169f7, type: 3}

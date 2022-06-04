@@ -10,6 +10,11 @@ public class InteractiveNPC : MonoBehaviour
 
     public Outline outline;
 
+    [Space, SerializeField, Tooltip("Time in seconds")]
+    private float coolDown = 60f;
+    [SerializeField, NaughtyAttributes.ReadOnly]
+    private bool inCoolDown = false;
+
     [Space]
     public UnityEvent correctAnswer;
     public UnityEvent wrongAnswer;
@@ -40,6 +45,8 @@ public class InteractiveNPC : MonoBehaviour
     }
     public void ActivateDialog()
     {
+        if (inCoolDown) return;
+        StartCoroutine(CoolDownCount());
         DialogManager.Answered += GetAnswer;
         DialogManager.Instance.StartDialog(dialog);
     }
@@ -52,5 +59,12 @@ public class InteractiveNPC : MonoBehaviour
             wrongAnswer.Invoke();
 
         DialogManager.Answered -= GetAnswer;
+    }
+
+    private IEnumerator CoolDownCount()
+    {
+        inCoolDown = true;
+        yield return new WaitForSeconds(coolDown);
+        inCoolDown = false;
     }
 }

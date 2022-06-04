@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Game.Util;
 using Game.Chicken;
 
+[RequireComponent(typeof(Animator))]
 public class DialogManager : Singleton<DialogManager>
 {
     [SerializeField]
@@ -18,9 +19,12 @@ public class DialogManager : Singleton<DialogManager>
     [SerializeField] TextMeshProUGUI answer3;
     [SerializeField] TextMeshProUGUI answer4;
     SO_Dialog dialog;
-    [SerializeField] GameObject Box;
+    [SerializeField] GameObject pills;
 
     public static Action<bool> Answered;
+
+
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,18 +33,21 @@ public class DialogManager : Singleton<DialogManager>
         answer3.text = "";
         answer4.text = "";
         question.text = "";
+
+        animator = GetComponent<Animator>();
     }
 
     public void StartDialog(SO_Dialog dialog)
     {
         ActiveButtons(true);
-        Box.GetComponent<Animator>().SetTrigger("Open");
+        pills.SetActive(false);
+        animator.SetTrigger("Open");
         this.dialog = dialog;
         StartCoroutine(Dialoging(dialog)); ;
     }
     public void CloseDialog()
     {
-        Box.GetComponent<Animator>().SetTrigger("Close");
+        animator.SetTrigger("Close");
     }
 
     public void Replic( int replicNumber)
