@@ -16,8 +16,9 @@ namespace Game.NPC
         public float moveRadius;
         public float targetRadius;
         public Vector2 randomWaitTime;
+
+        private Transform playerTrans;
         [Header("Follow Params")]
-        public Transform playerTrans;
         public float distaceOfTarget = 1f;
         [Space]
         public Animator anim;
@@ -26,6 +27,7 @@ namespace Game.NPC
         float initialSpeed;
         private void Start()
         {
+            playerTrans = GameObject.FindObjectOfType<Chicken.Chicken>().transform;
             initialSpeed = NavAgent.speed;
             StartCoroutine(RandomAnimations());
             stateMachine.Walk(this);
@@ -37,8 +39,8 @@ namespace Game.NPC
 
             if ((Vector3.Distance(NavAgent.transform.position, targetPosition) <= targetRadius + distaceOfTarget))
             {
-                if(stateMachine.currentAction == NPCActions.FOLLOW)
-                    GetTarget();
+                //if(stateMachine.currentAction == NPCActions.FOLLOW)
+                //    GetTarget();
 
                 stateMachine.Wait(this);
             }
@@ -144,6 +146,11 @@ namespace Game.NPC
         {
             yield return new WaitForSeconds(Random.Range(randomWaitTime.x, randomWaitTime.y));
             if(stateMachine.currentAction == NPCActions.WAIT)
+                stateMachine.Walk(this);
+        }
+        public void InteractionWalk()
+        {
+            if (stateMachine.currentAction != NPCActions.FOLLOW && stateMachine.currentAction != NPCActions.STOP)
                 stateMachine.Walk(this);
         }
 

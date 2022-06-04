@@ -57,6 +57,21 @@ namespace Game.NPC.StateMachine
             //Debug.Log("Saiu no estado");
         }
     }
+    public class NPCStateStop : NPCStateBase
+    {
+        public override void OnStateEnter(RandomIAWalk o)
+        {
+            base.OnStateEnter(o);
+        }
+        public override void OnStateStay()
+        {
+            //Debug.Log("Est� no estado");
+        }
+        public override void OnStateExit()
+        {
+            //Debug.Log("Saiu no estado");
+        }
+    }
 
     public class NPCStateFollow : NPCStateBase
     {
@@ -69,7 +84,7 @@ namespace Game.NPC.StateMachine
         {
             myIA.PlayerPosition(true);
             myIA.Move();
-            myIA.VerifyGoal();
+            //myIA.VerifyGoal();
         }
         public override void OnStateExit()
         {

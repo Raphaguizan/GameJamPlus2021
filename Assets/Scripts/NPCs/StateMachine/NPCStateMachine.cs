@@ -26,6 +26,7 @@ namespace Game.NPC.StateMachine
             dictionaryState.Add(NPCActions.WAIT, new NPCStateWait());
             dictionaryState.Add(NPCActions.FOLLOW, new NPCStateFollow());
             dictionaryState.Add(NPCActions.RUN, new NPCStateRun());
+            dictionaryState.Add(NPCActions.STOP, new NPCStateStop());
         }
 
         public void SwitchState(NPCActions state, RandomIAWalk o)
@@ -68,6 +69,10 @@ namespace Game.NPC.StateMachine
         public void Run(RandomIAWalk ia)
         {
             SwitchState(NPCActions.RUN, ia);
+        }
+        public void Stop(RandomIAWalk ia)
+        {
+            SwitchState(NPCActions.STOP, ia);
         }
         #endregion
     }

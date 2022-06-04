@@ -23,6 +23,8 @@ public class DialogManager : Singleton<DialogManager>
 
     public static Action<bool> Answered;
 
+    private GameObject currentNpc = null;
+    public static bool isOpen => Instance.currentNpc != null;
 
     private Animator animator;
     // Start is called before the first frame update
@@ -37,16 +39,19 @@ public class DialogManager : Singleton<DialogManager>
         animator = GetComponent<Animator>();
     }
 
-    public void StartDialog(SO_Dialog dialog)
+    public void StartDialog(SO_Dialog dialog, GameObject go)
     {
+        currentNpc = go;
         ActiveButtons(true);
         pills.SetActive(false);
         animator.SetTrigger("Open");
         this.dialog = dialog;
         StartCoroutine(Dialoging(dialog)); ;
     }
-    public void CloseDialog()
+    public void CloseDialog(GameObject go)
     {
+        if (currentNpc != go) return;
+        currentNpc = null;
         animator.SetTrigger("Close");
     }
 

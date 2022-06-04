@@ -16,6 +16,8 @@ public class InteractiveNPC : MonoBehaviour
     private bool inCoolDown = false;
 
     [Space]
+    public UnityEvent onActiveDialog;
+    public UnityEvent onDisactiveDialog;
     public UnityEvent correctAnswer;
     public UnityEvent wrongAnswer;
     
@@ -40,15 +42,17 @@ public class InteractiveNPC : MonoBehaviour
         if (player)
         {
             outline.OutlineWidth = 0f;
-            DialogManager.Instance.CloseDialog();
+            DialogManager.Instance.CloseDialog(gameObject);
+            onDisactiveDialog.Invoke();
         }
     }
     public void ActivateDialog()
     {
-        if (inCoolDown) return;
+        if (inCoolDown || DialogManager.isOpen) return;
+        onActiveDialog.Invoke();
         StartCoroutine(CoolDownCount());
         DialogManager.Answered += GetAnswer;
-        DialogManager.Instance.StartDialog(dialog);
+        DialogManager.Instance.StartDialog(dialog, gameObject);
     }
 
     private void GetAnswer(bool assertion)

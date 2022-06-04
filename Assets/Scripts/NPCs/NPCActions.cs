@@ -5,7 +5,7 @@ namespace Game.NPC
         WALK = 0,
         WAIT = 1,
         FOLLOW = 2,
-        RUN = 3
-
+        RUN = 3,
+        STOP = 4
     }
 }
