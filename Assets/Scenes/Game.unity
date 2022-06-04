@@ -23565,7 +23565,7 @@ PrefabInstance:
       objectReference: {fileID: 109283339}
     - target: {fileID: 4126905370745229068, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4379612459277852417, guid: 90569ce505817324d8a30679dd18448e, type: 3}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -41390,31 +41390,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.51957
+      value: 31.481873
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.36686
+      value: 24.22631
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.569145
+      value: -6.514019
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7968431
+      value: 0.7957538
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2856364
+      value: 0.1984037
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5011768
+      value: -0.55520254
       objectReference: {fileID: 0}
     - target: {fileID: 1033656574979437002, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17965183
+      value: 0.13842754
       objectReference: {fileID: 0}
     - target: {fileID: 2031063672037433301, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: m_Name
@@ -41474,7 +41474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400977737465024308, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: far clip plane
-      value: 10
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 7400977737465024308, guid: 6391e98c9f22ccd40b224afba1e57f5a, type: 3}
       propertyPath: near clip plane
