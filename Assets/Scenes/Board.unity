@@ -21694,6 +21694,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5383239630184509494, guid: 85f2a399d0720644abca813d9f7aadf8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5383239630184509496, guid: 85f2a399d0720644abca813d9f7aadf8, type: 3}
       propertyPath: playOnAwake
       value: 1
@@ -34890,7 +34894,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 89a4ef994329e2a4995783e10e5edf20, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
