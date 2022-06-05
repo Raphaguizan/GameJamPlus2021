@@ -623,6 +623,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 103328656904091018, guid: a21f14fff2c863f459f88fdadb15ba8f, type: 3}
   m_PrefabInstance: {fileID: 103328656969208931}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &154117103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 852394537}
+    m_Modifications:
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.1405344
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.111
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342483, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342492, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 596661589057342493, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3df60c6204fdb9249b6c23cb8dd67db8, type: 3}
+    m_RemovedComponents:
+    - {fileID: 596661589057342483, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+--- !u!4 &154117104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 596661589057342482, guid: 95844a133d11be1409176febcc6bdca3, type: 3}
+  m_PrefabInstance: {fileID: 154117103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170000788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,6 +2952,7 @@ Transform:
   - {fileID: 196002403}
   - {fileID: 1082334908}
   - {fileID: 703316418}
+  - {fileID: 154117104}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5387,6 +5459,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1047000504}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1387996488}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
