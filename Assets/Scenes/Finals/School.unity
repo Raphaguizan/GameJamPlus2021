@@ -2514,7 +2514,7 @@ AudioSource:
   m_GameObject: {fileID: 361973658}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2167753796820691200, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
+  OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8276,7 +8276,7 @@ AudioSource:
   m_GameObject: {fileID: 1104453699}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2167753796820691200, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
+  OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8636,7 +8636,7 @@ AudioSource:
   m_GameObject: {fileID: 1120996850}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2167753796820691200, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
+  OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9149,7 +9149,7 @@ AudioSource:
   m_GameObject: {fileID: 1248897785}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2167753796820691200, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
+  OutputAudioMixerGroup: {fileID: 4158619318994155036, guid: 51630cfddc50bf24f98634e3f82715c9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -14445,6 +14445,8 @@ PlayableDirector:
     value: {fileID: 1950809064}
   - key: {fileID: -567928837435959731, guid: 2406b7ce1ba49f04ebd73cdfc086121d, type: 2}
     value: {fileID: 1989107545}
+  - key: {fileID: -5823309065725462405, guid: 2406b7ce1ba49f04ebd73cdfc086121d, type: 2}
+    value: {fileID: 1120996852}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &1950809064
@@ -15469,8 +15471,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035099498}
-  m_LocalRotation: {x: -0.05726735, y: 0.811048, z: 0.08055719, w: 0.5765694}
-  m_LocalPosition: {x: 5.9614253, y: -0.24965513, z: -0.9167533}
+  m_LocalRotation: {x: 0.094719306, y: -0.22961217, z: -0.022458674, w: -0.96840185}
+  m_LocalPosition: {x: 3.8533978, y: -1.3957418, z: 4.641843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
