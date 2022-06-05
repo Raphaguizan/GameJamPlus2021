@@ -10797,6 +10797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 5635930934167889778, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 98.1615
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635930934167889778, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -126
+      objectReference: {fileID: 0}
     - target: {fileID: 8000832716928190088, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -10829,10 +10837,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8167929799223640768, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8395423026105381129, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 391554794}
+    - target: {fileID: 8497135067094043092, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.400002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49c47869d5671e144ac164b19cc87417, type: 3}
 --- !u!224 &296998719 stripped
@@ -39840,8 +39856,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4650716, y: 0.31746277, z: 0.64730585}
-  m_Center: {x: -0.017371943, y: 0.10400101, z: -0.17634661}
+  m_Size: {x: 0.4280507, y: 0.31746277, z: 0.34078583}
+  m_Center: {x: -0.035881944, y: 0.10400101, z: -0.023086824}
 --- !u!1 &1114049489
 GameObject:
   m_ObjectHideFlags: 0
@@ -84332,6 +84348,10 @@ PrefabInstance:
     - target: {fileID: 4317708680808150946, guid: b2234cc8284e46c43b52a7af152f19e4, type: 3}
       propertyPath: m_Name
       value: Dialog_Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478944947655181767, guid: b2234cc8284e46c43b52a7af152f19e4, type: 3}
+      propertyPath: coolDown
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7478944947655181767, guid: b2234cc8284e46c43b52a7af152f19e4, type: 3}
       propertyPath: wrongAnswer.m_PersistentCalls.m_Calls.Array.size
