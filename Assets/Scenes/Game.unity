@@ -33518,6 +33518,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0106
       objectReference: {fileID: 0}
+    - target: {fileID: 8424879340524399496, guid: c55c293f1b3385b4f925bd047e814986, type: 3}
+      propertyPath: coolDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8897626756228660019, guid: c55c293f1b3385b4f925bd047e814986, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -84348,10 +84352,6 @@ PrefabInstance:
     - target: {fileID: 4317708680808150946, guid: b2234cc8284e46c43b52a7af152f19e4, type: 3}
       propertyPath: m_Name
       value: Dialog_Chicken
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478944947655181767, guid: b2234cc8284e46c43b52a7af152f19e4, type: 3}
-      propertyPath: coolDown
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7478944947655181767, guid: b2234cc8284e46c43b52a7af152f19e4, type: 3}
       propertyPath: wrongAnswer.m_PersistentCalls.m_Calls.Array.size
