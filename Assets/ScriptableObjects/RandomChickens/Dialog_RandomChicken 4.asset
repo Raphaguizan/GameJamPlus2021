@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 190b8f1e0673ed841900915f125eb6f0, type: 3}
-  m_Name: Dialog0
+  m_Name: Dialog_RandomChicken 4
   m_EditorClassIdentifier: 
-  id: 0
+  id: 10
   initial: 0
-  question: Did you think you found a bug?
+  question: "p\xF3 p\xF3?"
   answer:
   - Yes!!!
-  - I would never do that!!!
-  - Who? Me?
-  - But isn't this a bug?
+  - No!!!
+  - Maybe.
+  - Follow me.
   replica:
-  - Well, you didn't find it!!!
-  - Fortunately.
-  - No my Mom.
-  - What do you think? Am I here for nothing?
-  correctAnswerIndexList: 
+  - So, go back to your life
+  - dead
+  - And... Do you want to know the truth?
+  - Yes i have nothing better to do too.
+  correctAnswerIndexList: 03000000
