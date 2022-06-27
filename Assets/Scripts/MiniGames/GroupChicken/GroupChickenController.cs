@@ -51,13 +51,13 @@ public class GroupChickenController : MonoBehaviour
         }
         else if(ChickenCount >= CountMax)
         {
-            text.text = ChickenCount.ToString("0");
+            text.text = ChickenCount.ToString("0") + "/" + CountMax;
             onWin.Invoke();
         }
         else
         {
             interfaceCount.SetBool("Show", true);
-            text.text = ChickenCount.ToString("0");
+            text.text = ChickenCount.ToString("0") + "/" + CountMax;
         }
     }
 
