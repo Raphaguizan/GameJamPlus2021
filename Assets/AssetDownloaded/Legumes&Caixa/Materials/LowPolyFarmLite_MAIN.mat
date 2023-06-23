@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LowPolyFarmLite_MAIN
-  m_Shader: {fileID: -6465566751694194690, guid: 9085311943afc524ca63b823e8fcdf73, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d41d52f095190274f91012c3101bbdf3, type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -39,6 +39,10 @@ Material:
     m_TexEnvs:
     - Texture2D_0877c1a44ff84587abb37ca1c91a73e1:
         m_Texture: {fileID: 2800000, guid: 60730548592635346bf8de0a0504fa7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_300EB541:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -113,6 +117,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7bc9a4bafdf20d7409ec5c6155c56f4e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 7bc9a4bafdf20d7409ec5c6155c56f4e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MaskMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -142,6 +150,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -179,6 +191,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_4c4ad7fb8c994343844a29abc75d35ad: 5
+    - Vector1_8606F96E: 0
     - Vector1_d74822ac011d4ff2a1c3f3bd6224b04c: 1.3
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -265,6 +278,9 @@ Material:
     - _NormalScale: 1
     - _OcclusionStrength: 1
     - _Offset: 0
+    - _OutlineDepthSensitivity: 0.05
+    - _OutlineNormalsSensitivity: 0.7
+    - _OutlineThickness: 3
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -280,7 +296,7 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0.25
+    - _Smoothness: 0.4
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
@@ -324,6 +340,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_aef13871faa94c61a49344c9f63a29ff: {r: 1, g: 1, b: 1, a: 1}
+    - Vector2_127cd7cd886c4d69b840d17a998cf6f5: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_b102f9f0ad8143188c53e50aebc8d092: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.99906135, g: 0.9992768, b: 0.999246, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -331,9 +349,12 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
