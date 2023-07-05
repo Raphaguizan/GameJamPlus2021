@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1835271459803939219}
   - component: {fileID: 1571998151032120608}
   - component: {fileID: 4780946916388163392}
+  - component: {fileID: 6211814588353561373}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: interactable
@@ -322,8 +323,12 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 95643c46aae3f2042afb64f3649ef8c5, type: 2}
   outline: {fileID: 1835271459803939219}
   timeToDestroy: 0
+  art: {fileID: 0}
   particles: {fileID: 0}
   sound: {fileID: 0}
+  OnCollect:
+    m_PersistentCalls:
+      m_Calls: []
   itemPrefab: {fileID: 6455113385414053492, guid: 7b94de7ed5860e14a9afa21789edd874, type: 3}
   triggerSphere: {fileID: 4780946916388163392}
 --- !u!135 &4780946916388163392
@@ -339,3 +344,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6019377
   m_Center: {x: 0, y: 0.99807703, z: 0}
+--- !u!114 &6211814588353561373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140348480501833784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85eb0688a8afd54a912973273c251b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+  _pingPrefab: {fileID: 1494042716026587737, guid: 57d06c2b99dd4e14bbf661cc62cd2df4, type: 3}
+  _unlockedsprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  _pingSize: 3

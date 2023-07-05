@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2031063672037433322}
   - component: {fileID: 2031063672037433321}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: CM Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031063672037433301}
-  m_LocalRotation: {x: 0.2739661, y: 0.01022498, z: -0.0029129188, w: 0.96168065}
-  m_LocalPosition: {x: 44.42628, y: 27.666313, z: -15.557575}
+  m_LocalRotation: {x: 0.27396607, y: 0.010223934, z: -0.0029126203, w: 0.96168065}
+  m_LocalPosition: {x: 28.18928, y: 27.884312, z: -13.610577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2031063673560097511}
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2031063673560097509}
   - component: {fileID: 2031063673560097508}
   - component: {fileID: 2031063673560097531}
+  - component: {fileID: 925003567}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -196,6 +197,19 @@ MonoBehaviour:
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &925003567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031063673560097510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1163fa822e8b418a0a603ec078d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damping: 0
 --- !u!1 &2666915012084913380
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,8 +237,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2666915012084913380}
-  m_LocalRotation: {x: 0.27396607, y: 0.01022498, z: -0.0029129188, w: 0.96168065}
-  m_LocalPosition: {x: 42.66503, y: 30.92777, z: -35.736607}
+  m_LocalRotation: {x: 0.1984037, y: -0.55520254, z: 0.13842754, w: 0.7957538}
+  m_LocalPosition: {x: 31.481873, y: 24.22631, z: -6.514019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8905811868994122617}
@@ -255,13 +269,13 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 31.759249
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2047
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -308,7 +322,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 042b81a9687eb3446af88f2dd25a7ba8, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
