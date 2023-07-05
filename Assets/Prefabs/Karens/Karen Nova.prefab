@@ -1808,6 +1808,7 @@ GameObject:
   - component: {fileID: 3336529607799518818}
   - component: {fileID: 3703391881631231164}
   - component: {fileID: 4854859603433264825}
+  - component: {fileID: 3864813960300127734}
   - component: {fileID: 8727060856496739160}
   - component: {fileID: 919132149597778891}
   - component: {fileID: 919132149597778892}
@@ -2023,6 +2024,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3864813960300127734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471712396635598907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8662371a5de54fa4bab7bd36f3d42f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenAsset: {fileID: 11400000, guid: bdfcdbe6f9c32f1428ee0325b223a49d, type: 2}
 --- !u!114 &8727060856496739160
 MonoBehaviour:
   m_ObjectHideFlags: 0
