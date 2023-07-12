@@ -189,4 +189,5 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.UnloadSceneAsync(sceneName);
     }
+
 }
