@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
@@ -9,6 +10,8 @@ public class TubeManager : MonoBehaviour
     [SerializeField] Transform tubeHolder;
     List<Transform> tubes = new List<Transform>();
     int tubeIndex;
+    [SerializeField] List<Color> steamColors = new List<Color>();
+    Color lastColor;
 
     private void Awake()
     {
@@ -17,7 +20,7 @@ public class TubeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetUp();
+      //  SetUp();
     }
 
     // Update is called once per frame
@@ -59,5 +62,13 @@ public class TubeManager : MonoBehaviour
         Transform t = tubes[index];
 
         return t;
+    }
+
+    public Color GetRandomColor()
+    {
+        if (steamColors.Count == 1) return steamColors.First();
+        List<Color> filterSources = steamColors.Except(new[] { lastColor }).ToList();
+        lastColor = filterSources.ElementAt(Random.Range(0, filterSources.Count));
+        return lastColor;
     }
 }

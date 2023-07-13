@@ -14,6 +14,7 @@ public class FlyChicken : MonoBehaviour
     int pos;
     Transform currentPos;
     Transform nextPos;
+    int life;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class FlyChicken : MonoBehaviour
         pos = 5;
         currentPos =  screen.GetChild(pos);
         this.transform.position = currentPos.position;
+        life = 10;
 
 
     }
@@ -111,4 +113,15 @@ public class FlyChicken : MonoBehaviour
 
         currentPos = nextPos;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        if (other.gameObject.tag == "tubeSmoke")
+        {
+            life--;
+            Debug.Log("LIFE REMAINING: " + life);
+        }
+    }
 }
+
