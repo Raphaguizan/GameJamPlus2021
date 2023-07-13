@@ -1900,10 +1900,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitTutorial: {fileID: 0}
   chickenHit: {fileID: 1238202283899069163}
+  onActiveKungFu:
+    m_PersistentCalls:
+      m_Calls: []
   bootsTutorial: {fileID: 0}
   bootsJumpForce: 6
   bootsEnabled: 0
+  onActiveBoots:
+    m_PersistentCalls:
+      m_Calls: []
   parachute: {fileID: 2617776831286492851}
+  onActiveParachute:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7606439591776704570
 MonoBehaviour:
   m_ObjectHideFlags: 0
