@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Chicken;
+using NaughtyAttributes;
 using UnityEngine.UI;
 
 namespace Game.MiniMap
@@ -27,7 +28,7 @@ namespace Game.MiniMap
         [SerializeField, Range(1f, 50f)]
         private float _minimapZoom = 5f;
 
-        [SerializeField]
+        [SerializeField, ReadOnly]
         private float miniMapRatio;
         private void OnValidate()
         {
@@ -62,7 +63,6 @@ namespace Game.MiniMap
             _playerPing.rotation = Quaternion.Euler(0f, 0f, -_chickenAsset.ChickenObj.transform.eulerAngles.y);
         }
 
-        [NaughtyAttributes.Button]
         private void CalculeMiniMapRatio()
         {
             //distance world
@@ -124,7 +124,7 @@ namespace Game.MiniMap
         #region Teste
         [Header("Teste")]
         public MiniMapObjective TesteObjective;
-        [NaughtyAttributes.Button]
+        [Button]
         public void TestePoint()
         {
             NewObjectivePing(TesteObjective);
