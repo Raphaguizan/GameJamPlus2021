@@ -32,7 +32,7 @@ namespace Game.MiniMap
         private float miniMapRatio;
         private void OnValidate()
         {
-            SetMiniMapZoom(_minimapZoom);
+            _minimapCamera.orthographicSize = _minimapZoom;
         }
         public void SetMiniMapZoom(float val)
         {
@@ -40,7 +40,7 @@ namespace Game.MiniMap
             CalculeMiniMapRatio();
         }
 
-        private void Awake()
+        private void Start()
         {
             CalculeMiniMapRatio();
         }

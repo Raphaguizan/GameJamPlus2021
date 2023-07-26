@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Game.Chicken
 {
+    [RequireComponent(typeof(Chicken))]
     public class InitializeChickenAsset : MonoBehaviour
     {
         [SerializeField]
@@ -11,7 +12,7 @@ namespace Game.Chicken
 
         private void Awake()
         {
-            chickenAsset.SetAsset(gameObject);
+            chickenAsset.SetAsset(GetComponent<Chicken>());
         }
     }
 }

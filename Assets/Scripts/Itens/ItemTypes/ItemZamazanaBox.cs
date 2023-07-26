@@ -10,7 +10,7 @@ namespace Game.Item
     {
         public void Use()
         {
-            ChickenPowerUps.ActiveParachute();
+            ChickenPowerUps.ActivePowerUp(PowerUpType.PARACHUTE);
         }
     }
 }

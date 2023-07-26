@@ -21,9 +21,6 @@ namespace Game.Chicken
         [Space, SerializeField] RandomSound chickenSound;
         [SerializeField] RandomSound stepSound;
 
-        [Header("PowerUps")]
-        public ChickenPowerUps powerUps;
-
         Animator anim;
         [Space]
         public Light lantern;
@@ -230,12 +227,13 @@ namespace Game.Chicken
 
         public void OnHit()
         {
-            if (!powerUps.HitEnabled || !canMove) return;
+            ChickenPowerUps.IsPowerUpActive(PowerUpType.KUNGFU);
+            if (!ChickenPowerUps.IsPowerUpActive(PowerUpType.KUNGFU) || !canMove) return;
 
             anim.SetTrigger("MakeHit");
             if (chickenSound) chickenSound.PlayRandom();
 
-            powerUps.chickenHit.Hit();
+            ChickenPowerUps.PowerUpInteract(PowerUpType.KUNGFU);
         }
 
 

@@ -9,11 +9,13 @@ namespace Game.Chicken
     {
         private GameObject _currentChickenObj;
 
+        public Chicken ChickenScript;
         public GameObject ChickenObj => _currentChickenObj;
 
-        public void SetAsset(GameObject chicken)
+        public void SetAsset(Chicken chicken)
         {
-            _currentChickenObj = chicken;
+            ChickenScript = chicken;
+            _currentChickenObj = chicken.gameObject;
         }
     }
 }

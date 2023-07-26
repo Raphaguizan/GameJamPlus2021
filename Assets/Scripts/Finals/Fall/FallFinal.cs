@@ -13,7 +13,7 @@ public class FallFinal : MonoBehaviour
         Chicken chicken = other.GetComponent<Chicken>();
         if (chicken)
         {
-            if (chicken.powerUps.parachuteEnabled)
+            if (ChickenPowerUps.IsPowerUpActive(PowerUpType.PARACHUTE))
             {
                 beach.Invoke();
             }
